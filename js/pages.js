@@ -43,6 +43,26 @@ function reportHTML(p){
 const checkLi = t => `<li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--ok)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span>${esc(t)}</span></li>`;
 const plusLi = t => `<li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--warn)" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg><span>${esc(t)}</span></li>`;
 
+
+/* Visual layanan: ilustrasi konseptual, bukan dokumentasi pelanggan. */
+const SERVICE_VISUALS = {
+  workforce: ['Koordinasi tim', 'Koordinator berdiskusi dengan tim operasional'],
+  security: ['Patroli & pengamanan', 'Petugas keamanan melakukan patroli di lobby gedung'],
+  cleaning: ['Kebersihan area', 'Tim cleaning merawat kebersihan area gedung'],
+  'pest-control': ['Inspeksi & pengendalian', 'Teknisi pest control memeriksa perangkat monitoring'],
+  'gondola-climbing': ['Perawatan fasad', 'Teknisi gondola membersihkan fasad gedung'],
+  garden: ['Perawatan lanskap', 'Tim garden merawat tanaman di halaman gedung'],
+  project: ['Pelaksanaan proyek', 'Engineer meninjau pekerjaan renovasi di lapangan'],
+  stp: ['Pemeliharaan instalasi', 'Teknisi STP memeriksa pompa dan instalasi pengolahan air limbah']
+};
+function serviceImage(p, eager=false){
+  // Panel cadangan tampil bila file ilustrasi belum tersedia (mis. pest-control.webp).
+  return `<span class="img-fallback" aria-hidden="true" style="--fb:${p.accent}">${I[p.icon]}<small>${esc(SERVICE_VISUALS[p.slug][0])}</small></span><img onerror="this.parentNode.classList.add('img-missing');this.remove()" class="service-image" src="assets/${p.slug}.webp" width="1536" height="1024" alt="Ilustrasi ${esc(SERVICE_VISUALS[p.slug][1])}" loading="${eager?'eager':'lazy'}" decoding="async" ${eager?'fetchpriority="high"':''}>`;
+}
+function heroScene(){
+  return `<div class="scene-wrap"><img class="hero-scene" src="assets/hero.webp" width="1536" height="1024" alt="Ilustrasi tim operasional mengelola gedung dan area taman" fetchpriority="high" decoding="async"><span class="scene-caption">Ilustrasi ekosistem SmartOps</span><div class="scene-note"><span class="scene-note-icon">${I.clip}</span><div><b>Dari lapangan ke laporan.</b><span>Rencana · Pelaksanaan · Pemeriksaan</span></div></div><div class="scene-chip">${I.grid}<span>8 aplikasi khusus</span></div></div>`;
+}
+
 /* ===================== SHARED CHROME ===================== */
 function navHTML(){
   const items = PRODUCTS.map(p=>`<a class="menu-item" href="#aplikasi/${p.slug}" role="menuitem"><span class="ic" style="background:${p.accent}">${I[p.icon]}</span><span style="min-width:0"><b>${esc(p.name)}${p.sub?` <span class="small muted" style="display:inline">· ${esc(p.sub)}</span>`:''}</b><span>${esc(p.card)}</span></span></a>`).join('');
@@ -98,27 +118,24 @@ function footerHTML(){
 
 /* ===================== PAGES ===================== */
 function pageHome(){
-  const previews = ['security','project','stp'].map(slug=>{
-    const p=BY[slug];
-    return `<div class="preview-card"><div class="ph">${ic(p.icon,p.accent)}<span style="min-width:0"><b>${esc(p.name)}</b><span>${esc(p.tags.slice(0,2).join(' · '))}</span></span></div><div style="padding:10px">${mockHTML(p,p.mock,true)}</div><div class="caption">Ilustrasi antarmuka • Data contoh</div></div>`;
-  }).join('');
   const cards = PRODUCTS.map(p=>productCard(p)).join('');
   const famRow = PRODUCTS.map(p=>`<a href="#aplikasi/${p.slug}"><span class="sw" aria-hidden="true"><i style="background:${p.accent}"></i><i style="background:var(--surface)"></i></span>${esc(p.name)}</a>`).join('');
   return `
-  <section class="hero"><div class="container hero-grid">
-    <div>
-      <p class="eyebrow">Satu ekosistem, berbagai bidang layanan</p>
-      <h1 style="margin-top:10px">Aplikasi khusus untuk setiap bidang layanan.</h1>
-      <p class="lead" style="margin-top:16px">Pilih aplikasi SmartOps sesuai kebutuhan usaha Anda. Gunakan secara mandiri, hubungkan saat dibutuhkan.</p>
+  <section class="hero visual-home"><div class="container hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="eyebrow-dot"></span>Untuk tim yang bekerja di lapangan</p>
+      <h1>Operasional lebih rapi.<br><span>Tim lebih terhubung.</span></h1>
+      <p class="lead">Aplikasi khusus untuk setiap bidang layanan. Kelola tim, pekerjaan, dan laporan dalam alur yang sesuai dengan usaha Anda.</p>
       <div class="hero-cta"><a class="btn btn-primary btn-lg" href="#aplikasi">Jelajahi Aplikasi ${I.arrow}</a><a class="btn btn-secondary btn-lg" href="#demo">Diskusikan Kebutuhan</a></div>
-      <p class="muted small" style="margin-top:18px">Dari pengelolaan tenaga kerja hingga pekerjaan lapangan — temukan aplikasi dengan alur, tampilan dan laporan yang sesuai bidang Anda.</p>
+      <div class="hero-points"><span>${I.check} Sesuai bidang layanan</span><span>${I.check} Mulai dari satu aplikasi</span></div>
     </div>
-    <div class="hero-visual"><div class="trio">${previews}</div></div>
+    ${heroScene()}
   </div></section>
+  <div class="service-ribbon"><div class="container"><span class="ribbon-label">Keluarga SmartOps</span><div class="ribbon-links">${PRODUCTS.map(p=>`<a href="#aplikasi/${p.slug}"><span style="color:${p.accent}">${I[p.icon]}</span>${esc(p.name)}</a>`).join('')}</div></div></div>
 
   <section class="section"><div class="container">
-    <div class="section-head"><div><h2>Temukan aplikasi untuk bidang Anda</h2><p class="muted" style="margin-top:8px">Delapan aplikasi untuk mendukung pengelolaan layanan secara lebih terstruktur dan terukur.</p></div></div>
-    <div class="grid cols-3">${cards}</div>
+    <div class="section-head"><div><p class="eyebrow" style="margin-bottom:10px">Setiap layanan, pendekatan berbeda</p><h2>Temukan aplikasi untuk bidang Anda</h2><p class="muted" style="margin-top:8px">Delapan aplikasi untuk mendukung pengelolaan layanan secara lebih terstruktur dan terukur.</p></div></div>
+    <div class="grid cols-3 service-grid">${cards}</div>
   </div></section>
 
   <section class="section alt"><div class="container">
@@ -177,14 +194,13 @@ function pageHome(){
 }
 
 function productCard(p){
-  return `<a class="pcard" href="#aplikasi/${p.slug}" aria-label="Jelajahi ${esc(p.full)}: ${esc(p.card)}">
-    <div class="thumb">${mockHTML(p,p.mock,true)}<div class="caption">Ilustrasi antarmuka • Data contoh</div></div>
+  return `<a class="pcard visual-card" href="#aplikasi/${p.slug}" aria-label="Jelajahi ${esc(p.full)}: ${esc(p.card)}" style="--service-accent:${p.accent}">
+    <div class="thumb service-thumb">${serviceImage(p)}<span class="image-label">${esc(SERVICE_VISUALS[p.slug][0])}</span><span class="card-arrow" aria-hidden="true">${I.arrow}</span></div>
     <div class="body">
-      <div class="title">${ic(p.icon,p.accent)}<span><b>${esc(p.name)}</b>${p.sub?`<span class="small muted" style="display:block">${esc(p.sub)}</span>`:''}</span></div>
+      <div class="title">${ic(p.icon,p.accent)}<span><span class="brand-overline">SmartOps</span><b>${esc(p.name)}</b>${p.sub?`<span class="small muted" style="display:block">${esc(p.sub)}</span>`:''}</span></div>
       <p class="muted small">${esc(p.card)}</p>
-      <p class="small" style="color:var(--muted)">${esc(p.cardAud)}</p>
-      <div class="tags">${p.tags.map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div>
-      <div class="foot"><span class="go">Jelajahi ${esc(p.name)} ${I.arrow}</span><span class="status">Konsep</span></div>
+      <div class="tags">${p.tags.slice(0,3).map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div>
+      <div class="foot"><span class="go">Lihat aplikasi ${I.arrow}</span><span class="status">Konsep</span></div>
     </div></a>`;
 }
 
@@ -193,16 +209,21 @@ function pageCatalog(filter){
   filter = filter||'semua';
   const list = PRODUCTS.filter(p=>filter==='semua'||p.group===filter||(filter==='personel'&&p.slug==='workforce'));
   return `
-  <section class="section" style="padding-top:clamp(32px,5vw,56px)"><div class="container">
-    <div style="text-align:center;max-width:720px;margin-inline:auto">
-      <p class="eyebrow">Katalog aplikasi</p>
-      <h1 style="font-size:clamp(30px,4vw,44px);margin-top:10px">Temukan aplikasi yang sesuai dengan pekerjaan Anda</h1>
-      <p class="lead" style="margin:14px auto 0">Delapan aplikasi khusus. Pilih satu, hubungkan sesuai kebutuhan.</p>
+  <section class="catalog-hero"><div class="container hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="eyebrow-dot"></span>Keluarga aplikasi SmartOps</p>
+      <h1>Pekerjaan berbeda.<br><span>Aplikasi yang tepat.</span></h1>
+      <p class="lead">Dari pengelolaan tim hingga pemeliharaan instalasi. Temukan aplikasi dengan alur kerja yang memahami bidang Anda.</p>
+      <div class="catalog-facts"><div><b>08</b><span>Bidang layanan</span></div><div><b>Mandiri</b><span>Mulai sesuai kebutuhan</span></div><div><b>Terhubung</b><span>Integrasi opsional</span></div></div>
     </div>
-    <div class="chip-filter" style="justify-content:center;margin-top:28px" role="group" aria-label="Filter katalog">
+    ${heroScene()}
+  </div></section>
+  <section class="section catalog-section"><div class="container">
+    <div class="section-head"><div><p class="eyebrow" style="margin-bottom:10px">Pilih bidang Anda</p><h2>Ada SmartOps untuk setiap layanan.</h2><p class="muted" style="margin-top:10px">Jelajahi pekerjaan, fitur, dan contoh tampilan setiap aplikasi.</p></div></div>
+    <div class="chip-filter" style="justify-content:flex-start;margin-top:0" role="group" aria-label="Filter katalog">
       ${Object.entries(groups).map(([k,v])=>`<button data-filter="${k}" aria-pressed="${k===filter}">${v}</button>`).join('')}
     </div>
-    <div class="grid cols-3" id="catalogGrid">${list.map(productCard).join('')}</div>
+    <div class="grid cols-3 service-grid" id="catalogGrid">${list.map(productCard).join('')}</div>
     <div class="cta-band" style="margin-top:48px"><div><p class="eyebrow" style="color:var(--tan)">Konsultasi</p><h2 style="margin-top:6px">Belum yakin memilih aplikasi?</h2><p style="margin-top:8px">Diskusikan kebutuhan Anda, kami siap membantu menentukan aplikasi yang paling sesuai.</p></div><a class="btn btn-primary btn-lg" href="#demo">Diskusikan Kebutuhan ${I.arrow}</a></div>
   </div></section>`;
 }
@@ -233,7 +254,7 @@ function pageProduct(p){
     <a href="#aplikasi/${p.slug}/faq" data-anchor="faq">FAQ</a>
     <a class="btn btn-primary btn-sm cta" href="#demo/${p.slug}">Diskusikan Kebutuhan</a>
   </div></nav>
-  <section class="product-hero"><div class="container">
+  <section class="product-hero visual-product" style="--service-accent:${p.accent}"><div class="container">
     <div class="breadcrumb"><a href="#beranda">Beranda</a> › <a href="#aplikasi">Aplikasi</a> › <span aria-current="page">${esc(p.name)}</span></div>
     <div class="hero-grid" style="align-items:center">
       <div>
@@ -243,7 +264,7 @@ function pageProduct(p){
         <p class="small muted" style="margin-top:12px"><b>Untuk siapa:</b> ${esc(p.audience)}.</p>
         <div class="hero-cta"><a class="btn btn-primary btn-lg" href="#demo/${p.slug}">Diskusikan Kebutuhan ${I.arrow}</a><span class="badge plan">Status: dalam pengembangan</span></div>
       </div>
-      <div class="shot"><div class="figure">${mockHTML(p,p.mock,false)}${CAPTION}</div><div>${phoneHTML(p,p.phone)}<div class="caption" style="text-align:center">Data contoh</div></div></div>
+      <div class="product-scene"><div class="product-photo">${serviceImage(p,true)}<span class="scene-caption">Ilustrasi layanan ${esc(p.name)}</span></div><div class="product-scene-note"><span class="ic" style="background:${p.accent}">${I[p.icon]}</span><div><small>Fokus layanan</small><b>${esc(SERVICE_VISUALS[p.slug][0])}</b><span>${esc(p.tags.slice(0,2).join(' · '))}</span></div></div><a class="product-scene-link" href="#aplikasi/${p.slug}/tampilan">Lihat contoh tampilan aplikasi ${I.arrow}</a></div>
     </div>
   </div></section>
 
