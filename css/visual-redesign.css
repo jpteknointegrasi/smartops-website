@@ -164,3 +164,8 @@ body { background:#fffdf9; }
 .img-fallback small { font-size:13px; font-weight:600; letter-spacing:.02em; opacity:.9; }
 @media(max-width:600px){ .product-photo.img-missing .img-fallback { height:300px; } }
 .service-thumb .img-fallback small { display:none; }
+
+/* Logo resmi SmartOps */
+.logo-img { display:block; height:42px; width:auto; }
+.logo-img-sm { height:30px; }
+@media(max-width:600px){ .header .logo-img { height:32px; } }

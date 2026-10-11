@@ -101,7 +101,7 @@ function footerHTML(){
   document.getElementById('footer').innerHTML = `<div class="container">
     <div class="top">
       <div>
-        <a class="logo" href="#beranda" style="font-size:19px"><svg viewBox="0 0 32 32" style="width:26px;height:26px" aria-hidden="true"><rect x="2" y="2" width="28" height="28" rx="8" fill="#4A2C17"/><path d="M9 20.5c0 2 2.2 3.5 5.2 3.5 3.2 0 5.3-1.5 5.3-3.8 0-5-9.6-2.6-9.6-7.4C9.9 10.6 11.8 9 14.4 9c2.5 0 4.4 1.3 4.6 3.3" fill="none" stroke="#C99B65" stroke-width="2.4" stroke-linecap="round"/><circle cx="23" cy="9" r="2.2" fill="#C99B65"/></svg><span>SmartOps</span></a>
+        <a class="logo" href="#beranda" aria-label="SmartOps, ke beranda"><img class="logo-img logo-img-sm" src="assets/brand/smartops-logo.png" width="373" height="96" alt="SmartOps"></a>
         <p class="muted small" style="margin-top:10px;max-width:34ch">Keluarga aplikasi pengelolaan layanan operasional.</p>
         <p class="muted small" style="margin-top:8px">Identitas pengelola, alamat dan kontak resmi akan dilengkapi sebelum publikasi.</p>
       </div>
