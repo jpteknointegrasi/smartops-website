@@ -49,7 +49,7 @@ const SERVICE_VISUALS = {
   workforce: ['Koordinasi tim', 'Koordinator berdiskusi dengan tim operasional'],
   security: ['Patroli & pengamanan', 'Petugas keamanan melakukan patroli di lobby gedung'],
   cleaning: ['Kebersihan area', 'Tim cleaning merawat kebersihan area gedung'],
-  'pest-control': ['Inspeksi & pengendalian', 'Teknisi pest control memeriksa perangkat monitoring'],
+  'pest-control': ['Inspeksi & pengendalian', 'Teknisi pest control memeriksa sudut ruangan dengan senter'],
   'gondola-climbing': ['Perawatan fasad', 'Teknisi gondola membersihkan fasad gedung'],
   garden: ['Perawatan lanskap', 'Tim garden merawat tanaman di halaman gedung'],
   project: ['Pelaksanaan proyek', 'Engineer meninjau pekerjaan renovasi di lapangan'],
