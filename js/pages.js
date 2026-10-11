@@ -124,8 +124,8 @@ function pageHome(){
   <section class="hero visual-home"><div class="container hero-grid">
     <div class="hero-copy">
       <p class="eyebrow"><span class="eyebrow-dot"></span>Untuk tim yang bekerja di lapangan</p>
-      <h1>Operasional lebih rapi.<br><span>Tim lebih terhubung.</span></h1>
-      <p class="lead">Aplikasi khusus untuk setiap bidang layanan. Kelola tim, pekerjaan, dan laporan dalam alur yang sesuai dengan usaha Anda.</p>
+      <h1>Pekerjaan dan pengawasan<br><span>jadi lebih mudah!</span></h1>
+      <p class="lead">Kelola tim operasional, penugasan, kehadiran, laporan, dan evaluasi kinerja dalam satu alur kerja. Bantu operasional berjalan lebih tertib, efisien, dan mudah dipantau.</p>
       <div class="hero-cta"><a class="btn btn-primary btn-lg" href="#aplikasi">Jelajahi Aplikasi ${I.arrow}</a><a class="btn btn-secondary btn-lg" href="#demo">Diskusikan Kebutuhan</a></div>
       <div class="hero-points"><span>${I.check} Sesuai bidang layanan</span><span>${I.check} Mulai dari satu aplikasi</span></div>
     </div>
