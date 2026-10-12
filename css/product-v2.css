@@ -324,3 +324,17 @@
 .v2-report3 .v2-table td.txt{min-width:0}
 .v2-report3 .v2-pill{font-size:11px;padding:2px 8px;white-space:nowrap}
 @media(max-width:1100px){.v2-report3{grid-template-columns:1fr}}
+
+/* field service: 4 manfaat, KPI panel, peta, tahap, tidak termasuk */
+.v2-benefits:has(>div:nth-child(4)){grid-template-columns:repeat(4,1fr)}
+.v2-k3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
+.v2-k3>div{background:var(--vsoft);border-radius:10px;padding:10px 12px;display:grid}
+.v2-k3 b{font-size:22px;color:var(--v);font-family:"Source Serif 4",Georgia,serif}
+.v2-k3 span{font-size:11.5px;color:var(--mut)}
+.v2-map{width:100%;height:auto;display:block;border-radius:10px}
+.v2-map-leg{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--mut)}
+.v2-map-leg i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px}
+.v2-pfoot{font-size:12px;margin-top:8px}
+.v2-problems.excl{margin-top:18px}
+.v2-problems.excl li svg{color:#8A8A8A}
+@media(max-width:960px){.v2-benefits:has(>div:nth-child(4)){grid-template-columns:1fr}}

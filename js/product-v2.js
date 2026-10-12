@@ -35,6 +35,7 @@ const VICON = {
   x: VI('<path d="M7 7l10 10M17 7L7 17"/>', 2.2),
   layers: VI('<path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/>'),
   flask: VI('<path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.8 3h10.4a2 2 0 0 0 1.8-3l-5-9V3"/><path d="M7.5 15h9"/>'),
+  camera: VI('<path d="M4 8h3l2-2.5h6L17 8h3v11H4z"/><circle cx="12" cy="13" r="3.5"/>'),
   tool: VI('<path d="M14.5 6.5a4 4 0 0 0 5 5L12 19a2.1 2.1 0 0 1-3-3z"/><path d="M14.5 6.5L17 4l3 3-2.5 2.5"/>')
 };
 
@@ -856,6 +857,144 @@ const V2 = {
       ]
     },
     cta: { title:'Siap menata pemeliharaan STP?', text:'Diskusikan kebutuhan instalasi, lingkup kontrak, dan alur kerja Anda bersama tim kami.' }
+  },
+  'field-service': {
+    theme: { c:'#3F3B8E', c2:'#4E49A6', soft:'#ECEBF6', b:'#96652F', b2:'#7F5424' },
+    subnavFull: true,
+    hero: {
+      eyebrow:'SmartOps Field Service',
+      line1:'Banyak tiket kecil,', line2:'satu kendali.',
+      lead:'Aplikasi work order untuk vendor jasa kunjungan per unit — pasang internet (IKR), servis AC, CCTV, cleaning. Checklist per langkah, foto bergeotag, dan tanda terima di layar.',
+      for:'Pemilik vendor jasa kunjungan, admin/dispatcher, pengawas, teknisi, dan klien korporat.',
+      status:'Prototipe demo — P0', btn:'Jadwalkan demo',
+      img:'assets/fs-hero.webp', pos:'right center', mpos:'66% center', shift:'26%',
+      alt:'Teknisi memasang perangkat internet di unit dan mendokumentasikan langkah pekerjaan.'
+    },
+    benefit: {
+      eyebrow:'Manfaat', title:['Order jelas.','Bukti kerja tersimpan.'],
+      side:'Setiap kunjungan tercatat: checklist, foto bergeotag, tanda terima — dari order masuk sampai diterima klien.',
+      items:[
+        ['monitor','Kendali harian','Antrean, penugasan, dan hasil lapangan terbaca tanpa menunggu laporan WA.'],
+        ['camera','Bukti bisa ditinjau','Foto, hasil ukur, dan tanda terima tersimpan per tiket.'],
+        ['bars','Angka terpisah','Selesai lapangan berbeda dari hasil review dan penerimaan klien.'],
+        ['users','Ritel & korporat','Order satuan dan borongan provider dalam antrean yang sama.']
+      ],
+      problems:['Hari ini selesai berapa tiket, yang gagal kenapa?','Besok siapa ke mana?','Buktinya mana?','Order borongan provider sampai mana?']
+    },
+    features: {
+      eyebrow:'Fitur utama', title:['Satu alur untuk','setiap kunjungan.'],
+      side:'Rancangan prototipe P0 untuk pilot IKR; jenis pekerjaan lain menyesuaikan lewat data master.',
+      items:[
+        ['clip','Tiket per kunjungan','Pelanggan/unit, jadwal, teknisi, status, dan riwayat. Satu tiket bisa lebih dari satu kunjungan.'],
+        ['layers','Jenis pekerjaan = data master','Checklist, langkah wajib foto/ukur, ambang hasil ukur, definisi selesai. Template IKR: redaman dBm, speedtest Mbps.'],
+        ['mobile','Aplikasi teknisi di HP','Hari Ini, check-in, checklist, kamera geotag, tanda tangan, draft offline, navigasi ke titik pelanggan.'],
+        ['pin','Foto bergeotag','Koordinat dicatat saat jepret. Jarak di luar ambang menjadi bendera review; tanpa sinyal dicatat beserta alasan.'],
+        ['refresh','Review & rework','Pengawas menerima atau menolak; tiket ditolak kembali sebagai rework tanpa menambah angka selesai.'],
+        ['users','Ritel & korporat','Order satuan dan borongan provider; titik pelanggan cukup dari link share lokasi WhatsApp/Google Maps.'],
+        ['alert','Gagal kunjungan tercatat','Pelanggan tidak ada, ODP penuh, lokasi tak dapat diakses: alasan + foto, lalu dijadwalkan ulang.']
+      ],
+      photos:[
+        ['assets/fs-testing.webp','Tim teknisi melakukan pengujian instalasi fiber dan mencatat hasil ukur.','Hasil ukur per langkah','Redaman dan speedtest dicatat dan dibandingkan dengan ambang jenis pekerjaan.'],
+        ['assets/fs-handover.webp','Pelanggan memberikan tanda terima pekerjaan melalui tanda tangan di layar HP.','Tanda terima di layar','Foto hasil dan tanda tangan pelanggan menutup kunjungan lapangan.']
+      ],
+      note:'Geotag menjadi bahan review, bukan keputusan.'
+    },
+    flow: {
+      eyebrow:'Alur kerja', title:['Dari order sampai','diterima klien.'],
+      side:'Satu tiket bisa dikunjungi lebih dari sekali; seluruh kunjungan tersimpan di riwayat.',
+      steps:[
+        ['doc','Order masuk','Ritel atau borongan korporat; tiket terdaftar.'],
+        ['cal','Jadwalkan','Admin menugaskan; tiket muncul di HP teknisi.'],
+        ['tool','Kerjakan','Check-in, checklist, foto bergeotag, hasil ukur.'],
+        ['checkC','Tanda terima','Foto hasil dan tanda tangan pelanggan di layar.'],
+        ['search','Review','Pengawas menerima, atau menolak menjadi rework.'],
+        ['bars','Diterima klien','Masuk rekap; penagihan menyusul sesuai paket.']
+      ],
+      note:'Rework dan kunjungan gagal tidak menambah angka selesai.'
+    },
+    roles: {
+      eyebrow:'Tampilan aplikasi', title:['Tampilan sesuai','tanggung jawab.'],
+      side:'Teknisi hanya melihat tiket miliknya, tanpa angka tarif atau uang.',
+      list:[
+        ['Pemilik',[['monitor','Tiket selesai, terverifikasi, dan diterima hari ini'],['alert','Kunjungan gagal beserta alasannya'],['bars','Rekap harian tanpa menunggu laporan WA']], {
+          title:'Ringkasan Hari Ini', location:'Selasa, 13 Okt',
+          kpis:[['checkC','42','Selesai lapangan'],['search','35','Terverifikasi'],['doc','31','Diterima klien'],['alert','6','Kunjungan gagal']],
+          cards:[
+            { type:'bars', title:'Selesai lapangan per teknisi', rows:[['Budi',9,10],['Rina',8,9],['Agus',7,10],['Dewi',6,8]] },
+            { type:'list', title:'Alasan gagal teratas', rows:[['Pelanggan tidak ada','3 tiket','—','wait'],['ODP penuh','2 tiket','—','bad'],['Lokasi tak dapat diakses','1 tiket','—','wait']] }
+          ] }],
+        ['Admin',[['clip','Antrean tiket belum terjadwal'],['users','Penugasan per teknisi'],['building','Data pelanggan & master jenis pekerjaan']], {
+          title:'Antrean & Penugasan', location:'Besok · 14 Okt',
+          kpis:[['clip','18','Belum terjadwal'],['cal','46','Terjadwal besok'],['refresh','6','Jadwal ulang'],['users','8','Teknisi aktif']],
+          cards:[{ type:'tbl', title:'Antrean belum terjadwal', cols:['Tiket','Pelanggan / unit','Jenis','Asal order','Status'],
+            rows:[['FS-1042','Tower B · 12-07','IKR pasang baru','Provider (borongan)',['wait','Belum terjadwal']],['FS-1043','Ruko Melati 3','Servis AC','Ritel',['wait','Belum terjadwal']],['FS-1038','Tower A · 08-11','IKR pasang baru','Provider (borongan)',['run','Jadwal ulang']],['FS-1044','Rumah Jl. Kenari 5','Pasang CCTV','Ritel',['wait','Belum terjadwal']]] }] }],
+        ['Pengawas',[['camera','Lihat bukti foto dan hasil ukur'],['pin','Periksa bendera jarak geotag'],['checkC','Terima, atau tolak menjadi rework']], {
+          title:'Papan Review', location:'Menunggu review: 7',
+          kpis:[['clip','7','Menunggu review'],['checkC','35','Diterima hari ini'],['refresh','2','Ditolak → rework'],['pin','3','Bendera jarak']],
+          cards:[
+            { type:'list', title:'Bukti perlu ditinjau', rows:[['FS-1031 · redaman −21,8 dBm','Dalam ambang','10.42','ok','fs-ont'],['FS-1029 · foto 412 m dari titik','Bendera jarak','10.15','wait'],['FS-1027 · speedtest 38/100 Mbps','Di bawah ambang','09.50','bad']] },
+            { type:'list', title:'Keputusan terakhir', rows:[['FS-1022','Diterima','09.30','ok'],['FS-1019','Ditolak → rework','09.05','bad']] }
+          ] }],
+        ['Teknisi',[['mobile','Hanya tiket milik saya hari ini'],['clip','Checklist per langkah, kamera, tanda terima'],['alert','Catat gagal kunjungan dengan alasan']], {
+          title:'Hari Ini', location:'Budi · 10 tiket',
+          kpis:[['clip','10','Tiket hari ini'],['checkC','6','Selesai lapangan'],['tool','1','Sedang dikerjakan'],['alert','1','Gagal']],
+          cards:[
+            { type:'list', title:'Tiket saya', rows:[['FS-1031 · Tower B 12-07','Selesai lapangan','10.42','ok'],['FS-1033 · Tower B 15-02','Sedang dikerjakan','—','run'],['FS-1035 · Tower C 03-09','Berikutnya','11.30','wait'],['FS-1030 · Tower B 09-04','Gagal · pelanggan tidak ada','09.20','bad']] },
+            { type:'list', title:'Draft offline', rows:[['FS-1033 · 4 foto menunggu sinyal','Tersimpan di HP','—','run']] }
+          ] }],
+        ['Klien korporat',[['building','Status order borongan per tiket'],['camera','Bukti foto dan tanda terima per tiket'],['history','Portal penuh menyusul (P3)']], {
+          title:'Order Borongan', location:'PO-ISP-0925 · 200 titik',
+          kpis:[['clip','200','Tiket order'],['checkC','124','Selesai lapangan'],['search','108','Terverifikasi'],['doc','96','Diterima']],
+          cards:[
+            { type:'bars', title:'Diterima per minggu', rows:[['Minggu 1',28,50],['Minggu 2',34,50],['Minggu 3',34,50]] },
+            { type:'list', title:'Tiket terbaru', rows:[['FS-1022 · Tower A 05-03','Diterima','09.30','ok'],['FS-1029 · Tower B 07-11','Menunggu review','10.15','run']] }
+          ] }]
+      ]
+    },
+    dash: {
+      nav:[['grid','Dashboard'],['clip','Tiket'],['cal','Jadwal'],['search','Review'],['users','Pelanggan'],['layers','Jenis Pekerjaan'],['bars','Laporan']],
+      phone:{ title:'Tiket FS-1033', area:'IKR pasang baru', sub:'Tower B · 15-02 · check-in 10.55', img:'assets/th-fs-ont.webp',
+        checks:[['Tarik kabel drop',1,'11.02'],['Pasang roset & ONT',1,'11.20'],['Ukur redaman (dBm)',1,'11.24'],['Speedtest (Mbps)',0],['Foto hasil + tanda tangan',0]], btn:'Simpan langkah' }
+    },
+    report: {
+      eyebrow:'Laporan', title:['Angka berbeda,','dibaca terpisah.'],
+      side:'Selesai lapangan, terverifikasi, dan diterima klien adalah tiga angka terpisah, bukan kategori yang dijumlahkan.',
+      panels:[
+        { title:'Tiket', sub:'Minggu 6–12 Okt 2026', kpis:[['214','Selesai lapangan'],['188','Terverifikasi'],['171','Diterima klien']],
+          table:{ kind:'rows', head:0, align:'r', cols:['Hari','Selesai','Terverif.','Diterima'], rows:[['Senin','38','34','31'],['Selasa','42','35','31'],['Rabu','36','33','30']] } },
+        { title:'Kunjungan & kegagalan', sub:'Minggu 6–12 Okt 2026', kpis:[['241','Kunjungan'],['27','Gagal'],['22','Dijadwal ulang']],
+          table:{ kind:'rows', head:0, align:'r', cols:['Alasan gagal','Jumlah'], rows:[['Pelanggan tidak ada','12'],['ODP penuh','8'],['Lokasi tak dapat diakses','7']] } },
+        { title:'Lokasi kunjungan', sub:'Peta berbasis OpenStreetMap · ekspor CSV koordinat (P1, menyusul)',
+          map:{ label:'Ilustrasi sebaran titik kunjungan dengan bendera jarak (data contoh)', points:[[60,50,'ok'],[90,90,'ok'],[150,40,'ok'],[175,105,'flag'],[205,60,'ok'],[260,40,'ok'],[280,130,'fail'],[45,150,'ok'],[190,160,'flag'],[135,140,'ok']],
+            legend:[['Kunjungan','#3F3B8E'],['Bendera jarak','#D9A15B'],['Gagal','#C0463B']] },
+          foot:'Ilustrasi lokasi, bukan peta geografis operasional.' }
+      ],
+      notes:['Rework dan kunjungan gagal tidak menambah angka selesai; satu tiket bisa memiliki beberapa kunjungan. Angka ditagihkan dipisahkan bila fitur tagihan (P2) digunakan.','Semua angka pada halaman ini adalah data contoh, bukan data pelanggan.']
+    },
+    scope: {
+      eyebrow:'Lingkup', title:['Bertahap, sesuai','kebutuhan vendor.'],
+      side:'Tahap P0 adalah prototipe demo. Fitur P1–P3 menyusul dan tidak dijanjikan sebagai sudah tersedia.',
+      core:[['clip','Tiket & kunjungan','Tiket per unit dengan riwayat kunjungan.'],['layers','Jenis pekerjaan','Checklist, ambang ukur, definisi selesai.'],['mobile','Aplikasi teknisi','Checklist, kamera geotag, tanda terima.'],['search','Review & rework','Keputusan pengawas tercatat per tiket.']],
+      extraLabel:'Keluarga SmartOps (tahap lanjut)',
+      extra:[['project','share','Borongan besar tetap di Project; kelak kontrak Project dapat memunculkan tiket Field Service.']],
+      optLabel:'Menyusul / sesuai paket',
+      optional:['P1 — dispatch tarik-taruh, impor order CSV, peta interaktif','P2 — tarif, invoice, rekap tagihan, PDF bulanan berkop vendor','P3 — portal klien korporat, notifikasi, komplain/garansi, SLA'],
+      excluded:['Pelacakan posisi teknisi terus-menerus','Optimasi rute','Pembayaran online','Booking publik','API provider otomatis','OTP / verifikasi KTP'],
+      note:'Koordinat dicatat hanya saat aksi tiket (foto, check-in, tanda terima). Aplikasi mencatat pekerjaan, bukan menjamin hasil kerja atau kecepatan internet.'
+    },
+    faq: {
+      title:'Pertanyaan yang sering diajukan.',
+      side:'Temukan jawaban untuk pertanyaan umum seputar SmartOps Field Service.',
+      items:[
+        ['Apa bedanya dengan SmartOps Project?','Field Service mengelola banyak tiket kecil per unit atau kunjungan; Project mengelola pekerjaan besar bertahap.'],
+        ['Apakah aplikasi melacak posisi teknisi terus-menerus?','Tidak. Koordinat hanya direkam pada aksi tiket seperti foto, check-in, dan tanda terima.'],
+        ['Bagaimana jika teknisi tidak mendapat sinyal GPS?','Dicatat sebagai tanpa lokasi dengan alasan, sebagai bahan review; bukan blokir otomatis.'],
+        ['Bisakah untuk jasa selain pasang internet?','Bisa. Jenis pekerjaan adalah data master; IKR hanya template pilot. Servis AC, CCTV, atau cleaning menyesuaikan checklist dan definisi selesai.'],
+        ['Bagaimana order borongan provider masuk?','Input manual terlebih dahulu; impor CSV merupakan pengembangan P1 yang menyusul.'],
+        ['Apakah tanda terima menggunakan OTP atau KTP?','Tidak. Tanda terima memakai foto hasil dan tanda tangan pelanggan di layar.']
+      ]
+    },
+    cta: { title:'Siap menata kunjungan tim lapangan?', text:'Mulai dengan prototipe demo dan diskusikan kebutuhan vendor Anda.', btn:'Jadwalkan demo' }
   }
 };
 
@@ -943,8 +1082,14 @@ function v2Summary(sm){
     <ul class="v2-sum">${sm.rows.map(r=>{const pct=Math.round(r[1]/tot*100);return `<li><i style="background:${r[2]}"></i><span>${esc(r[0])}</span><b>${r[1]}</b><em>${pct}%</em><span class="bar" aria-hidden="true"><span style="width:${pct}%;background:${r[2]}"></span></span></li>`;}).join('')}</ul></div>`;
 }
 
+function v2Map(m){
+  const pts=m.points.map(pt=>`<g><circle cx="${pt[0]}" cy="${pt[1]}" r="6" fill="${pt[2]==='flag'?'#D9A15B':pt[2]==='fail'?'#C0463B':'var(--v)'}" stroke="#fff" stroke-width="2"/>${pt[2]==='flag'?`<path d="M${pt[0]+7} ${pt[1]-14}v10M${pt[0]+7} ${pt[1]-14}h8l-2 3 2 3h-8" stroke="#9A5F17" stroke-width="1.6" fill="#F6E1C2"/>`:''}</g>`).join('');
+  return `<svg class="v2-map" viewBox="0 0 320 200" role="img" aria-label="${esc(m.label)}"><rect width="320" height="200" rx="10" fill="#EEF0EA"/><path d="M0 70 C80 60 120 95 200 80 S300 60 320 70" stroke="#fff" stroke-width="10" fill="none"/><path d="M110 0 C115 60 95 120 120 200" stroke="#fff" stroke-width="8" fill="none"/><path d="M230 0 L250 200" stroke="#fff" stroke-width="6" fill="none"/><rect x="18" y="110" width="70" height="60" rx="6" fill="#DDE6D5"/><rect x="150" y="120" width="70" height="55" rx="6" fill="#E3E1DA"/><rect x="260" y="95" width="45" height="80" rx="6" fill="#E3E1DA"/>${pts}</svg>
+    <ul class="v2-map-leg">${m.legend.map(l=>`<li><i style="background:${l[1]}"></i>${esc(l[0])}</li>`).join('')}</ul>`;
+}
 function v2Panels(list){
-  return `<div class="v2-report3">${list.map(pn=>`<div class="v2-panel"><div class="v2-panel-h"><b>${esc(pn.title)}</b><small>Data contoh</small></div>${pn.sub?`<p class="v2-sum-sub">${esc(pn.sub)}</p>`:''}<div class="tbl-wrap">${v2Table({...pn.table,title:pn.title})}</div></div>`).join('')}</div>`;
+  const body=pn=> pn.kpis?`<div class="v2-k3">${pn.kpis.map(k=>`<div><b>${esc(k[0])}</b><span>${esc(k[1])}</span></div>`).join('')}</div>`:'';
+  return `<div class="v2-report3">${list.map(pn=>`<div class="v2-panel"><div class="v2-panel-h"><b>${esc(pn.title)}</b><small>Data contoh</small></div>${pn.sub?`<p class="v2-sum-sub">${esc(pn.sub)}</p>`:''}${body(pn)}${pn.map?v2Map(pn.map):''}${pn.table?`<div class="tbl-wrap">${v2Table({...pn.table,title:pn.title})}</div>`:''}${pn.foot?`<p class="v2-pfoot">${esc(pn.foot)}</p>`:''}</div>`).join('')}</div>`;
 }
 
 /* ---------- halaman ---------- */
@@ -967,8 +1112,8 @@ function pageProductV2(p){
       <p class="v2-eyebrow">${esc(v.hero.eyebrow)}</p>
       <h1>${esc(v.hero.line1)}<br><span>${esc(v.hero.line2)}</span></h1>
       <p class="v2-lead">${esc(v.hero.lead)}</p>
-      <div class="v2-cta"><a class="v2-btn" href="#demo/${p.slug}">Diskusikan Kebutuhan</a><a class="v2-link" href="#aplikasi/${p.slug}/tampilan">Lihat Tampilan Aplikasi ${VICON.arrowR}</a></div>
-      <p class="v2-status"><i></i>Dalam pengembangan${v.hero.for?`<span class="v2-for">Untuk: ${esc(v.hero.for)}</span>`:''}</p>
+      <div class="v2-cta"><a class="v2-btn" href="#demo/${p.slug}">${esc(v.hero.btn||'Diskusikan Kebutuhan')}</a><a class="v2-link" href="#aplikasi/${p.slug}/tampilan">Lihat Tampilan Aplikasi ${VICON.arrowR}</a></div>
+      <p class="v2-status"><i></i>${esc(v.hero.status||'Dalam pengembangan')}${v.hero.for?`<span class="v2-for">Untuk: ${esc(v.hero.for)}</span>`:''}</p>
     </div>
   </section>
 
@@ -978,8 +1123,9 @@ function pageProductV2(p){
     <a href="#aplikasi/${p.slug}/fitur" data-anchor="fitur">Fitur</a>
     <a href="#aplikasi/${p.slug}/alur" data-anchor="alur">Alur Kerja</a>
     <a href="#aplikasi/${p.slug}/tampilan" data-anchor="tampilan">Tampilan</a>
+    ${v.subnavFull?`<a href="#aplikasi/${p.slug}/laporan" data-anchor="laporan">Laporan</a><a href="#aplikasi/${p.slug}/lingkup" data-anchor="lingkup">Lingkup</a>`:''}
     <a href="#aplikasi/${p.slug}/faq" data-anchor="faq">FAQ</a>
-    <a class="v2-btn sm cta" href="#demo/${p.slug}">Diskusikan Kebutuhan</a>
+    <a class="v2-btn sm cta" href="#demo/${p.slug}">${esc(v.hero.btn||'Diskusikan Kebutuhan')}</a>
   </div></nav>
 
   <section class="v2-sec" id="manfaat"><div class="container anchor" id="sec-manfaat">
@@ -993,11 +1139,13 @@ function pageProductV2(p){
     ${v2Head(v.features)}
     <div class="v2-features n${v.features.items.length}">${v.features.items.map(f=>`<div class="v2-fcard"><span class="v2-ic">${VICON[f[0]]}</span><div><h3>${esc(f[1])}</h3><p>${esc(f[2])}</p></div></div>`).join('')}</div>
     ${v2Photos(v.features.photos)}
+    ${v.features.note?`<p class="v2-mini">${VICON.info}${esc(v.features.note)}</p>`:''}
   </div></section>
 
   <section class="v2-sec" id="alur"><div class="container anchor" id="sec-alur">
     ${v2Head(v.flow)}
     <ol class="v2-flow">${v.flow.steps.map((s,i)=>`<li><span class="v2-step-ic"><em>${i+1}</em>${VICON[s[0]]}</span><b>${esc(s[1])}</b><p>${esc(s[2])}</p></li>`).join('')}</ol>
+    ${v.flow.note?`<p class="v2-mini">${VICON.info}${esc(v.flow.note)}</p>`:''}
   </div></section>
 
   <section class="v2-sec" id="tampilan"><div class="container anchor" id="sec-tampilan">
@@ -1006,7 +1154,7 @@ function pageProductV2(p){
     ${rolesBlock}
   </div></section>
 
-  <section class="v2-sec"><div class="container">
+  <section class="v2-sec" id="laporan"><div class="container anchor" id="sec-laporan">
     ${v2Head(v.report)}
     ${v.report.panels?v2Panels(v.report.panels):`<div class="v2-report${v.report.table.kind==='rows'?' wide':''}">
       <div class="v2-panel"><div class="v2-panel-h"><b>${esc(v.report.table.title)}</b><small>Data contoh</small></div><div class="tbl-wrap">${v2Table(v.report.table)}</div></div>
@@ -1016,13 +1164,15 @@ function pageProductV2(p){
     ${(v.report.notes||[]).map(n=>`<p class="v2-mini">${VICON.info}${esc(n)}</p>`).join('')}
   </div></section>
 
-  <section class="v2-sec"><div class="container">
+  <section class="v2-sec" id="lingkup"><div class="container anchor" id="sec-lingkup">
     ${v2Head(sc)}
     <div class="v2-scope${sc.core.length>3?' stack':''}">
       <div class="v2-core">${sc.core.map(c=>`<div class="v2-fcard sm"><span class="v2-ic">${VICON[c[0]]}</span><div><h3>${esc(c[1])}</h3><p>${esc(c[2])}</p></div></div>`).join('')}</div>
-      <div class="v2-extra"><b>Integrasi tambahan (opsional)</b><div class="n${sc.extra.length}">${sc.extra.map(e=>{const q=BY[e[0]];return `<a class="v2-fcard sm" href="#aplikasi/${q.slug}"><span class="v2-ic">${VICON[e[1]]}</span><div><h3>SmartOps ${esc(q.name)}</h3><p>${esc(e[2])}</p></div></a>`;}).join('')}</div>
-        ${sc.optional?`<b class="opt">Opsional sesuai paket</b><ul class="v2-opt">${sc.optional.map(o=>`<li>${VICON.plus}${esc(o)}</li>`).join('')}</ul>`:''}</div>
+      <div class="v2-extra"><b>${esc(sc.extraLabel||'Integrasi tambahan (opsional)')}</b><div class="n${sc.extra.length}">${sc.extra.map(e=>{const q=BY[e[0]];return `<a class="v2-fcard sm" href="#aplikasi/${q.slug}"><span class="v2-ic">${VICON[e[1]]}</span><div><h3>SmartOps ${esc(q.name)}</h3><p>${esc(e[2])}</p></div></a>`;}).join('')}</div>
+        ${sc.optional?`<b class="opt">${esc(sc.optLabel||'Opsional sesuai paket')}</b><ul class="v2-opt">${sc.optional.map(o=>`<li>${VICON.plus}${esc(o)}</li>`).join('')}</ul>`:''}</div>
     </div>
+    ${sc.phases?`<div class="v2-phases">${sc.phases.map(ph=>`<div class="${ph[3]||''}"><span class="ph-tag">${esc(ph[0])}</span><b>${esc(ph[1])}</b><p>${esc(ph[2])}</p></div>`).join('')}</div>`:''}
+    ${sc.excluded?`<div class="v2-problems excl"><b>Tidak termasuk</b><ul>${sc.excluded.map(x=>`<li>${VICON.x}${esc(x)}</li>`).join('')}</ul></div>`:''}
     <p class="v2-notice">${VICON.info}<span>${esc(sc.note)}</span></p>
   </div></section>
 
@@ -1031,6 +1181,6 @@ function pageProductV2(p){
     <div class="v2-faq">${v.faq.items.map(f=>`<details><summary>${esc(f[0])}<span aria-hidden="true">${VICON.plus}</span></summary><div class="ans">${esc(f[1])}</div></details>`).join('')}</div>
   </div></section>
 
-  <section class="v2-band"><div class="container"><div><h2>${esc(v.cta.title)}</h2><p>${esc(v.cta.text)}</p></div><a class="v2-btn tan" href="#demo/${p.slug}">Diskusikan Kebutuhan ${VICON.arrowR}</a></div></section>
+  <section class="v2-band"><div class="container"><div><h2>${esc(v.cta.title)}</h2><p>${esc(v.cta.text)}</p></div><a class="v2-btn tan" href="#demo/${p.slug}">${esc(v.cta.btn||'Diskusikan Kebutuhan')} ${VICON.arrowR}</a></div></section>
   </div>`;
 }

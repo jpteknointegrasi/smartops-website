@@ -88,7 +88,7 @@ function wirePage(route, parts){
   // Gallery lightbox
   if(route==='aplikasi'&&parts[1]&&BY[parts[1]]){
     const p=BY[parts[1]];
-    currentGallery=[
+    currentGallery= !p.mock ? [] : [
       ['Dashboard utama · '+p.full, mockHTML(p,p.mock,false)],
       ['Tampilan HP petugas · '+p.full, `<div style="display:grid;place-items:center;padding:12px">${phoneHTML(p,p.phone)}</div>`],
       ['Contoh data & laporan · '+p.full, mockHTML(p,p.mock2,false)]

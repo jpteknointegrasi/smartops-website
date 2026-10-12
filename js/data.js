@@ -502,6 +502,17 @@ const PRODUCTS = [
     ['Apakah aplikasi ini dapat diintegrasikan dengan SmartOps Project?','Ya, secara opsional. Pekerjaan rehabilitasi besar dapat ditautkan dari instalasi ke proyek; serah terima memperbarui riwayat instalasi.']
   ],
   seo:'SmartOps STP | Aplikasi Pemeliharaan Instalasi STP'
+},
+{
+  slug:'field-service', name:'Field Service', full:'SmartOps Field Service', accent:'#3F3B8E', icon:'tool', group:'teknis',
+  card:'Tiket kunjungan per unit: checklist, foto bergeotag, dan tanda terima pelanggan.',
+  cardAud:'Untuk vendor jasa kunjungan: pasang internet, servis AC, CCTV, cleaning.',
+  tags:['Tiket per unit','Foto geotag','Tanda terima'],
+  headline:'Banyak tiket kecil, satu kendali.',
+  intro:'Aplikasi work order untuk vendor jasa kunjungan per unit.',
+  audience:'Pemilik vendor, admin/dispatcher, pengawas, teknisi, dan klien korporat',
+  challenges:[], benefits:[], features:[], flow:[], roles:[], scope:{included:[],optional:[],integrations:[],note:''}, faq:[],
+  seo:'SmartOps Field Service | Aplikasi Tiket Kunjungan Lapangan'
 }
 ];
 const BY = Object.fromEntries(PRODUCTS.map(p=>[p.slug,p]));

@@ -53,14 +53,15 @@ const SERVICE_VISUALS = {
   'gondola-climbing': ['Perawatan fasad', 'Teknisi gondola membersihkan fasad gedung'],
   garden: ['Perawatan lanskap', 'Tim garden merawat tanaman di halaman gedung'],
   project: ['Pelaksanaan proyek', 'Engineer meninjau pekerjaan renovasi di lapangan'],
-  stp: ['Pemeliharaan instalasi', 'Teknisi STP memeriksa pompa dan instalasi pengolahan air limbah']
+  stp: ['Pemeliharaan instalasi', 'Teknisi STP memeriksa pompa dan instalasi pengolahan air limbah'],
+  'field-service': ['Kunjungan per unit', 'Teknisi Field Service memeriksa perangkat internet dan checklist tiket']
 };
 function serviceImage(p, eager=false){
   // Panel cadangan tampil bila file ilustrasi belum tersedia (mis. pest-control.webp).
   return `<span class="img-fallback" aria-hidden="true" style="--fb:${p.accent}">${I[p.icon]}<small>${esc(SERVICE_VISUALS[p.slug][0])}</small></span><img onerror="this.parentNode.classList.add('img-missing');this.remove()" class="service-image" src="assets/${p.slug}.webp" width="1536" height="1024" alt="Ilustrasi ${esc(SERVICE_VISUALS[p.slug][1])}" loading="${eager?'eager':'lazy'}" decoding="async" ${eager?'fetchpriority="high"':''}>`;
 }
 function heroScene(){
-  return `<div class="scene-wrap"><img class="hero-scene" src="assets/hero.webp" width="1536" height="1024" alt="Ilustrasi tim operasional mengelola gedung dan area taman" fetchpriority="high" decoding="async"><span class="scene-caption">Ilustrasi ekosistem SmartOps</span><div class="scene-note"><span class="scene-note-icon">${I.clip}</span><div><b>Dari lapangan ke laporan.</b><span>Rencana · Pelaksanaan · Pemeriksaan</span></div></div><div class="scene-chip">${I.grid}<span>8 aplikasi khusus</span></div></div>`;
+  return `<div class="scene-wrap"><img class="hero-scene" src="assets/hero.webp" width="1536" height="1024" alt="Ilustrasi tim operasional mengelola gedung dan area taman" fetchpriority="high" decoding="async"><span class="scene-caption">Ilustrasi ekosistem SmartOps</span><div class="scene-note"><span class="scene-note-icon">${I.clip}</span><div><b>Dari lapangan ke laporan.</b><span>Rencana · Pelaksanaan · Pemeriksaan</span></div></div><div class="scene-chip">${I.grid}<span>9 aplikasi khusus</span></div></div>`;
 }
 
 /* ===================== SHARED CHROME ===================== */
@@ -71,7 +72,7 @@ function navHTML(){
       <button aria-expanded="false" aria-haspopup="true" id="appsBtn">Aplikasi <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button>
       <div class="menu-panel" id="appsPanel" role="menu" aria-label="Daftar aplikasi" hidden>
         <div class="items">${items}</div>
-        <div class="menu-foot"><a href="#aplikasi" style="font-weight:600">Semua aplikasi ${I.arrow}</a><span class="muted small">8 aplikasi khusus</span></div>
+        <div class="menu-foot"><a href="#aplikasi" style="font-weight:600">Semua aplikasi ${I.arrow}</a><span class="muted small">9 aplikasi khusus</span></div>
       </div>
     </div>
     <a href="#integrasi" data-route="integrasi">Integrasi</a>
@@ -134,7 +135,7 @@ function pageHome(){
   <div class="service-ribbon"><div class="container"><span class="ribbon-label">Keluarga SmartOps</span><div class="ribbon-links">${PRODUCTS.map(p=>`<a href="#aplikasi/${p.slug}"><span style="color:${p.accent}">${I[p.icon]}</span>${esc(p.name)}</a>`).join('')}</div></div></div>
 
   <section class="section"><div class="container">
-    <div class="section-head"><div><p class="eyebrow" style="margin-bottom:10px">Setiap layanan, pendekatan berbeda</p><h2>Temukan aplikasi untuk bidang Anda</h2><p class="muted" style="margin-top:8px">Delapan aplikasi untuk mendukung pengelolaan layanan secara lebih terstruktur dan terukur.</p></div></div>
+    <div class="section-head"><div><p class="eyebrow" style="margin-bottom:10px">Setiap layanan, pendekatan berbeda</p><h2>Temukan aplikasi untuk bidang Anda</h2><p class="muted" style="margin-top:8px">Sembilan aplikasi untuk mendukung pengelolaan layanan secara lebih terstruktur dan terukur.</p></div></div>
     <div class="grid cols-3 service-grid">${cards}</div>
   </div></section>
 
@@ -214,7 +215,7 @@ function pageCatalog(filter){
       <p class="eyebrow"><span class="eyebrow-dot"></span>Keluarga aplikasi SmartOps</p>
       <h1>Pekerjaan berbeda.<br><span>Aplikasi yang tepat.</span></h1>
       <p class="lead">Dari pengelolaan tim hingga pemeliharaan instalasi. Temukan aplikasi dengan alur kerja yang memahami bidang Anda.</p>
-      <div class="catalog-facts"><div><b>08</b><span>Bidang layanan</span></div><div><b>Mandiri</b><span>Mulai sesuai kebutuhan</span></div><div><b>Terhubung</b><span>Integrasi opsional</span></div></div>
+      <div class="catalog-facts"><div><b>09</b><span>Bidang layanan</span></div><div><b>Mandiri</b><span>Mulai sesuai kebutuhan</span></div><div><b>Terhubung</b><span>Integrasi opsional</span></div></div>
     </div>
     ${heroScene()}
   </div></section>
@@ -416,7 +417,7 @@ function pageTentang(){
       <div>
         <p class="eyebrow">Tentang SmartOps</p>
         <h1 style="font-size:clamp(30px,4vw,46px);margin-top:10px">Aplikasi yang mengikuti pekerjaan di lapangan.</h1>
-        <p class="lead" style="margin-top:14px">SmartOps adalah keluarga delapan aplikasi untuk membantu pengelolaan layanan operasional. Setiap aplikasi memiliki alur kerja sendiri sesuai kebutuhan bidangnya, dan dapat diintegrasikan saat diperlukan.</p>
+        <p class="lead" style="margin-top:14px">SmartOps adalah keluarga sembilan aplikasi untuk membantu pengelolaan layanan operasional. Setiap aplikasi memiliki alur kerja sendiri sesuai kebutuhan bidangnya, dan dapat diintegrasikan saat diperlukan.</p>
       </div>
       <div class="figure" style="display:grid;gap:10px">
         <div class="notice info" style="background:var(--surface-2);color:var(--fg)">${I.check}<div><b>Pekerjaan lebih terarah</b><p class="muted">Informasi hasil mudah dibagikan; hasil di lapangan lebih terlihat.</p></div></div>
@@ -426,7 +427,7 @@ function pageTentang(){
     </div>
   </div></section>
   <section class="section alt"><div class="container">
-    <div class="section-head"><h2>Delapan aplikasi dalam satu keluarga</h2><p class="muted">Pilih aplikasi sesuai kebutuhan, dan integrasikan saat diperlukan.</p></div>
+    <div class="section-head"><h2>Sembilan aplikasi dalam satu keluarga</h2><p class="muted">Pilih aplikasi sesuai kebutuhan, dan integrasikan saat diperlukan.</p></div>
     <div class="fam-row">${PRODUCTS.map(p=>`<a href="#aplikasi/${p.slug}"><span class="sw" aria-hidden="true"><i style="background:${p.accent}"></i><i style="background:var(--surface)"></i></span>${esc(p.name)}</a>`).join('')}</div>
     <div class="notice warn" style="margin-top:24px">${I.info}<div><b>Identitas pengelola akan dilengkapi sebelum publikasi.</b><p>Riwayat perusahaan, tim, alamat dan pencapaian hanya ditampilkan dari bahan yang disahkan pemilik bisnis.</p></div></div>
   </div></section>
