@@ -11,7 +11,7 @@
 
 /* Hero */
 .v2-hero{position:relative;overflow:hidden;background:#FBF7F1;min-height:clamp(520px,46vw,640px);display:flex;align-items:center}
-.v2-hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:right center}
+.v2-hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:var(--hpos,right center)}
 .v2-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#FBF7F1 0%,rgba(251,247,241,.94) 34%,rgba(251,247,241,0) 56%);pointer-events:none}
 .v2-hero-in{position:relative;z-index:1;padding-block:56px;width:100%}
 .v2-hero-in>*{max-width:600px}
@@ -23,7 +23,7 @@
 .v2-btn{display:inline-flex;align-items:center;gap:10px;background:var(--v);color:#fff;font-weight:600;font-size:15px;padding:14px 22px;border-radius:8px;text-decoration:none;transition:background .2s,transform .2s}
 .v2-btn:hover{background:var(--v2);transform:translateY(-1px)}
 .v2-btn svg{width:18px;height:18px}
-.v2-btn.tan{background:#B07A45}.v2-btn.tan:hover{background:#9A6837}
+.v2-btn.tan{background:var(--vb)}.v2-btn.tan:hover{background:var(--vb2)}
 .v2-link{display:inline-flex;align-items:center;gap:8px;color:var(--v);font-weight:600;font-size:15px;text-decoration:none}
 .v2-link svg{width:17px;height:17px;transition:transform .2s}.v2-link:hover svg{transform:translateX(3px)}
 .v2-status{display:flex;align-items:center;gap:8px;font-size:12.5px;margin-top:22px}
@@ -178,7 +178,7 @@
 }
 @media(max-width:720px){
   .v2-hero{display:block;min-height:0}
-  .v2-hero-img{position:relative;height:auto;aspect-ratio:16/11;object-position:72% center}
+  .v2-hero-img{position:relative;height:auto;aspect-ratio:16/11;object-position:var(--mpos,72% center)}
   .v2-hero::after{display:none}
   .v2-hero-in{padding-block:28px 26px}
   .v2-hero{display:flex;flex-direction:column-reverse}
@@ -202,3 +202,64 @@
 
 @media(min-width:961px){.v2-hero h1{white-space:nowrap}}
 .v2-faq summary span{flex:none;display:grid}
+
+/* ---- v2: komponen tambahan (Security dkk.) ---- */
+.pv2 [hidden]{display:none!important}
+.v2-for{display:block;width:100%;margin-top:6px;color:var(--mut)}
+.v2-status{flex-wrap:wrap}
+.v2-subnav{background:rgba(251,248,243,.96);backdrop-filter:saturate(1.2) blur(6px)}
+.v2-subnav a.on{box-shadow:inset 0 -2px 0 var(--v);color:var(--v)}
+.v2-btn.sm{font-size:13px;padding:9px 16px;min-height:0;color:#fff!important}
+.v2-subnav .v2-btn.sm:hover{background:var(--v2);color:#fff}
+.v2-problems{margin-top:30px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;padding:14px 18px;border:1px dashed #DCCFBE;border-radius:12px;background:#FFFDF9}
+.v2-problems b{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
+.v2-problems ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px 22px}
+.v2-problems li{display:flex;align-items:center;gap:7px;font-size:14px;color:var(--ink)}
+.v2-problems li svg{width:15px;height:15px;color:#C0463B}
+/* kartu bar & daftar di mockup */
+.v2-bars{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.v2-bars li{display:grid;grid-template-columns:1fr auto;gap:3px 8px;font-size:10px}
+.v2-bars em{font-style:normal;font-weight:600}
+.v2-bars i{grid-column:1/-1;height:6px;border-radius:4px;background:#EEF0F1;overflow:hidden}
+.v2-bars i b{display:block;height:100%;border-radius:4px}
+.v2-bars b.ok{background:#2E8B57}.v2-bars b.run{background:#D9A15B}.v2-bars b.wait{background:#C0463B}
+.v2-act li.nothumb{grid-template-columns:10px 1fr auto}
+.v2-act .dot{width:8px;height:8px;border-radius:50%}
+.v2-act .dot.ok{background:#2E8B57}.v2-act .dot.run{background:#2F7FA8}.v2-act .dot.wait{background:#D9A15B}
+.v2-phone-in li span{flex:1}.v2-phone-in li time{font-size:9px;color:#7A8180}
+/* tabel berstatus */
+.v2-table.rows th[scope=row]{text-align:left;font-weight:600}
+.v2-table.rows td.txt{text-align:left;white-space:normal;min-width:120px}
+.v2-table.rows td.txt:first-child{min-width:0;white-space:nowrap;color:var(--mut)}
+.v2-table.rows thead th{text-align:left}
+.v2-table.rows td.num{text-align:right}
+.v2-table.rows td.st{text-align:left}
+.v2-pill{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.v2-pill::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.v2-pill.ok{background:#E6F3EC;color:#22764A}.v2-pill.run{background:#E5F0F7;color:#246A93}.v2-pill.wait{background:#FBEEDD;color:#9A5F17}.v2-pill.none{background:#F1EFEB;color:#6E6A63}
+.v2-report.wide{grid-template-columns:1.45fr 1fr}
+.v2-mini{display:flex;align-items:center;gap:8px;font-size:13px;margin-top:14px}
+.v2-mini svg{width:16px;height:16px;color:var(--v);flex:none}
+/* lingkup */
+.v2-extra .n1{grid-template-columns:1fr}
+.v2-extra .opt{margin-top:16px}
+.v2-opt{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.v2-opt li{display:flex;gap:8px;align-items:center;font-size:13.5px;color:var(--ink)}
+.v2-opt li svg{width:15px;height:15px;color:var(--vb)}
+.v2-scope.stack{grid-template-columns:1fr;align-items:start}
+.v2-scope.stack .v2-core{grid-template-columns:repeat(6,1fr)}
+.v2-scope.stack .v2-fcard.sm{flex-direction:column;gap:12px}
+.v2-scope.stack .v2-extra{display:grid;grid-template-columns:1fr 1fr;column-gap:24px;align-items:start}
+.v2-scope.stack .v2-extra>b{grid-column:1}.v2-scope.stack .v2-extra>.n1{grid-column:1;grid-row:2}
+.v2-scope.stack .v2-extra>.opt{grid-column:2;grid-row:1;margin-top:0}.v2-scope.stack .v2-extra>.v2-opt{grid-column:2;grid-row:2}
+.v2-scope.stack .v2-extra .v2-fcard.sm{flex-direction:row}
+@media(max-width:1100px){.v2-scope.stack .v2-core{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:960px){.v2-report.wide{grid-template-columns:1fr}}
+@media(max-width:720px){
+  .v2-scope.stack .v2-core{grid-template-columns:1fr 1fr}
+  .v2-scope.stack .v2-extra{grid-template-columns:1fr}
+  .v2-scope.stack .v2-extra>*{grid-column:1!important;grid-row:auto!important}
+  .v2-scope.stack .v2-extra>.opt{margin-top:16px}
+  .v2-problems{flex-direction:column;align-items:flex-start}
+  .v2-problems ul{flex-direction:column}
+}

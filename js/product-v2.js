@@ -1,7 +1,6 @@
 /* =====================================================================
    Halaman produk versi 2 (layout editorial) — dipakai bila V2[slug] ada.
-   Saat ini: SmartOps Cleaning. Struktur sengaja generik agar produk lain
-   bisa menyusul cukup dengan menambah entri V2.
+   Produk: Cleaning, Security. Produk lain cukup menambah entri V2.
    ===================================================================== */
 
 const VI = (d, sw=1.8) => `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="${sw}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${d}</svg>`;
@@ -26,17 +25,25 @@ const VICON = {
   bell: VI('<path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z"/><path d="M10 20.5a2 2 0 0 0 4 0"/>'),
   arrowR: VI('<path d="M5 12h14M13 6l6 6-6 6"/>', 2),
   check: VI('<path d="M5 12.5l4.5 4.5L19 7.5"/>', 2.6),
-  gear: VI('<circle cx="12" cy="12" r="3"/><path d="M12 2.5v3M12 18.5v3M4.2 7l2.6 1.5M17.2 15.5l2.6 1.5M4.2 17l2.6-1.5M17.2 8.5L19.8 7"/>')
+  gear: VI('<circle cx="12" cy="12" r="3"/><path d="M12 2.5v3M12 18.5v3M4.2 7l2.6 1.5M17.2 15.5l2.6 1.5M4.2 17l2.6-1.5M17.2 8.5L19.8 7"/>'),
+  grid: VI('<rect x="4" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.5"/>'),
+  shield: VI('<path d="M12 3l7.5 3v5.5c0 4.6-3.2 8.3-7.5 9.5-4.3-1.2-7.5-4.9-7.5-9.5V6z"/><path d="M9 12l2 2 4-4"/>'),
+  alert: VI('<path d="M12 4l9 16H3z"/><path d="M12 10v4.5M12 17.3h.01" stroke-width="2.3"/>'),
+  swap: VI('<path d="M4 8h13l-3.5-3.5M20 16H7l3.5 3.5"/>'),
+  checkC: VI('<circle cx="12" cy="12" r="8.5"/><path d="M8.3 12.3l2.5 2.5 5-5"/>'),
+  share: VI('<circle cx="6" cy="12" r="2.4"/><circle cx="18" cy="6" r="2.4"/><circle cx="18" cy="18" r="2.4"/><path d="M8.2 10.9l7.6-3.8M8.2 13.1l7.6 3.8"/>'),
+  x: VI('<path d="M7 7l10 10M17 7L7 17"/>', 2.2)
 };
 
+/* ---------- data per produk ---------- */
 const V2 = {
   cleaning: {
-    theme: { c:'#0E5357', c2:'#13696E', soft:'#E4F0EF' },
+    theme: { c:'#0E5357', c2:'#13696E', soft:'#E4F0EF', b:'#B07A45', b2:'#9A6837' },
     hero: {
       eyebrow:'SmartOps Cleaning',
       line1:'Setiap area terawat.', line2:'Setiap hasil terpantau.',
       lead:'Kelola jadwal, pekerjaan lapangan, dan pemeriksaan mutu dalam satu alur.',
-      img:'assets/cleaning-hero.webp',
+      img:'assets/cleaning-hero.webp', pos:'right center', mpos:'72% center',
       alt:'Ilustrasi tim cleaning merawat lantai dan kaca lobby gedung sambil memantau checklist di tablet'
     },
     benefit: {
@@ -88,17 +95,19 @@ const V2 = {
       ]
     },
     dash: {
-      location:'Jakarta Residence',
       nav:[['grid','Dashboard'],['pin','Lokasi'],['users','Penugasan'],['clip','Checklist'],['search','QC'],['bars','Laporan'],['gear','Pengaturan']],
+      title:'Ringkasan Operasional', location:'Jakarta Residence',
       kpis:[['pin','12','Total Lokasi'],['clip','248','Area Dibersihkan'],['users','36','Petugas aktif'],['refresh','18','Dalam Proses']],
-      donut:{ total:'248', label:'Total Area', items:[['Selesai',180,'#13797A'],['Dalam Proses',42,'#5FB3A8'],['Menunggu',18,'#D9A15B'],['Tidak Sesuai',8,'#C0463B']] },
-      activity:[['lobby','Area Lobby','Selesai','08.32','ok'],['lift','Lift & Koridor','Selesai','08.20','ok'],['toilet','Toilet Publik','Dalam Proses','08.15','run'],['parkir','Area Parkir','Menunggu','07.50','wait']],
-      phone:{ title:'Detail Area', area:'Area Lobby', sub:'Lantai 1 · Gedung A', img:'assets/th-area.webp', checks:[['Lantai',1],['Kaca & Pintu',1],['Fasilitas',1],['Kebersihan Umum',0]] }
+      cards:[
+        { type:'donut', title:'Status Pekerjaan Hari Ini', total:'248', label:'Total Area', items:[['Selesai',180,'#13797A'],['Dalam Proses',42,'#5FB3A8'],['Menunggu',18,'#D9A15B'],['Tidak Sesuai',8,'#C0463B']] },
+        { type:'list', title:'Aktivitas Terbaru', rows:[['Area Lobby','Selesai','08.32','ok','lobby'],['Lift & Koridor','Selesai','08.20','ok','lift'],['Toilet Publik','Dalam Proses','08.15','run','toilet'],['Area Parkir','Menunggu','07.50','wait','parkir']] }
+      ],
+      phone:{ title:'Detail Area', area:'Area Lobby', sub:'Lantai 1 · Gedung A', img:'assets/th-area.webp', checks:[['Lantai',1],['Kaca & Pintu',1],['Fasilitas',1],['Kebersihan Umum',0]], btn:'Selesai' }
     },
     report: {
       eyebrow:'Laporan', title:['Laporan yang','membantu evaluasi.'],
       side:'Lihat perkembangan pekerjaan, temuan QC, dan riwayat kerja untuk perbaikan berkelanjutan.',
-      table:{ title:'Rekap Pekerjaan per Area', cols:['Area','Target','Selesai','Dalam Proses','Tidak Sesuai'],
+      table:{ kind:'numeric', title:'Rekap Pekerjaan per Area', cols:['Area','Target','Selesai','Dalam Proses','Tidak Sesuai'],
         rows:[['Lobby',28,26,2,0],['Lift & Koridor',36,32,3,1],['Toilet Publik',24,20,3,1],['Area Parkir',18,14,3,1]] },
       chart:{ title:'Tren Penyelesaian Pekerjaan', labels:['1 Apr','3 Apr','5 Apr','7 Apr','9 Apr','11 Apr','13 Apr'],
         series:[['Selesai','#13797A',[34,46,57,63,79,96,108]],['Dalam Proses','#D9A15B',[10,17,24,30,38,45,47]]], max:120 }
@@ -108,6 +117,7 @@ const V2 = {
       side:'Mudah disesuaikan dengan kebutuhan gedung dan tim Anda.',
       core:[['users','Manajemen tim','Data petugas, jadwal, dan pembagian area.'],['pin','Lokasi & area','Multi lokasi, gedung, dan area kerja.'],['clip','Checklist & QC','Standar kerja, inspeksi, dan tindak lanjut.']],
       extra:[['garden','leaf','Perawatan area hijau dan taman.'],['gondola-climbing','building','Pekerjaan fasad dan area tinggi.']],
+      optional:['Pekerjaan khusus (deep cleaning) sesuai lingkup','Laporan khusus pelanggan'],
       note:'Checklist selesai belum berarti QC lulus. Semua hasil pekerjaan tetap melalui pemeriksaan sesuai standar.'
     },
     faq: {
@@ -123,12 +133,142 @@ const V2 = {
       ]
     },
     cta: { title:'Siap menata pekerjaan cleaning?', text:'Diskusikan kebutuhan Anda, dan lihat bagaimana SmartOps dapat membantu operasional Anda.' }
+  },
+
+  security: {
+    theme: { c:'#123F56', c2:'#1A5470', soft:'#E3EDF2', b:'#96652F', b2:'#7F5424' },
+    hero: {
+      eyebrow:'SmartOps Security',
+      line1:'Penjagaan terpantau.', line2:'Patroli terdokumentasi.',
+      lead:'Kelola pos, regu, patroli, dan tindak lanjut insiden dalam satu alur.',
+      for:'Pemilik vendor, manager operasi, chief/Danru, petugas, dan PIC pelanggan.',
+      img:'assets/security-hero.webp', pos:'right center', mpos:'58% center',
+      alt:'Petugas keamanan melakukan patroli, menjaga pos, dan meninjau kegiatan melalui perangkat aplikasi.'
+    },
+    benefit: {
+      eyebrow:'Manfaat', title:['Pengamanan lebih','terstruktur.'],
+      side:'Membantu tim pengelola keamanan dan vendor jasa pengamanan memantau penjagaan, serah terima, serta tindak lanjut secara terstruktur dan terdokumentasi.',
+      items:[
+        ['shield','Cakupan pos jelas','Status setiap pos dan cakupan area dapat dipantau.'],
+        ['clip','Serah terima tercatat','Logbook dan serah terima antarshift tersimpan dan mudah ditelusuri.'],
+        ['doc','Insiden ditindaklanjuti','Temuan dicatat, ditugaskan, dan dipantau sampai penyelesaian.']
+      ],
+      problems:['Petugas hadir, tetapi pos kosong','Catatan serah terima sulit ditelusuri','Temuan tanpa tindak lanjut yang jelas']
+    },
+    features: {
+      eyebrow:'Fitur utama', title:['Satu alur untuk','operasional keamanan.'],
+      side:'Dari penempatan pos hingga laporan shift, semua tercatat di satu aplikasi.',
+      items:[
+        ['users','Pos & regu','Pengelolaan pos, cakupan area, dan komposisi regu.'],
+        ['cal','Jadwal & cakupan','Jadwal penjagaan dan penugasan untuk setiap pos.'],
+        ['doc','Logbook & serah terima','Pencatatan kegiatan, informasi penting, dan serah terima shift.'],
+        ['pin','Patroli & checkpoint','Jadwal patroli, titik pemeriksaan, dan bukti pelaksanaan.'],
+        ['alert','Insiden & respons','Pencatatan temuan, penugasan penanganan, dan status penyelesaian.'],
+        ['bars','Laporan shift','Rekap penjagaan, patroli, dan insiden per periode.']
+      ],
+      photos:[
+        ['assets/security-patrol.webp','Petugas mendokumentasikan checkpoint patroli menggunakan HP.','Patroli dengan checkpoint','Setiap titik pemeriksaan tercatat waktunya dari HP petugas.'],
+        ['assets/security-handover.webp','Petugas dan Danru meninjau logbook pada serah terima shift.','Serah terima shift','Danru meninjau logbook bersama regu saat pergantian shift.']
+      ]
+    },
+    flow: {
+      eyebrow:'Cara kerja', title:['Dari penugasan','hingga evaluasi.'],
+      side:'Setiap shift berjalan dengan urutan yang sama, sehingga mudah ditinjau.',
+      steps:[
+        ['clip','Atur penjagaan','Tentukan pos, regu, dan jadwal.'],
+        ['users','Tugaskan regu','Plot petugas pada setiap pos.'],
+        ['mobile','Catat pelaksanaan','Isi logbook dan dokumentasi patroli.'],
+        ['alert','Tangani temuan','Catat insiden dan tugaskan tindak lanjut.'],
+        ['search','Review','Danru dan manager meninjau pelaksanaan.'],
+        ['checkC','Laporan shift','Susun rekap per periode.']
+      ]
+    },
+    roles: {
+      eyebrow:'Aplikasi', title:['Tampilan sesuai','tanggung jawab.'],
+      side:'Setiap peran melihat informasi yang relevan dengan pekerjaannya.',
+      list:[
+        ['Pemilik',[['shield','Pantau kondisi penjagaan di seluruh lokasi'],['pin','Lihat pelaksanaan patroli dan temuan penting'],['doc','Akses laporan untuk evaluasi operasional']], {
+          title:'Ringkasan Operasional', location:'Semua lokasi',
+          kpis:[['users','34/36','Personel hadir'],['shield','12/14','Pos terisi'],['pin','18/22','Patroli selesai'],['alert','2','Temuan terbuka']],
+          cards:[
+            { type:'bars', title:'Pos terisi per Lokasi', rows:[['Gedung Melati',4,4],['Gedung Kenanga',3,4],['Area Parkir',2,3],['Ruang Utilitas',3,3]] },
+            { type:'list', title:'Checkpoint Patroli', rows:[['Lobby Utama','Gedung Melati','08.12','ok'],['Lift & Koridor','Gedung Melati','09.05','ok'],['Area Parkir','Basement 1','09.28','run'],['Ruang Utilitas','Lantai 2','—','wait']] }
+          ] }],
+        ['Manager',[['pin','Pantau lokasi dan penugasan per shift'],['bars','Lihat progres operasional harian'],['doc','Evaluasi laporan dan temuan']], {
+          title:'Pemantauan Lokasi', location:'Gedung Melati',
+          kpis:[['users','12/12','Personel hadir'],['shield','4/4','Pos terisi'],['pin','7/8','Patroli selesai'],['alert','1','Temuan terbuka']],
+          cards:[
+            { type:'bars', title:'Penugasan per Shift', rows:[['Pagi',4,4],['Siang',4,4],['Malam',3,4]] },
+            { type:'list', title:'Temuan & Tindak Lanjut', rows:[['Lampu koridor padam','Selesai','07.40','ok'],['Pintu tidak terkunci','Diteruskan ke BM','09.15','wait'],['Kamera lobby buram','Sedang ditindaklanjuti','10.02','run']] }
+          ] }],
+        ['Danru',[['shield','Cek cakupan pos dan kehadiran regu'],['swap','Tinjau serah terima dan logbook shift'],['search','Review temuan dan pelaksanaan patroli']], {
+          title:'Serah Terima Shift', location:'Shift Pagi → Siang',
+          kpis:[['users','8/8','Regu hadir'],['shield','4/4','Pos terisi'],['doc','6','Entri logbook'],['alert','1','Temuan terbuka']],
+          cards:[
+            { type:'list', title:'Logbook Shift Pagi', rows:[['Kunci ruang panel diserahkan','Pos Lobby','06.55','ok'],['Tamu kontraktor lift','Pos Lobby','08.30','ok'],['Pintu darurat terbuka','Pos Belakang','09.10','run']] },
+            { type:'bars', title:'Status Pos', rows:[['Pos Lobby',2,2],['Pos Parkir',2,2],['Pos Belakang',1,1],['Pos Utilitas',1,1]] }
+          ] }],
+        ['Petugas',[['mobile','Lihat pos penugasan dan jadwal patroli di HP'],['checkC','Catat checkpoint satu per satu'],['alert','Laporkan temuan beserta foto']], {
+          title:'Tugas Saya', location:'Pos Lobby · Shift Pagi',
+          kpis:[['pin','Lobby','Pos penugasan'],['refresh','2/3','Ronde patroli'],['checkC','6/8','Checkpoint'],['doc','2','Entri logbook']],
+          cards:[
+            { type:'list', title:'Checkpoint Ronde 2', rows:[['Lobby Utama','Tercatat','08.12','ok'],['Lift & Koridor','Tercatat','09.05','ok'],['Area Parkir','Berikutnya','—','run'],['Pintu Darurat','Belum','—','wait']] },
+            { type:'list', title:'Logbook Saya', rows:[['Serah terima kunci','Pos Lobby','06.55','ok'],['Tamu kontraktor lift','Pos Lobby','08.30','ok']] }
+          ] }],
+        ['PIC pelanggan',[['building','Lihat ringkasan lokasi yang menjadi tanggung jawab Anda'],['alert','Pantau temuan dan status tindak lanjutnya'],['history','Unduh laporan sesuai hak akses']], {
+          title:'Laporan Lokasi', location:'Gedung Melati (lokasi Anda)',
+          kpis:[['shield','4/4','Pos terisi'],['pin','7/8','Patroli selesai'],['alert','1','Temuan terbuka'],['checkC','5','Temuan selesai']],
+          cards:[
+            { type:'bars', title:'Pelaksanaan Patroli Minggu Ini', rows:[['Senin',8,8],['Selasa',8,8],['Rabu',7,8],['Kamis',8,8]] },
+            { type:'list', title:'Temuan di Lokasi Anda', rows:[['Lampu koridor padam','Selesai','07.40','ok'],['Pintu tidak terkunci','Diteruskan ke BM','09.15','wait']] }
+          ] }]
+      ]
+    },
+    dash: {
+      nav:[['grid','Dashboard'],['shield','Pos'],['cal','Jadwal'],['pin','Patroli'],['alert','Insiden'],['bars','Laporan']],
+      phone:{ title:'Checklist Patroli', area:'Gedung Melati', sub:'Ronde 2 · 12 Okt 2026', checks:[['Lobby Utama',1,'08.12'],['Lift & Koridor',1,'09.05'],['Area Parkir',0],['Ruang Utilitas',0],['Pintu Darurat',0]], btn:'Simpan checkpoint' }
+    },
+    report: {
+      eyebrow:'Laporan', title:['Setiap kegiatan','dapat ditelusuri.'],
+      side:'Rekap patroli, temuan, dan tindak lanjut menjadi dasar evaluasi operasional.',
+      table:{ kind:'rows', title:'Rekap Patroli & Temuan', cols:['Tanggal','Area','Patroli','Temuan','Tindak lanjut','Status'],
+        rows:[['12 Okt','Lobby Utama',4,1,'Lampu koridor diganti',['ok','Selesai']],['12 Okt','Lift & Koridor',4,1,'Kamera lobby dibersihkan',['run','Sedang ditindaklanjuti']],['12 Okt','Area Parkir',3,0,'—',['none','Tanpa temuan']],['12 Okt','Ruang Utilitas',4,1,'Pintu tidak terkunci',['wait','Diteruskan ke BM']],['12 Okt','Pintu Darurat',2,0,'—',['none','Tanpa temuan']]] },
+      chart:{ title:'Pelaksanaan Patroli 7 Hari', labels:['6 Okt','7 Okt','8 Okt','9 Okt','10 Okt','11 Okt','12 Okt'],
+        series:[['Terjadwal','#9AA9B2',[22,22,22,22,22,22,22]],['Terlaksana','#123F56',[20,21,19,22,21,22,17]]], max:25, ticks:[0,5,10,15,20,25] },
+      notes:['Kehadiran personel, pos terisi, dan pelaksanaan patroli dihitung terpisah.']
+    },
+    scope: {
+      eyebrow:'Cakupan & integrasi', title:['Terhubung dengan','tim dan lokasi.'],
+      side:'Lingkup inti siap dipakai; modul tambahan dan integrasi menyesuaikan paket.',
+      core:[['building','Manajemen pos','Pos, regu, dan cakupan area.'],['cal','Jadwal','Penjagaan dan patroli.'],['doc','Logbook','Kegiatan dan serah terima.'],['pin','Patroli','Checkpoint terstruktur di seluruh area.'],['alert','Insiden','Temuan, tindak lanjut, dan status.'],['bars','Laporan','Rekap operasional per periode.']],
+      extra:[['workforce','share','Sinkronisasi data personel, penugasan, dan jadwal.']],
+      optional:['Pencatatan tamu','Izin barang/kendaraan sesuai lingkup','Laporan khusus pelanggan'],
+      note:'Kehadiran berbeda dari pos terisi. Petugas yang hadir belum tentu sudah menempati pos sesuai penugasan, sehingga keduanya dipantau terpisah.'
+    },
+    faq: {
+      title:'Pertanyaan yang sering diajukan.',
+      side:'Temukan jawaban untuk pertanyaan umum seputar SmartOps Security.',
+      items:[
+        ['Apa perbedaan antara kehadiran dan pos terisi?','Kehadiran menunjukkan petugas hadir di lokasi; pos terisi menunjukkan petugas ditempatkan pada pos sesuai penugasan. Keduanya dipantau sebagai informasi berbeda.'],
+        ['Siapa saja yang dapat menggunakan SmartOps Security?','Pemilik vendor, manager operasi, chief/Danru, petugas, dan PIC pelanggan, masing-masing dengan hak akses sesuai perannya.'],
+        ['Apa yang dapat dilihat PIC pelanggan?','Ringkasan penjagaan, patroli, temuan, dan laporan pada lokasi yang menjadi tanggung jawabnya sesuai hak akses. Data lokasi pelanggan lain tidak ditampilkan.'],
+        ['Apakah SmartOps Security harus terintegrasi dengan Workforce?','Tidak harus. Integrasi Workforce bersifat opsional sesuai kebutuhan sinkronisasi personel dan lingkup implementasi.'],
+        ['Apakah aplikasi ini bisa menangani respons SOS?','Kemampuan SOS perlu melalui pengujian lintas perangkat dan prosedur operasional sebelum dinyatakan sebagai respons teruji.']
+      ]
+    },
+    cta: { title:'Siap menata operasional security?', text:'Diskusikan kebutuhan lokasi, tim, dan alur kerja Anda bersama tim kami.' }
   }
 };
 
 /* ---------- komponen ---------- */
-function v2Head(s, id){
-  return `<div class="v2-head"${id?` id="${id}"`:''}><div><p class="v2-eyebrow">${esc(s.eyebrow)}</p><h2>${esc(s.title[0])}<br>${esc(s.title[1])}</h2></div><p class="v2-side">${esc(s.side)}</p></div>`;
+const V2_STATUS = { ok:'ok', run:'run', wait:'wait', bad:'bad', none:'none' };
+
+function v2Head(s){
+  return `<div class="v2-head"><div><p class="v2-eyebrow">${esc(s.eyebrow)}</p><h2>${esc(s.title[0])}<br>${esc(s.title[1])}</h2></div><p class="v2-side">${esc(s.side)}</p></div>`;
+}
+
+function v2Photos(list){
+  return list ? `<div class="v2-photos">${list.map(ph=>`<figure><img src="${ph[0]}" alt="${esc(ph[1])}" width="1200" height="900" loading="lazy" decoding="async"><figcaption><b>${esc(ph[2])}</b><span>${esc(ph[3])}</span></figcaption></figure>`).join('')}</div>` : '';
 }
 
 function v2Donut(d){
@@ -138,18 +278,22 @@ function v2Donut(d){
     <ul>${d.items.map(i=>`<li><i style="background:${i[2]}"></i><span>${esc(i[0])}</span><b>${i[1]}</b></li>`).join('')}</ul></div>`;
 }
 
-function v2Laptop(p, d){
-  const pill={ok:['ok','Selesai'],run:['run','Dalam Proses'],wait:['wait','Menunggu']};
-  return `<div class="v2-laptop" role="img" aria-label="Ilustrasi dashboard ${esc(p.full)} untuk pemilik: ringkasan 12 lokasi, 248 area, status pekerjaan hari ini, dan aktivitas terbaru (data contoh)">
+function v2Card(c){
+  let body='';
+  if(c.type==='donut') body=v2Donut(c);
+  else if(c.type==='bars') body=`<ul class="v2-bars">${c.rows.map(r=>{const pct=Math.round(r[1]/r[2]*100);return `<li><span>${esc(r[0])}</span><em>${r[1]}/${r[2]}</em><i><b class="${pct===100?'ok':pct>=75?'run':'wait'}" style="width:${pct}%"></b></i></li>`;}).join('')}</ul>`;
+  else body=`<ul class="v2-act">${c.rows.map(a=>`<li class="${a[4]?'':'nothumb'}">${a[4]?`<img src="assets/th-${a[4]}.webp" alt="" width="120" height="90" loading="lazy">`:`<i class="dot ${a[3]}"></i>`}<span><b>${esc(a[0])}</b><em class="${a[3]}">${esc(a[1])}</em></span><time>${a[2]}</time></li>`).join('')}</ul>`;
+  return `<div class="v2-card"><b class="t">${esc(c.title)}</b>${body}</div>`;
+}
+
+function v2Laptop(p, nav, view, roleName){
+  return `<div class="v2-laptop" role="img" aria-label="Ilustrasi dashboard ${esc(p.full)}${roleName?` untuk ${esc(roleName)}`:''}: ${esc(view.title)}, ${view.kpis.map(k=>k[1]+' '+k[2]).join(', ')} (data contoh)">
     <div class="v2-screen"><div class="v2-app" aria-hidden="true">
-      <aside><img src="assets/brand/smartops-logo.png" alt="" width="373" height="96">${d.nav.map((n,i)=>`<span class="${i===0?'on':''}">${VICON[n[0]]||I[n[0]]}${esc(n[1])}</span>`).join('')}</aside>
+      <aside><img src="assets/brand/smartops-logo.png" alt="" width="373" height="96">${nav.map((n,i)=>`<span class="${i===0?'on':''}">${VICON[n[0]]||''}${esc(n[1])}</span>`).join('')}</aside>
       <div class="v2-app-main">
-        <div class="v2-app-top"><b>Ringkasan Operasional</b><span>${VICON.pin}${esc(d.location)} ›</span></div>
-        <div class="v2-kpis">${d.kpis.map(k=>`<div><span class="k-ic">${VICON[k[0]]}</span><b>${k[1]}</b><small>${esc(k[2])}</small></div>`).join('')}</div>
-        <div class="v2-app-grid">
-          <div class="v2-card"><b class="t">Status Pekerjaan Hari Ini</b>${v2Donut(d.donut)}</div>
-          <div class="v2-card"><b class="t">Aktivitas Terbaru</b><ul class="v2-act">${d.activity.map(a=>`<li><img src="assets/th-${a[0]}.webp" alt="" width="120" height="90" loading="lazy"><span><b>${esc(a[1])}</b><em class="${a[4]}">${esc(a[2])}</em></span><time>${a[3]}</time></li>`).join('')}</ul></div>
-        </div>
+        <div class="v2-app-top"><b>${esc(view.title)}</b><span>${VICON.pin}${esc(view.location)}</span></div>
+        <div class="v2-kpis">${view.kpis.map(k=>`<div><span class="k-ic">${VICON[k[0]]}</span><b>${esc(k[1])}</b><small>${esc(k[2])}</small></div>`).join('')}</div>
+        <div class="v2-app-grid">${view.cards.map(v2Card).join('')}</div>
       </div>
     </div></div>
     <div class="v2-base"></div>
@@ -157,37 +301,55 @@ function v2Laptop(p, d){
 }
 
 function v2Phone(p, ph){
-  return `<div class="v2-phone" role="img" aria-label="Ilustrasi aplikasi HP petugas: detail ${esc(ph.area)} dengan checklist (data contoh)"><div class="v2-phone-in" aria-hidden="true">
+  return `<div class="v2-phone" role="img" aria-label="Ilustrasi aplikasi HP petugas: ${esc(ph.title)} ${esc(ph.area)} (data contoh)"><div class="v2-phone-in" aria-hidden="true">
     <div class="ph-top"><span>9.41</span><span>●●●</span></div>
     <div class="ph-title">‹ ${esc(ph.title)}</div>
-    <img src="${ph.img}" alt="" width="240" height="180">
+    ${ph.img?`<img src="${ph.img}" alt="" width="240" height="180">`:''}
     <b class="ph-area">${esc(ph.area)}</b><small>${esc(ph.sub)}</small>
-    <ul>${ph.checks.map(c=>`<li class="${c[1]?'on':''}"><i>${c[1]?VICON.check:''}</i>${esc(c[0])}</li>`).join('')}</ul>
-    <span class="ph-btn">Selesai</span>
+    <ul>${ph.checks.map(c=>`<li class="${c[1]?'on':''}"><i>${c[1]?VICON.check:''}</i><span>${esc(c[0])}</span>${c[2]?`<time>${c[2]}</time>`:''}</li>`).join('')}</ul>
+    <span class="ph-btn">${esc(ph.btn)}</span>
   </div></div>`;
 }
 
 function v2Chart(c){
   const W=520,H=230,L=34,R=24,T=14,B=30, iw=W-L-R, ih=H-T-B, n=c.labels.length;
+  const ticks=c.ticks||[0,1,2,3,4].map(i=>Math.round(c.max*i/4));
   const x=i=>L+i*iw/(n-1), y=v=>T+ih-(v/c.max)*ih;
-  const grid=[0,30,60,90,120].map(v=>`<line x1="${L}" x2="${W-R}" y1="${y(v)}" y2="${y(v)}" stroke="#E7E1D8"/><text x="${L-8}" y="${y(v)+4}" text-anchor="end" font-size="11" fill="#7A746C">${v}</text>`).join('');
+  const grid=ticks.map(v=>`<line x1="${L}" x2="${W-R}" y1="${y(v)}" y2="${y(v)}" stroke="#E7E1D8"/><text x="${L-8}" y="${y(v)+4}" text-anchor="end" font-size="11" fill="#7A746C">${v}</text>`).join('');
   const lab=c.labels.map((l,i)=>`<text x="${x(i)}" y="${H-8}" text-anchor="middle" font-size="11" fill="#7A746C">${l}</text>`).join('');
   const lines=c.series.map(s=>`<polyline fill="none" stroke="${s[1]}" stroke-width="2.5" stroke-linejoin="round" points="${s[2].map((v,i)=>x(i)+','+y(v)).join(' ')}"/>${s[2].map((v,i)=>`<circle cx="${x(i)}" cy="${y(v)}" r="3.2" fill="#fff" stroke="${s[1]}" stroke-width="2"/>`).join('')}`).join('');
-  const desc=c.series.map(s=>`${s[0]}: ${s[2][0]} menjadi ${s[2][s[2].length-1]}`).join('; ');
+  const desc=c.series.map(s=>`${s[0]}: ${s[2].join(', ')}`).join('; ');
   return `<svg class="v2-chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(c.title)} ${c.labels[0]}–${c.labels[n-1]} (data contoh). ${esc(desc)}.">${grid}${lab}${lines}</svg>
     <div class="v2-legend">${c.series.map(s=>`<span><i style="background:${s[1]}"></i>${esc(s[0])}</span>`).join('')}</div>`;
+}
+
+function v2Table(tb){
+  if(tb.kind==='numeric'){
+    const tot=tb.cols.slice(1).map((_,j)=>tb.rows.reduce((a,r)=>a+r[j+1],0));
+    const cell=(val,j)=> j===4 && val>0 ? `<td class="bad">${val}</td>` : j===3 && val>0 ? `<td class="mid">${val}</td>` : `<td>${val}</td>`;
+    return `<table class="v2-table"><caption class="sr-only">${esc(tb.title)} (data contoh)</caption><thead><tr>${tb.cols.map(c=>`<th scope="col">${esc(c)}</th>`).join('')}</tr></thead>
+      <tbody>${tb.rows.map(r=>`<tr><th scope="row">${esc(r[0])}</th>${r.slice(1).map((c,j)=>cell(c,j+1)).join('')}</tr>`).join('')}</tbody>
+      <tfoot><tr><th scope="row">Total</th>${tot.map(c=>`<td>${c}</td>`).join('')}</tr></tfoot></table>`;
+  }
+  const td=v=> Array.isArray(v) ? `<td class="st"><span class="v2-pill ${V2_STATUS[v[0]]}">${esc(v[1])}</span></td>` : typeof v==='number' ? `<td class="num${v>0&&false?'':''}">${v}</td>` : `<td class="txt">${esc(v)}</td>`;
+  return `<table class="v2-table rows"><caption class="sr-only">${esc(tb.title)} (data contoh)</caption><thead><tr>${tb.cols.map(c=>`<th scope="col">${esc(c)}</th>`).join('')}</tr></thead>
+    <tbody>${tb.rows.map(r=>`<tr><td class="txt">${esc(r[0])}</td><th scope="row">${esc(r[1])}</th>${r.slice(2).map(td).join('')}</tr>`).join('')}</tbody></table>`;
 }
 
 /* ---------- halaman ---------- */
 function pageProductV2(p){
   const v=V2[p.slug], t=v.theme;
+  const roleViews=v.roles.list.some(r=>r[2]);
   const tabs=v.roles.list.map((r,i)=>`<button role="tab" id="tab-${i}" aria-selected="${i===0}" aria-controls="panel-${i}" tabindex="${i===0?0:-1}">${esc(r[0])}</button>`).join('');
-  const panels=v.roles.list.map((r,i)=>`<div class="tabpanel v2-rolepts" id="panel-${i}" role="tabpanel" aria-labelledby="tab-${i}" ${i===0?'':'hidden'}><ul>${r[1].map(x=>`<li><span class="v2-ic sm">${VICON[x[0]]}</span>${esc(x[1])}</li>`).join('')}</ul></div>`).join('');
-  const tb=v.report.table; const tot=tb.cols.slice(1).map((_,j)=>tb.rows.reduce((a,r)=>a+r[j+1],0));
-  const cell=(val,j)=> j===4 && val>0 ? `<td class="bad">${val}</td>` : j===3 && val>0 ? `<td class="mid">${val}</td>` : `<td>${val}</td>`;
-  return `<div class="pv2" style="--v:${t.c};--v2:${t.c2};--vsoft:${t.soft}">
+  const pts=r=>`<ul>${r[1].map(x=>`<li><span class="v2-ic sm">${VICON[x[0]]}</span>${esc(x[1])}</li>`).join('')}</ul>`;
+  const devices=(view,roleName)=>`<div class="v2-devices">${v2Laptop(p,v.dash.nav,view,roleName)}${v2Phone(p,v.dash.phone)}<span class="v2-note">Ilustrasi antarmuka • Data contoh</span></div>`;
+  const rolesBlock = roleViews
+    ? v.roles.list.map((r,i)=>`<div class="tabpanel v2-roles" id="panel-${i}" role="tabpanel" aria-labelledby="tab-${i}" ${i===0?'':'hidden'}><div class="v2-rolepts">${pts(r)}</div>${devices(r[2],r[0])}</div>`).join('')
+    : `<div class="v2-roles"><div>${v.roles.list.map((r,i)=>`<div class="tabpanel v2-rolepts" id="panel-${i}" role="tabpanel" aria-labelledby="tab-${i}" ${i===0?'':'hidden'}>${pts(r)}</div>`).join('')}</div>${devices(v.dash)}</div>`;
+  const sc=v.scope;
+  return `<div class="pv2" style="--v:${t.c};--v2:${t.c2};--vsoft:${t.soft};--vb:${t.b};--vb2:${t.b2}">
 
-  <section class="v2-hero">
+  <section class="v2-hero" style="--hpos:${v.hero.pos};--mpos:${v.hero.mpos}">
     <img class="v2-hero-img" src="${v.hero.img}" width="1536" height="1024" alt="${esc(v.hero.alt)}" fetchpriority="high" decoding="async">
     <div class="container v2-hero-in">
       <nav class="v2-crumb" aria-label="Breadcrumb"><a href="#beranda">Beranda</a> › <a href="#aplikasi">Aplikasi</a> › <span aria-current="page">${esc(p.name)}</span></nav>
@@ -195,19 +357,31 @@ function pageProductV2(p){
       <h1>${esc(v.hero.line1)}<br><span>${esc(v.hero.line2)}</span></h1>
       <p class="v2-lead">${esc(v.hero.lead)}</p>
       <div class="v2-cta"><a class="v2-btn" href="#demo/${p.slug}">Diskusikan Kebutuhan</a><a class="v2-link" href="#aplikasi/${p.slug}/tampilan">Lihat Tampilan Aplikasi ${VICON.arrowR}</a></div>
-      <p class="v2-status"><i></i>Dalam pengembangan</p>
+      <p class="v2-status"><i></i>Dalam pengembangan${v.hero.for?`<span class="v2-for">Untuk: ${esc(v.hero.for)}</span>`:''}</p>
     </div>
   </section>
+
+  <nav class="subnav v2-subnav" aria-label="Bagian halaman ${esc(p.name)}"><div class="container row">
+    <a class="all small" href="#aplikasi">← Semua aplikasi</a>
+    <a href="#aplikasi/${p.slug}/manfaat" data-anchor="manfaat">Manfaat</a>
+    <a href="#aplikasi/${p.slug}/fitur" data-anchor="fitur">Fitur</a>
+    <a href="#aplikasi/${p.slug}/alur" data-anchor="alur">Alur Kerja</a>
+    <a href="#aplikasi/${p.slug}/tampilan" data-anchor="tampilan">Tampilan</a>
+    <a href="#aplikasi/${p.slug}/faq" data-anchor="faq">FAQ</a>
+    <a class="v2-btn sm cta" href="#demo/${p.slug}">Diskusikan Kebutuhan</a>
+  </div></nav>
 
   <section class="v2-sec" id="manfaat"><div class="container anchor" id="sec-manfaat">
     ${v2Head(v.benefit)}
     <div class="v2-benefits">${v.benefit.items.map(b=>`<div><span class="v2-ic">${VICON[b[0]]}</span><div><h3>${esc(b[1])}</h3><p>${esc(b[2])}</p></div></div>`).join('')}</div>
-    <div class="v2-photos">${v.benefit.photos.map(ph=>`<figure><img src="${ph[0]}" alt="${esc(ph[1])}" width="1200" height="900" loading="lazy" decoding="async"><figcaption><b>${esc(ph[2])}</b><span>${esc(ph[3])}</span></figcaption></figure>`).join('')}</div>
+    ${v.benefit.problems?`<div class="v2-problems"><b>Masalah yang dijawab</b><ul>${v.benefit.problems.map(x=>`<li>${VICON.x}${esc(x)}</li>`).join('')}</ul></div>`:''}
+    ${v2Photos(v.benefit.photos)}
   </div></section>
 
   <section class="v2-sec" id="fitur"><div class="container anchor" id="sec-fitur">
     ${v2Head(v.features)}
     <div class="v2-features">${v.features.items.map(f=>`<div class="v2-fcard"><span class="v2-ic">${VICON[f[0]]}</span><div><h3>${esc(f[1])}</h3><p>${esc(f[2])}</p></div></div>`).join('')}</div>
+    ${v2Photos(v.features.photos)}
   </div></section>
 
   <section class="v2-sec" id="alur"><div class="container anchor" id="sec-alur">
@@ -218,30 +392,26 @@ function pageProductV2(p){
   <section class="v2-sec" id="tampilan"><div class="container anchor" id="sec-tampilan">
     ${v2Head(v.roles)}
     <div role="tablist" class="v2-tabs" aria-label="Peran pengguna">${tabs}</div>
-    <div class="v2-roles">
-      <div>${panels}</div>
-      <div class="v2-devices">${v2Laptop(p,v.dash)}${v2Phone(p,v.dash.phone)}<span class="v2-note">Ilustrasi antarmuka • Data contoh</span></div>
-    </div>
+    ${rolesBlock}
   </div></section>
 
   <section class="v2-sec"><div class="container">
     ${v2Head(v.report)}
-    <div class="v2-report">
-      <div class="v2-panel"><div class="v2-panel-h"><b>${esc(tb.title)}</b><small>Data contoh</small></div>
-        <div class="tbl-wrap"><table class="v2-table"><caption class="sr-only">${esc(tb.title)} (data contoh)</caption><thead><tr>${tb.cols.map(c=>`<th scope="col">${esc(c)}</th>`).join('')}</tr></thead>
-        <tbody>${tb.rows.map(r=>`<tr><th scope="row">${esc(r[0])}</th>${r.slice(1).map((c,j)=>cell(c,j+1)).join('')}</tr>`).join('')}</tbody>
-        <tfoot><tr><th scope="row">Total</th>${tot.map(c=>`<td>${c}</td>`).join('')}</tr></tfoot></table></div></div>
+    <div class="v2-report${v.report.table.kind==='rows'?' wide':''}">
+      <div class="v2-panel"><div class="v2-panel-h"><b>${esc(v.report.table.title)}</b><small>Data contoh</small></div><div class="tbl-wrap">${v2Table(v.report.table)}</div></div>
       <div class="v2-panel"><div class="v2-panel-h"><b>${esc(v.report.chart.title)}</b><small>Data contoh</small></div>${v2Chart(v.report.chart)}</div>
     </div>
+    ${(v.report.notes||[]).map(n=>`<p class="v2-mini">${VICON.info}${esc(n)}</p>`).join('')}
   </div></section>
 
   <section class="v2-sec"><div class="container">
-    ${v2Head(v.scope)}
-    <div class="v2-scope">
-      <div class="v2-core">${v.scope.core.map(c=>`<div class="v2-fcard sm"><span class="v2-ic">${VICON[c[0]]}</span><div><h3>${esc(c[1])}</h3><p>${esc(c[2])}</p></div></div>`).join('')}</div>
-      <div class="v2-extra"><b>Integrasi tambahan (opsional)</b><div>${v.scope.extra.map(e=>{const q=BY[e[0]];return `<a class="v2-fcard sm" href="#aplikasi/${q.slug}"><span class="v2-ic">${VICON[e[1]]}</span><div><h3>${esc(q.name)}</h3><p>${esc(e[2])}</p></div></a>`;}).join('')}</div></div>
+    ${v2Head(sc)}
+    <div class="v2-scope${sc.core.length>3?' stack':''}">
+      <div class="v2-core">${sc.core.map(c=>`<div class="v2-fcard sm"><span class="v2-ic">${VICON[c[0]]}</span><div><h3>${esc(c[1])}</h3><p>${esc(c[2])}</p></div></div>`).join('')}</div>
+      <div class="v2-extra"><b>Integrasi tambahan (opsional)</b><div class="n${sc.extra.length}">${sc.extra.map(e=>{const q=BY[e[0]];return `<a class="v2-fcard sm" href="#aplikasi/${q.slug}"><span class="v2-ic">${VICON[e[1]]}</span><div><h3>SmartOps ${esc(q.name)}</h3><p>${esc(e[2])}</p></div></a>`;}).join('')}</div>
+        ${sc.optional?`<b class="opt">Opsional sesuai paket</b><ul class="v2-opt">${sc.optional.map(o=>`<li>${VICON.plus}${esc(o)}</li>`).join('')}</ul>`:''}</div>
     </div>
-    <p class="v2-notice">${VICON.info}<span>${esc(v.scope.note)}</span></p>
+    <p class="v2-notice">${VICON.info}<span>${esc(sc.note)}</span></p>
   </div></section>
 
   <section class="v2-sec" id="faq"><div class="container anchor" id="sec-faq">
