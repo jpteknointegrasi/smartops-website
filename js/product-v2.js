@@ -32,7 +32,8 @@ const VICON = {
   swap: VI('<path d="M4 8h13l-3.5-3.5M20 16H7l3.5 3.5"/>'),
   checkC: VI('<circle cx="12" cy="12" r="8.5"/><path d="M8.3 12.3l2.5 2.5 5-5"/>'),
   share: VI('<circle cx="6" cy="12" r="2.4"/><circle cx="18" cy="6" r="2.4"/><circle cx="18" cy="18" r="2.4"/><path d="M8.2 10.9l7.6-3.8M8.2 13.1l7.6 3.8"/>'),
-  x: VI('<path d="M7 7l10 10M17 7L7 17"/>', 2.2)
+  x: VI('<path d="M7 7l10 10M17 7L7 17"/>', 2.2),
+  tool: VI('<path d="M14.5 6.5a4 4 0 0 0 5 5L12 19a2.1 2.1 0 0 1-3-3z"/><path d="M14.5 6.5L17 4l3 3-2.5 2.5"/>')
 };
 
 /* ---------- data per produk ---------- */
@@ -257,6 +258,122 @@ const V2 = {
       ]
     },
     cta: { title:'Siap menata operasional security?', text:'Diskusikan kebutuhan lokasi, tim, dan alur kerja Anda bersama tim kami.' }
+  },
+  'pest-control': {
+    theme: { c:'#52672D', c2:'#5F7834', soft:'#EEF1E3', b:'#96652F', b2:'#7F5424' },
+    hero: {
+      eyebrow:'SmartOps Pest Control',
+      line1:'Titik terpantau.', line2:'Tindakan terdokumentasi.',
+      lead:'Kelola inspeksi, temuan, dan tindak lanjut pengendalian hama dalam satu alur.',
+      for:'Vendor pest control, reviewer teknis, teknisi, dan pelanggan.',
+      img:'assets/pest-hero.webp', pos:'right center', mpos:'62% center', shift:'26%',
+      alt:'Teknisi memeriksa perangkat monitoring hama dan mencatat hasil melalui tablet.'
+    },
+    benefit: {
+      eyebrow:'Manfaat', title:['Pengendalian berbasis','catatan lapangan.'],
+      side:'Catat hasil inspeksi dan tindakan secara terstruktur untuk membantu pemantauan kondisi lingkungan.',
+      items:[
+        ['doc','Riwayat tiap titik','Catatan perangkat dan titik monitoring dapat ditelusuri dari waktu ke waktu.'],
+        ['clip','Tindakan tercatat','Hasil inspeksi, foto, tindakan, dan material terdokumentasi.'],
+        ['cal','Monitor ulang terencana','Titik yang perlu perhatian dijadwalkan untuk diperiksa kembali.']
+      ],
+      problems:['Titik tidak terdokumentasi','Titik tak dapat diakses dianggap nihil aktivitas','Temuan tanpa tindak lanjut yang jelas']
+    },
+    features: {
+      eyebrow:'Fitur utama', title:['Satu alur untuk','pengendalian hama.'],
+      side:'Dari survei dan program hingga analisis, semua tercatat dalam satu aplikasi.',
+      items:[
+        ['clip','Survei & program','Data awal, program monitoring, target area, dan rencana pekerjaan.'],
+        ['pin','Titik & perangkat','Daftar titik monitoring serta perangkat seperti trap dan bait station.'],
+        ['checkC','Inspeksi','Kondisi perangkat, observasi aktivitas, foto, dan catatan.'],
+        ['shield','Treatment & material','Rekam tindakan pengendalian dan material sesuai program.'],
+        ['doc','Temuan & tindak lanjut','Temuan hama, penugasan tindakan, dan rencana pemeriksaan kembali.'],
+        ['bars','Analisis & laporan','Tren temuan, evaluasi tindakan, dan rekomendasi.']
+      ],
+      photos:[
+        ['assets/pest-inspection.webp','Teknisi memeriksa titik monitoring dan mendokumentasikan hasil melalui HP.','Inspeksi tiap titik','Kondisi perangkat dan foto dicatat langsung dari HP teknisi.'],
+        ['assets/pest-review.webp','Reviewer teknis dan teknisi meninjau hasil inspeksi serta tindak lanjut.','Review & tindak lanjut','Reviewer teknis menilai temuan dan menjadwalkan monitor ulang.']
+      ]
+    },
+    flow: {
+      eyebrow:'Alur kerja', title:['Dari inspeksi hingga','monitor ulang.'],
+      side:'Proses yang terstruktur untuk memastikan setiap temuan ditangani dengan tepat.',
+      steps:[
+        ['clip','Program','Tentukan area, titik, dan rencana.'],
+        ['cal','Jadwalkan','Atur jadwal inspeksi dan teknisi.'],
+        ['search','Periksa','Inspeksi tiap titik dan catat hasil.'],
+        ['tool','Tindakan','Lakukan pengendalian sesuai program.'],
+        ['doc','Review','Evaluasi hasil dan temuan.'],
+        ['refresh','Monitor ulang','Periksa kembali titik yang dipantau.']
+      ]
+    },
+    roles: {
+      eyebrow:'Tampilan aplikasi', title:['Tampilan sesuai','tanggung jawab.'],
+      side:'Status pemeriksaan dan hasil pengamatan ditampilkan terpisah di setiap peran.',
+      list:[
+        ['Pemilik',[['monitor','Pantau status titik di seluruh lokasi'],['bars','Lihat tren temuan dan pelaksanaan'],['doc','Pantau tindak lanjut sampai selesai']], {
+          title:'Titik Monitoring', location:'Semua lokasi',
+          kpis:[['pin','48','Total titik'],['checkC','41','Sudah diperiksa'],['clip','5','Belum diperiksa'],['alert','2','Tidak dapat diakses']],
+          cards:[{ type:'tbl', title:'Status Titik', cols:['Lokasi / Area','Titik','Pemeriksaan','Hasil pengamatan','Terakhir'],
+            rows:[['Tower A / Lobby','BS-01',['ok','Diperiksa'],'Nihil aktivitas','10 Okt'],['Tower A / Parkir','BS-07',['wait','Belum diperiksa'],'—','—'],['Tower B / Lt 5','LT-03',['ok','Diperiksa'],'Ada aktivitas','9 Okt'],['Area Servis','BS-12',['bad','Tidak dapat diakses'],'—','8 Okt']] }] }],
+        ['Reviewer teknis',[['search','Review hasil inspeksi dan tindakan'],['checkC','Setujui atau kembalikan dengan catatan'],['refresh','Rekomendasikan monitor ulang']], {
+          title:'Review Inspeksi', location:'Tower B',
+          kpis:[['clip','12','Menunggu review'],['checkC','28','Disetujui'],['refresh','3','Dikembalikan'],['cal','6','Monitor ulang']],
+          cards:[
+            { type:'list', title:'Temuan perlu review', rows:[['LT-03 · Lalat','Ada aktivitas · Lantai 5','9 Okt','run'],['BS-09 · Tikus','Ada aktivitas · Basement','9 Okt','run'],['BS-12 · Area Servis','Tidak dapat diakses','8 Okt','wait']] },
+            { type:'bars', title:'Monitor ulang terjadwal', rows:[['Lantai 5',1,2],['Basement',0,2],['Area Servis',1,2]] }
+          ] }],
+        ['Teknisi',[['mobile','Lihat jadwal dan daftar titik di HP'],['checkC','Catat kondisi perangkat dan foto'],['tool','Rekam tindakan dan material']], {
+          title:'Jadwal Hari Ini', location:'Tower A · 12 Okt',
+          kpis:[['pin','14','Titik hari ini'],['checkC','9','Sudah diperiksa'],['clip','4','Belum diperiksa'],['alert','1','Tidak dapat diakses']],
+          cards:[
+            { type:'list', title:'Titik berikutnya', rows:[['BS-04 · Lobby Utama','Belum diperiksa','—','wait'],['BS-05 · Pantry','Belum diperiksa','—','wait'],['LT-01 · Ruang Sampah','Tidak dapat diakses','09.20','bad']] },
+            { type:'list', title:'Tindakan & material', rows:[['Penggantian umpan BS-03','Material tercatat','09.40','ok'],['Pembersihan LT-02','Tercatat','10.15','ok']] }
+          ] }],
+        ['Pelanggan',[['building','Lihat ringkasan lokasi Anda'],['doc','Unduh laporan bulanan sesuai hak akses'],['alert','Pantau temuan dan tindak lanjutnya']], {
+          title:'Laporan Lokasi', location:'Tower A (lokasi Anda)',
+          kpis:[['pin','24','Titik di lokasi'],['checkC','22','Sudah diperiksa'],['alert','2','Belum / tidak dapat diakses'],['doc','7/8','Tindak lanjut selesai']],
+          cards:[
+            { type:'bars', title:'Titik diperiksa per bulan', rows:[['Agustus',24,24],['September',23,24],['Oktober',22,24]] },
+            { type:'list', title:'Temuan & tindak lanjut', rows:[['Semut · Pantry','Selesai','3 Okt','ok'],['Tikus · Parkir','Monitor ulang','9 Okt','run']] }
+          ] }]
+      ]
+    },
+    dash: {
+      nav:[['grid','Dashboard'],['pin','Lokasi'],['checkC','Inspeksi'],['alert','Temuan'],['refresh','Tindak Lanjut'],['bars','Laporan']],
+      phone:{ title:'Inspeksi Titik', area:'BS-04 · Lobby Utama', sub:'Tower A · Bait station', img:'assets/th-pc-box.webp',
+        groups:[['Status pemeriksaan',['Sudah diperiksa','Belum diperiksa','Tidak dapat diakses'],0],['Hasil pengamatan',['Ada aktivitas','Nihil aktivitas'],1]],
+        note:'Umpan utuh, tidak ada jejak.', btn:'Simpan' }
+    },
+    report: {
+      eyebrow:'Laporan & analisis', title:['Tren temuan','untuk evaluasi.'],
+      side:'Telusuri pola temuan, tindakan, serta kebutuhan pemeriksaan ulang dari waktu ke waktu.',
+      table:{ kind:'rows', head:0, title:'Temuan per Bulan · Tower A & B', cols:['Bulan','Titik diperiksa','Tikus','Lalat','Kecoa','Semut','Tindak lanjut'],
+        rows:[['Jan 2026','46/48',5,12,18,25,'18/25'],['Feb 2026','47/48',3,10,14,20,'16/20'],['Mar 2026','45/48',4,8,11,18,'15/18'],['Apr 2026','48/48',2,6,9,12,'10/12'],['Mei 2026','46/48',1,5,7,10,'9/10'],['Jun 2026','47/48',2,4,6,8,'7/8']] },
+      chart:{ title:'Tren jumlah temuan', labels:['Jan','Feb','Mar','Apr','Mei','Jun'],
+        series:[['Tikus','#52672D',[5,3,4,2,1,2]],['Lalat','#2F7FA8',[12,10,8,6,5,4]],['Kecoa','#C0563B',[18,14,11,9,7,6]],['Semut','#D9A15B',[25,20,18,12,10,8]]], max:30, ticks:[0,10,20,30] },
+      notes:['Temuan = jumlah titik dengan aktivitas per jenis hama, hanya dari titik yang benar-benar diperiksa. Tindak lanjut = selesai / dibuat.','Tren pada contoh ini adalah data ilustrasi, bukan klaim hasil layanan.']
+    },
+    scope: {
+      eyebrow:'Lingkup & integrasi', title:['Terhubung dengan','lingkungan operasional.'],
+      side:'Mendukung pengelolaan tim, lokasi, hingga integrasi dengan layanan lain di SmartOps.',
+      core:[['users','Manajemen tim','Peran dan akses tim internal vendor.'],['pin','Lokasi, area, titik','Struktur lokasi hingga titik monitoring.'],['clip','Inspeksi, treatment, tindak lanjut','Seluruh proses dalam satu alur.'],['bars','Laporan & tren','Hasil kerja terdokumentasi dan siap dievaluasi.']],
+      extra:[['cleaning','share','Koordinasi area sanitasi.'],['garden','leaf','Titik monitoring area luar.']],
+      optional:['Program khusus (fumigasi, termite) sesuai lingkup','Laporan khusus pelanggan'],
+      note:'Titik tidak diperiksa berbeda dari nihil aktivitas. Aplikasi membantu pencatatan dan pemantauan, dan tidak menjanjikan kondisi bebas hama secara otomatis.'
+    },
+    faq: {
+      title:'Pertanyaan yang sering diajukan.',
+      side:'Temukan jawaban untuk pertanyaan umum seputar SmartOps Pest Control.',
+      items:[
+        ['Apa saja yang bisa dikelola di SmartOps Pest Control?','Survei, program monitoring, titik dan perangkat, inspeksi, tindakan, material, temuan, monitor ulang, serta laporan.'],
+        ['Apakah bisa mencatat temuan dan tindak lanjut?','Bisa. Temuan dicatat bersama foto dan catatan, lalu diikuti rencana penanganan serta pemeriksaan ulang.'],
+        ['Bagaimana jika titik tidak dapat diakses?','Catat sebagai tidak dapat diakses dengan alasan dan tindak lanjut, bukan sebagai nihil aktivitas.'],
+        ['Apakah pelanggan dapat melihat data lokasinya sendiri?','Pelanggan melihat ringkasan dan laporan lokasi sesuai hak akses yang diberikan.'],
+        ['Apakah ada jaminan bebas hama?','Tidak. Aplikasi membantu pencatatan dan evaluasi program, dan tidak memberikan jaminan bebas hama secara otomatis.']
+      ]
+    },
+    cta: { title:'Siap menata program pest control?', text:'Diskusikan kebutuhan lokasi, lingkup, dan alur kerja Anda bersama tim kami.' }
   }
 };
 
@@ -282,8 +399,9 @@ function v2Card(c){
   let body='';
   if(c.type==='donut') body=v2Donut(c);
   else if(c.type==='bars') body=`<ul class="v2-bars">${c.rows.map(r=>{const pct=Math.round(r[1]/r[2]*100);return `<li><span>${esc(r[0])}</span><em>${r[1]}/${r[2]}</em><i><b class="${pct===100?'ok':pct>=75?'run':'wait'}" style="width:${pct}%"></b></i></li>`;}).join('')}</ul>`;
+  else if(c.type==='tbl') body=`<table class="v2-mtbl"><thead><tr>${c.cols.map(h=>`<th>${esc(h)}</th>`).join('')}</tr></thead><tbody>${c.rows.map(r=>`<tr>${r.map(x=>Array.isArray(x)?`<td><span class="v2-pill sm ${x[0]}">${esc(x[1])}</span></td>`:`<td>${esc(x)}</td>`).join('')}</tr>`).join('')}</tbody></table>`;
   else body=`<ul class="v2-act">${c.rows.map(a=>`<li class="${a[4]?'':'nothumb'}">${a[4]?`<img src="assets/th-${a[4]}.webp" alt="" width="120" height="90" loading="lazy">`:`<i class="dot ${a[3]}"></i>`}<span><b>${esc(a[0])}</b><em class="${a[3]}">${esc(a[1])}</em></span><time>${a[2]}</time></li>`).join('')}</ul>`;
-  return `<div class="v2-card"><b class="t">${esc(c.title)}</b>${body}</div>`;
+  return `<div class="v2-card${c.type==='tbl'?' span':''}"><b class="t">${esc(c.title)}</b>${body}</div>`;
 }
 
 function v2Laptop(p, nav, view, roleName){
@@ -306,7 +424,8 @@ function v2Phone(p, ph){
     <div class="ph-title">‹ ${esc(ph.title)}</div>
     ${ph.img?`<img src="${ph.img}" alt="" width="240" height="180">`:''}
     <b class="ph-area">${esc(ph.area)}</b><small>${esc(ph.sub)}</small>
-    <ul>${ph.checks.map(c=>`<li class="${c[1]?'on':''}"><i>${c[1]?VICON.check:''}</i><span>${esc(c[0])}</span>${c[2]?`<time>${c[2]}</time>`:''}</li>`).join('')}</ul>
+    ${ph.groups?ph.groups.map(g=>`<div class="ph-g"><small>${esc(g[0])}</small>${g[1].map((o,i)=>`<span class="ph-r${i===g[2]?' on':''}"><i></i>${esc(o)}</span>`).join('')}</div>`).join('')+(ph.note?`<div class="ph-note">${esc(ph.note)}</div>`:''):''}
+    ${ph.checks?`<ul>${ph.checks.map(c=>`<li class="${c[1]?'on':''}"><i>${c[1]?VICON.check:''}</i><span>${esc(c[0])}</span>${c[2]?`<time>${c[2]}</time>`:''}</li>`).join('')}</ul>`:''}
     <span class="ph-btn">${esc(ph.btn)}</span>
   </div></div>`;
 }
@@ -333,7 +452,7 @@ function v2Table(tb){
   }
   const td=v=> Array.isArray(v) ? `<td class="st"><span class="v2-pill ${V2_STATUS[v[0]]}">${esc(v[1])}</span></td>` : typeof v==='number' ? `<td class="num${v>0&&false?'':''}">${v}</td>` : `<td class="txt">${esc(v)}</td>`;
   return `<table class="v2-table rows"><caption class="sr-only">${esc(tb.title)} (data contoh)</caption><thead><tr>${tb.cols.map(c=>`<th scope="col">${esc(c)}</th>`).join('')}</tr></thead>
-    <tbody>${tb.rows.map(r=>`<tr><td class="txt">${esc(r[0])}</td><th scope="row">${esc(r[1])}</th>${r.slice(2).map(td).join('')}</tr>`).join('')}</tbody></table>`;
+    <tbody>${tb.rows.map(r=>{const h=tb.head??1;return `<tr>${r.map((v,i)=>i===h?`<th scope="row">${esc(v)}</th>`:i<h?`<td class="txt">${esc(v)}</td>`:td(v)).join('')}</tr>`;}).join('')}</tbody></table>`;
 }
 
 /* ---------- halaman ---------- */
@@ -349,7 +468,7 @@ function pageProductV2(p){
   const sc=v.scope;
   return `<div class="pv2" style="--v:${t.c};--v2:${t.c2};--vsoft:${t.soft};--vb:${t.b};--vb2:${t.b2}">
 
-  <section class="v2-hero" style="--hpos:${v.hero.pos};--mpos:${v.hero.mpos}">
+  <section class="v2-hero${v.hero.shift?' shift':''}" style="--hpos:${v.hero.pos};--mpos:${v.hero.mpos}${v.hero.shift?`;--hleft:${v.hero.shift}`:''}">
     <img class="v2-hero-img" src="${v.hero.img}" width="1536" height="1024" alt="${esc(v.hero.alt)}" fetchpriority="high" decoding="async">
     <div class="container v2-hero-in">
       <nav class="v2-crumb" aria-label="Breadcrumb"><a href="#beranda">Beranda</a> › <a href="#aplikasi">Aplikasi</a> › <span aria-current="page">${esc(p.name)}</span></nav>
