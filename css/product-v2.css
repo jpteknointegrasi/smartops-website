@@ -341,3 +341,7 @@
 
 /* 7 kartu: kartu terakhir melebar agar baris kedua penuh */
 @media(min-width:1101px){.v2-features.n7>.v2-fcard:last-child{grid-column:span 2}}
+
+.v2-report3.two{grid-template-columns:1.15fr 1fr}
+@media(max-width:1100px){.v2-report3.two{grid-template-columns:1fr}}
+.v2-table.rows tbody tr:last-child th[scope=row]:only-of-type{font-weight:700}

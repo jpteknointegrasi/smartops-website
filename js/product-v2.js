@@ -995,6 +995,129 @@ const V2 = {
       ]
     },
     cta: { title:'Siap menata kunjungan tim lapangan?', text:'Mulai dengan prototipe demo dan diskusikan kebutuhan vendor Anda.', btn:'Jadwalkan demo' }
+  },
+  workforce: {
+    theme: { c:'#96652F', c2:'#7F5424', soft:'#F4EADF', b:'#44505B', b2:'#353F48' },
+    hero: {
+      eyebrow:'SmartOps Workforce',
+      line1:'Kebutuhan terpetakan.', line2:'Penempatan lebih terarah.',
+      lead:'Kelola posisi, kompetensi, penempatan, jadwal, dan evaluasi personel dalam satu alur.',
+      for:'Vendor SDM, HR, pengelola kontrak personel, dan building management.',
+      btn:'Jadwalkan demo',
+      img:'assets/wf-hero.webp', pos:'right center', mpos:'64% center', shift:'34%',
+      alt:'Koordinator HR dan supervisor membahas penempatan bersama tim operasional.'
+    },
+    benefit: {
+      eyebrow:'Manfaat', title:['Pengelolaan personel','lebih terstruktur.'],
+      side:'Membantu vendor SDM, tim HR, dan pengelola kontrak memantau kebutuhan sampai evaluasi kerja.',
+      items:[
+        ['users','Kebutuhan posisi jelas','Pemenuhan kebutuhan tiap lokasi dapat dipantau.'],
+        ['doc','Kompetensi terdokumentasi','Profil, kompetensi, sertifikat, dan masa berlaku tersimpan rapi.'],
+        ['pin','Riwayat penempatan terpantau','Lokasi, periode, aktivitas, dan evaluasi dapat ditelusuri.']
+      ],
+      problems:['Kekurangan personel baru diketahui setelah keluhan','Dokumen kompetensi tersebar','Riwayat siapa ditempatkan di mana tidak tercatat']
+    },
+    features: {
+      eyebrow:'Fitur utama', title:['Satu alur untuk','pengelolaan tenaga kerja.'],
+      side:'Dari kebutuhan posisi sampai evaluasi kinerja, tercatat dalam satu aplikasi.',
+      items:[
+        ['clip','Kebutuhan posisi','Personel per lokasi dan periode.'],
+        ['user','Profil & kompetensi','Data personel, kompetensi, sertifikat, dan masa berlaku.'],
+        ['share','Mobilisasi personel','Rencana dan proses mobilisasi ke lokasi.'],
+        ['pin','Penempatan personel','Posisi, lokasi, dan kompetensi sesuai kebutuhan.'],
+        ['cal','Jadwal & kehadiran','Jadwal kerja dan catatan kehadiran.'],
+        ['bars','Aktivitas & KPI','Aktivitas, target, serta evaluasi kinerja.']
+      ],
+      photos:[
+        ['assets/wf-placement.webp','Koordinator menjelaskan roster dan penugasan kepada tim.','Penempatan & mobilisasi','Roster dan penugasan per lokasi dijelaskan kepada tim.'],
+        ['assets/wf-competency.webp','HR dan supervisor meninjau dokumen kompetensi serta catatan personel.','Review kompetensi','Sertifikat dan masa berlakunya ditinjau sebelum penempatan.']
+      ]
+    },
+    flow: {
+      eyebrow:'Alur kerja', title:['Dari kebutuhan','hingga evaluasi.'],
+      side:'Setiap keputusan kepegawaian tetap diambil pengguna; aplikasi mencatat dan menampilkan datanya.',
+      steps:[
+        ['clip','Petakan posisi','Kebutuhan per lokasi.'],
+        ['users','Pilih personel','Kandidat berkompetensi.'],
+        ['checkC','Verifikasi kompetensi','Cek sertifikat dan persyaratan.'],
+        ['pin','Penempatan','Lokasi dan periode penugasan.'],
+        ['cal','Aktivitas & kehadiran','Rekam kerja harian.'],
+        ['bars','Evaluasi','Hasil kerja dan tindak lanjut.']
+      ]
+    },
+    roles: {
+      eyebrow:'Tampilan aplikasi', title:['Tampilan sesuai','tanggung jawab.'],
+      side:'Pelanggan tidak otomatis memperoleh data gaji atau seluruh data internal vendor.',
+      list:[
+        ['Pemilik',[['monitor','Pemenuhan kontrak di semua lokasi'],['users','Kebutuhan personel dan penempatan'],['bars','Ringkasan kinerja']], {
+          title:'Ringkasan Tenaga Kerja', location:'Semua lokasi',
+          kpis:[['users','34','Total kebutuhan'],['checkC','30','Terisi'],['alert','4','Kosong'],['doc','3','Sertifikat segera habis']],
+          cards:[{ type:'tbl', title:'Kebutuhan & penempatan per posisi', cols:['Posisi','Kebutuhan','Terisi','Kosong','Status'],
+            rows:[['Security','10','10','0',['ok','Terpenuhi']],['Cleaning Service','8','6','2',['wait','Kurang 2']],['Receptionist','4','4','0',['ok','Terpenuhi']],['Teknisi','6','4','2',['wait','Kurang 2']],['Gardener','6','6','0',['ok','Terpenuhi']]] }] }],
+        ['HR',[['user','Profil dan kompetensi personel'],['doc','Dokumen dan masa berlaku sertifikat'],['share','Mobilisasi dan penempatan']], {
+          title:'Kompetensi & Dokumen', location:'Semua personel',
+          kpis:[['users','30','Personel aktif'],['checkC','26','Dokumen lengkap'],['alert','3','Habis ≤ 60 hari'],['share','2','Mobilisasi berjalan']],
+          cards:[
+            { type:'list', title:'Masa berlaku sertifikat', rows:[['Sertifikat Security · Andi','Berlaku s.d. 12 Mar 2027','—','ok','wf-doc'],['Teknik Listrik · Rudi','Habis 5 Jan 2026 · perpanjang','—','bad'],['K3 Umum · Sari','Berlaku s.d. 18 Sep 2027','—','ok']] },
+            { type:'list', title:'Mobilisasi', rows:[['2 teknisi → Tower B','Dokumen diverifikasi','14 Okt','run'],['1 cleaner → Lobby','Menunggu kandidat','—','wait']] }
+          ] }],
+        ['Supervisor',[['pin','Personel di lokasi saya'],['cal','Jadwal, kehadiran, dan aktivitas'],['bars','Catat evaluasi kerja']], {
+          title:'Lokasi Tower A', location:'Hari ini',
+          kpis:[['users','12','Personel terjadwal'],['checkC','11','Hadir'],['clip','18','Aktivitas tercatat'],['bars','2','Evaluasi tertunda']],
+          cards:[
+            { type:'bars', title:'Kehadiran per shift', rows:[['Pagi',6,6],['Siang',4,4],['Malam',1,2]] },
+            { type:'list', title:'Aktivitas terbaru', rows:[['Inspeksi area publik · Dewi','Selesai','10.20','ok'],['Laporan harian · Bayu','Dikirim','09.45','ok'],['Briefing shift malam','Terjadwal','18.30','wait']] }
+          ] }],
+        ['Personel',[['mobile','Jadwal dan penugasan saya'],['clip','Catat aktivitas harian'],['history','Riwayat penempatan saya']], {
+          title:'Jadwal Saya', location:'Okt 2026',
+          kpis:[['cal','22','Shift bulan ini'],['checkC','9','Sudah hadir'],['pin','Lobby','Penempatan'],['clip','3','Aktivitas hari ini']],
+          cards:[
+            { type:'list', title:'Hari ini', rows:[['Shift pagi · Lobby Utama','07.00–15.00','07.00','ok'],['Rapat koordinasi · Gedung A','10.00–11.00','10.00','run'],['Laporan harian','Belum dikirim','14.30','wait']] },
+            { type:'list', title:'Penempatan saya', rows:[['Tower A · Lobby','Sejak Jul 2026','—','ok']] }
+          ] }],
+        ['Pelanggan',[['building','Pemenuhan posisi di lokasi Anda'],['doc','Laporan lokasi sesuai hak akses'],['alert','Tanpa data gaji atau data internal vendor']], {
+          title:'Pemenuhan Lokasi', location:'Tower A (lokasi Anda)',
+          kpis:[['users','14','Kebutuhan'],['checkC','13','Terisi'],['alert','1','Kosong'],['doc','Okt','Laporan tersedia']],
+          cards:[
+            { type:'bars', title:'Terisi per posisi', rows:[['Security',4,4],['Cleaning',5,6],['Receptionist',2,2],['Teknisi',2,2]] },
+            { type:'list', title:'Laporan', rows:[['Laporan bulanan September','Tersedia','1 Okt','ok']] }
+          ] }]
+      ]
+    },
+    dash: {
+      nav:[['grid','Dashboard'],['clip','Kebutuhan Posisi'],['users','Personel'],['pin','Penempatan'],['cal','Jadwal & Kehadiran'],['bars','Aktivitas & KPI'],['doc','Laporan']],
+      phone:{ title:'Jadwal Saya', area:'Rabu, 13 Okt', sub:'Tower A · Lobby Utama', checks:[['Shift pagi 07.00–15.00',1,'07.00'],['Rapat koordinasi',1,'10.00'],['Inspeksi area publik',0,'13.00'],['Laporan harian',0,'14.30']], btn:'Lihat detail' }
+    },
+    report: {
+      eyebrow:'Laporan & monitoring', title:['Pemenuhan posisi dan','evaluasi terlihat jelas.'],
+      side:'Pemenuhan posisi, kelengkapan kompetensi, kehadiran, dan evaluasi adalah ukuran yang berbeda.',
+      panels:[
+        { title:'Status pemenuhan posisi', sub:'Oktober 2026 · semua lokasi', kpis:[['34','Kebutuhan'],['30','Terisi'],['4','Kosong']],
+          table:{ kind:'rows', head:0, align:'r', cols:['Posisi','Kebutuhan','Terisi','Kosong'], rows:[['Security','10','10','0'],['Cleaning Service','8','6','2'],['Receptionist','4','4','0'],['Teknisi','6','4','2'],['Gardener','6','6','0'],['Total','34','30','4']] } },
+        { title:'Masa berlaku kompetensi', sub:'Dicek 13 Okt 2026',
+          table:{ kind:'rows', head:0, cols:['Sertifikat','Berlaku s.d.','Status'], rows:[['Security','12 Mar 2027',['ok','Berlaku']],['Kebersihan','20 Jul 2026',['bad','Kedaluwarsa']],['Teknik Listrik','5 Jan 2026',['bad','Kedaluwarsa']],['K3 Umum','18 Sep 2027',['ok','Berlaku']]] } }
+      ],
+      notes:['Persentase posisi terisi tidak sama dengan persentase kompetensi terverifikasi; definisi metrik dan skala evaluasi ditetapkan saat implementasi.','Semua angka, nama, dan tanggal adalah data contoh, bukan data personel nyata.']
+    },
+    scope: {
+      eyebrow:'Lingkup & integrasi', title:['Fokus personel, terhubung','sesuai kebutuhan.'],
+      side:'Kelola personel untuk operasional gedung dan area kerja, dengan integrasi yang fleksibel.',
+      core:[['clip','Kebutuhan posisi','Per lokasi dan periode.'],['user','Profil & kompetensi','Data, sertifikat, masa berlaku.'],['pin','Penempatan & jadwal','Lokasi, jadwal, dan kehadiran.'],['bars','Aktivitas & evaluasi','Kinerja dan tindak lanjut.'],['doc','Laporan operasional','Rekap pemenuhan dan kehadiran.']],
+      extra:[['security','shield','Sinkronisasi data personel, penugasan, dan penjadwalan.']],
+      optional:['Penggajian','Administrasi lanjutan','Laporan khusus pelanggan'],
+      note:'Workforce bukan prasyarat memakai aplikasi SmartOps lainnya. Data gaji tidak otomatis terlihat oleh pelanggan.'
+    },
+    faq: {
+      title:'Pertanyaan yang sering diajukan.',
+      side:'Temukan jawaban untuk pertanyaan umum seputar SmartOps Workforce.',
+      items:[
+        ['Apakah Workforce wajib untuk memakai aplikasi lain?','Tidak. Berlangganan Workforce penuh bukan prasyarat menjalankan alur minimum aplikasi SmartOps lain sesuai lingkupnya.'],
+        ['Apa saja data personel yang dikelola?','Profil, kompetensi, sertifikat dan masa berlaku, penempatan, jadwal, kehadiran, aktivitas, dan evaluasi sesuai lingkup implementasi.'],
+        ['Apakah penggajian termasuk di dalam aplikasi?','Penggajian dan administrasi lanjutan merupakan opsi sesuai paket.'],
+        ['Apakah pelanggan dapat melihat data personel?','Informasi pelanggan dibatasi sesuai hak akses dan lingkup; data internal atau gaji tidak otomatis terbuka.']
+      ]
+    },
+    cta: { title:'Siap menata pengelolaan personel?', text:'Jadwalkan demo dan diskusikan kebutuhan serta alur kerja tim Anda.', btn:'Jadwalkan demo' }
   }
 };
 
@@ -1089,7 +1212,7 @@ function v2Map(m){
 }
 function v2Panels(list){
   const body=pn=> pn.kpis?`<div class="v2-k3">${pn.kpis.map(k=>`<div><b>${esc(k[0])}</b><span>${esc(k[1])}</span></div>`).join('')}</div>`:'';
-  return `<div class="v2-report3">${list.map(pn=>`<div class="v2-panel"><div class="v2-panel-h"><b>${esc(pn.title)}</b><small>Data contoh</small></div>${pn.sub?`<p class="v2-sum-sub">${esc(pn.sub)}</p>`:''}${body(pn)}${pn.map?v2Map(pn.map):''}${pn.table?`<div class="tbl-wrap">${v2Table({...pn.table,title:pn.title})}</div>`:''}${pn.foot?`<p class="v2-pfoot">${esc(pn.foot)}</p>`:''}</div>`).join('')}</div>`;
+  return `<div class="v2-report3${list.length===2?' two':''}">${list.map(pn=>`<div class="v2-panel"><div class="v2-panel-h"><b>${esc(pn.title)}</b><small>Data contoh</small></div>${pn.sub?`<p class="v2-sum-sub">${esc(pn.sub)}</p>`:''}${body(pn)}${pn.map?v2Map(pn.map):''}${pn.table?`<div class="tbl-wrap">${v2Table({...pn.table,title:pn.title})}</div>`:''}${pn.foot?`<p class="v2-pfoot">${esc(pn.foot)}</p>`:''}</div>`).join('')}</div>`;
 }
 
 /* ---------- halaman ---------- */
