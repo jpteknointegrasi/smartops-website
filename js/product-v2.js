@@ -34,6 +34,7 @@ const VICON = {
   share: VI('<circle cx="6" cy="12" r="2.4"/><circle cx="18" cy="6" r="2.4"/><circle cx="18" cy="18" r="2.4"/><path d="M8.2 10.9l7.6-3.8M8.2 13.1l7.6 3.8"/>'),
   x: VI('<path d="M7 7l10 10M17 7L7 17"/>', 2.2),
   layers: VI('<path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/>'),
+  flask: VI('<path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.8 3h10.4a2 2 0 0 0 1.8-3l-5-9V3"/><path d="M7.5 15h9"/>'),
   tool: VI('<path d="M14.5 6.5a4 4 0 0 0 5 5L12 19a2.1 2.1 0 0 1-3-3z"/><path d="M14.5 6.5L17 4l3 3-2.5 2.5"/>')
 };
 
@@ -728,6 +729,133 @@ const V2 = {
       ]
     },
     cta: { title:'Siap menata pelaksanaan proyek?', text:'Diskusikan kebutuhan proyek, lingkup, dan alur kerja Anda bersama tim kami.' }
+  },
+  stp: {
+    theme: { c:'#187A91', c2:'#136779', soft:'#E3F1F4', b:'#96652F', b2:'#7F5424' },
+    hero: {
+      eyebrow:'SmartOps STP',
+      line1:'Instalasi terpantau.', line2:'Pemeliharaan terdokumentasi.',
+      lead:'Kelola kunjungan, pemeriksaan peralatan, hasil laboratorium, dan tindak lanjut dalam satu alur.',
+      for:'Vendor pemeliharaan, supervisor teknis, teknisi, operator sesuai kontrak, dan PIC pelanggan.',
+      img:'assets/stp-hero.webp', pos:'right center', mpos:'62% center', shift:'32%',
+      alt:'Teknisi memeriksa peralatan STP dan supervisor mencatat hasil melalui tablet.'
+    },
+    benefit: {
+      eyebrow:'Manfaat', title:['Pemeliharaan','lebih terstruktur.'],
+      side:'Pantau kondisi peralatan, hasil pemeriksaan, dan rekomendasi dalam satu aplikasi yang mudah digunakan tim teknis.',
+      items:[
+        ['cal','Kunjungan terjadwal','Program rutin dan checklist tercatat sesuai kontrak.'],
+        ['gear','Kondisi alat tercatat','Hasil pemeriksaan dan foto tersimpan per peralatan.'],
+        ['doc','Tindak lanjut terpantau','Gangguan, perbaikan, dan rekomendasi memiliki status yang jelas.']
+      ],
+      problems:['Kondisi alat tidak terpantau','Pemeriksaan tidak terdokumentasi','Perbaikan terlambat atau berulang']
+    },
+    features: {
+      eyebrow:'Fitur utama', title:['Satu alur untuk','pemeliharaan STP.'],
+      side:'Pemeliharaan berkala dan pengoperasian harian dicatat terpisah sesuai pembagian tanggung jawab kontrak.',
+      items:[
+        ['building','Profil instalasi & peralatan','Data instalasi, proses, dan peralatan.'],
+        ['cal','Program kunjungan','Jadwal rutin sesuai kontrak.'],
+        ['clip','Checklist pemeriksaan','Sesuai jenis instalasi dan peralatan.'],
+        ['doc','Log sesuai kontrak','Catatan operasional sesuai pembagian tanggung jawab.'],
+        ['flask','Hasil laboratorium','Arsip hasil uji kualitas air.'],
+        ['tool','Gangguan & perbaikan','Temuan, tindakan, serta status tindak lanjut.'],
+        ['bars','Laporan & rekomendasi','Laporan kunjungan dan rekomendasi.']
+      ],
+      photos:[
+        ['assets/stp-inspection.webp','Tim pemeliharaan memeriksa kondisi peralatan serta indikator instalasi STP.','Pemeriksaan peralatan','Kondisi pompa, blower, dan indikator dicatat per peralatan.'],
+        ['assets/stp-review.webp','Supervisor dan teknisi meninjau hasil pemeriksaan, dokumen uji, serta tindak lanjut.','Review hasil & tindak lanjut','Hasil uji dan temuan ditinjau sebelum rekomendasi disusun.']
+      ]
+    },
+    flow: {
+      eyebrow:'Alur kerja', title:['Dari pemeriksaan','hingga tindak lanjut.'],
+      side:'Setiap kunjungan meninggalkan catatan yang dapat ditinjau kembali.',
+      steps:[
+        ['building','Inventaris','Data instalasi dan peralatan.'],
+        ['cal','Jadwalkan','Program kunjungan.'],
+        ['clip','Periksa','Pemeriksaan di lapangan.'],
+        ['search','Review','Tinjau hasil dan temuan.'],
+        ['tool','Tindak lanjut','Perbaiki dan monitor status.'],
+        ['bars','Laporan','Susun laporan serta rekomendasi.']
+      ]
+    },
+    roles: {
+      eyebrow:'Tampilan aplikasi', title:['Tampilan sesuai','tanggung jawab.'],
+      side:'Operator hanya ada bila termasuk dalam kontrak; pemeliharaan berkala berbeda dari pengoperasian harian.',
+      list:[
+        ['Pemilik',[['monitor','Ringkasan kondisi instalasi'],['history','Riwayat kunjungan per lokasi'],['tool','Status tindak lanjut perbaikan']], {
+          title:'Ringkasan STP', location:'1–31 Mar 2026',
+          kpis:[['cal','8/10','Kunjungan selesai'],['gear','24/26','Peralatan berfungsi'],['flask','4','Hasil lab tercatat'],['tool','3','Tindak lanjut terbuka']],
+          cards:[{ type:'tbl', title:'Kunjungan Terbaru', cols:['Tanggal','Area','Petugas','Checklist','Status'],
+            rows:[['12 Mar','Blower Room','Andi','18/18',['ok','Selesai']],['08 Mar','Bak Aerasi','Rina','15/15',['ok','Selesai']],['02 Mar','Clarifier','Andi','12/12',['ok','Selesai']],['16 Mar','Panel Kontrol','Rina','—',['wait','Terjadwal']]] }] }],
+        ['Supervisor teknis',[['search','Review hasil pemeriksaan teknisi'],['flask','Tinjau hasil uji dan dokumennya'],['doc','Susun rekomendasi tindak lanjut']], {
+          title:'Review Pemeriksaan', location:'STP Residence A',
+          kpis:[['clip','3','Menunggu review'],['gear','2','Perlu perbaikan'],['flask','1','Hasil lab baru'],['doc','2','Rekomendasi draf']],
+          cards:[
+            { type:'list', title:'Temuan perlu review', rows:[['Getaran blower meningkat','Blower 2 · 12 Mar','Rina','run'],['Kebocoran kecil pada valve','Pompa lumpur · 8 Mar','Andi','wait']] },
+            { type:'list', title:'Hasil lab untuk ditinjau', rows:[['Sampling outlet · Maret','Dokumen uji terlampir','10 Mar','ok']] }
+          ] }],
+        ['Teknisi',[['mobile','Lihat jadwal kunjungan di HP'],['clip','Isi checklist per peralatan + foto'],['alert','Catat temuan dan tindakan']], {
+          title:'Kunjungan Hari Ini', location:'Blower Room · 12 Mar',
+          kpis:[['gear','6','Peralatan diperiksa'],['clip','18/18','Checklist'],['doc','9','Foto'],['alert','1','Temuan']],
+          cards:[
+            { type:'list', title:'Checklist peralatan', rows:[['Pompa air limbah 1','Berfungsi','09.10','ok','stp-pump'],['Blower 1','Berfungsi','09.25','ok'],['Blower 2','Perlu perbaikan','09.40','bad'],['Panel kontrol','Berfungsi','09.55','ok']] },
+            { type:'list', title:'Tindakan', rows:[['Blower 2 · cek alignment','Diusulkan','10.05','run']] }
+          ] }],
+        ['Operator',[['clip','Isi log harian sesuai kontrak'],['bell','Laporkan kejanggalan ke teknisi'],['history','Lihat riwayat log sendiri']], {
+          title:'Log Harian', location:'Shift pagi · 12 Mar',
+          kpis:[['clip','6/6','Pembacaan tercatat'],['gear','Normal','Status operasi'],['bell','1','Laporan ke teknisi'],['history','30','Hari tercatat']],
+          cards:[
+            { type:'list', title:'Pembacaan log', rows:[['Jam operasi blower','Tercatat','07.00','ok'],['Debit inlet','Tercatat','07.05','ok'],['Pengamatan visual bak aerasi','Tercatat','07.10','ok']] },
+            { type:'list', title:'Laporan ke teknisi', rows:[['Suara blower 2 tidak biasa','Diteruskan','07.20','run']] }
+          ] }],
+        ['PIC pelanggan',[['building','Lihat laporan kunjungan di lokasi Anda'],['flask','Lihat hasil uji beserta dokumennya'],['tool','Pantau tindak lanjut perbaikan']], {
+          title:'Laporan Lokasi', location:'STP Residence A (lokasi Anda)',
+          kpis:[['cal','8/10','Kunjungan bulan ini'],['gear','24/26','Peralatan berfungsi'],['flask','1','Dokumen uji baru'],['tool','2','Perbaikan berjalan']],
+          cards:[
+            { type:'list', title:'Laporan kunjungan', rows:[['Kunjungan 12 Mar','Laporan tersedia','12 Mar','ok'],['Kunjungan 08 Mar','Laporan tersedia','08 Mar','ok']] },
+            { type:'list', title:'Tindak lanjut', rows:[['Penggantian valve pompa lumpur','Terjadwal 15 Mar','—','run'],['Alignment blower 2','Dalam proses','—','run']] }
+          ] }]
+      ]
+    },
+    dash: {
+      nav:[['grid','Beranda'],['cal','Kunjungan'],['gear','Peralatan'],['flask','Laboratorium'],['tool','Tindak Lanjut'],['bars','Laporan']],
+      phone:{ title:'Pemeriksaan Peralatan', area:'Pompa air limbah 1', sub:'Blower Room · 12 Mar', img:'assets/th-stp-pump.webp',
+        groups:[['Kondisi',['Berfungsi','Perlu perbaikan'],0]], note:'Operasi normal, tidak ada kebocoran. 1 foto terlampir.', btn:'Simpan' }
+    },
+    report: {
+      eyebrow:'Laporan & data', title:['Kondisi peralatan dan','hasil uji tercatat.'],
+      side:'Pelaksanaan kunjungan, kondisi peralatan, dan hasil laboratorium ditampilkan sebagai tiga catatan terpisah.',
+      panels:[
+        { title:'Kunjungan & checklist', table:{ kind:'rows', head:1, cols:['Tanggal','Area','Checklist','Status'],
+          rows:[['12 Mar','Blower Room','18/18',['ok','Selesai']],['08 Mar','Bak Aerasi','15/15',['ok','Selesai']],['02 Mar','Clarifier','12/12',['ok','Selesai']]] } },
+        { title:'Kondisi peralatan', sub:'Diperiksa 12 Mar 2026', table:{ kind:'rows', head:0, cols:['Peralatan','Kondisi','Tindak lanjut'],
+          rows:[['Pompa air limbah',['ok','Berfungsi'],'—'],['Blower 2',['bad','Perlu perbaikan'],'Cek alignment'],['Diffuser',['ok','Berfungsi'],'—'],['Pompa lumpur',['bad','Perlu perbaikan'],'Ganti valve']] } },
+        { title:'Hasil laboratorium', sub:'Sampling outlet · 10 Mar 2026 · dokumen uji terlampir', table:{ kind:'rows', head:0, align:'r', cols:['Parameter','Hasil','Satuan'],
+          rows:[['pH','7,2','—'],['BOD','18','mg/L'],['COD','52','mg/L'],['TSS','28','mg/L']] } }
+      ],
+      notes:['Kunjungan selesai, alat berfungsi, dan kualitas air adalah indikator berbeda.','Nilai laboratorium di atas adalah data contoh, bukan hasil instalasi Anda dan bukan batas baku mutu; evaluasi mengikuti rujukan yang ditetapkan untuk tiap instalasi.']
+    },
+    scope: {
+      eyebrow:'Lingkup & integrasi', title:['Terhubung dengan','instalasi dan tim.'],
+      side:'Suku cadang dan analisis performa adalah pilihan fitur STP; integrasi Project untuk koordinasi pekerjaan proyek.',
+      core:[['building','Profil instalasi & peralatan','Data proses, peralatan, dan dokumentasi.'],['cal','Kunjungan & checklist','Jadwal, pelaksanaan, dan hasil pemeriksaan.'],['doc','Log sesuai kontrak','Catatan operasional sesuai tanggung jawab.'],['flask','Hasil laboratorium','Arsip hasil uji dan dokumennya.'],['bars','Laporan & rekomendasi','Ringkasan kondisi dan saran tindak lanjut.']],
+      extra:[['project','share','Untuk proyek rehabilitasi atau peningkatan instalasi STP.']],
+      optional:['Manajemen suku cadang','Analisis tren & performa','Integrasi sistem lain'],
+      note:'Kunjungan selesai, alat berfungsi, dan kualitas air adalah indikator berbeda. SmartOps membantu mendokumentasikan pelaksanaan, kondisi peralatan, hasil uji, dan tindak lanjut, tanpa menjamin kepatuhan atau baku mutu tertentu.'
+    },
+    faq: {
+      title:'Pertanyaan yang sering diajukan.',
+      side:'Temukan jawaban untuk pertanyaan umum seputar SmartOps STP.',
+      items:[
+        ['Apakah SmartOps STP cocok untuk seluruh jenis instalasi?','Profil instalasi, proses, peralatan, dan checklist disesuaikan dengan lingkup implementasi serta kontrak.'],
+        ['Apakah ada batasan parameter hasil laboratorium di aplikasi?','Website tidak menetapkan batas hasil laboratorium yang berlaku universal. Pencatatan dan evaluasi hasil mengikuti rujukan yang sesuai untuk instalasi dan dokumen pengujian.'],
+        ['Bagaimana tindak lanjut perbaikan dicatat?','Gangguan, tindakan, rekomendasi, dan status penyelesaian didokumentasikan untuk ditinjau kembali.'],
+        ['Apakah operator harian selalu termasuk?','Tidak. Peran operator mengikuti kontrak; pemeliharaan berkala dan pengoperasian harian dicatat terpisah.'],
+        ['Apakah bisa diintegrasikan dengan SmartOps Project?','Bisa, secara opsional, untuk rehabilitasi atau peningkatan instalasi STP.']
+      ]
+    },
+    cta: { title:'Siap menata pemeliharaan STP?', text:'Diskusikan kebutuhan instalasi, lingkup kontrak, dan alur kerja Anda bersama tim kami.' }
   }
 };
 
@@ -815,6 +943,10 @@ function v2Summary(sm){
     <ul class="v2-sum">${sm.rows.map(r=>{const pct=Math.round(r[1]/tot*100);return `<li><i style="background:${r[2]}"></i><span>${esc(r[0])}</span><b>${r[1]}</b><em>${pct}%</em><span class="bar" aria-hidden="true"><span style="width:${pct}%;background:${r[2]}"></span></span></li>`;}).join('')}</ul></div>`;
 }
 
+function v2Panels(list){
+  return `<div class="v2-report3">${list.map(pn=>`<div class="v2-panel"><div class="v2-panel-h"><b>${esc(pn.title)}</b><small>Data contoh</small></div>${pn.sub?`<p class="v2-sum-sub">${esc(pn.sub)}</p>`:''}<div class="tbl-wrap">${v2Table({...pn.table,title:pn.title})}</div></div>`).join('')}</div>`;
+}
+
 /* ---------- halaman ---------- */
 function pageProductV2(p){
   const v=V2[p.slug], t=v.theme;
@@ -859,7 +991,7 @@ function pageProductV2(p){
 
   <section class="v2-sec" id="fitur"><div class="container anchor" id="sec-fitur">
     ${v2Head(v.features)}
-    <div class="v2-features">${v.features.items.map(f=>`<div class="v2-fcard"><span class="v2-ic">${VICON[f[0]]}</span><div><h3>${esc(f[1])}</h3><p>${esc(f[2])}</p></div></div>`).join('')}</div>
+    <div class="v2-features n${v.features.items.length}">${v.features.items.map(f=>`<div class="v2-fcard"><span class="v2-ic">${VICON[f[0]]}</span><div><h3>${esc(f[1])}</h3><p>${esc(f[2])}</p></div></div>`).join('')}</div>
     ${v2Photos(v.features.photos)}
   </div></section>
 
@@ -876,10 +1008,10 @@ function pageProductV2(p){
 
   <section class="v2-sec"><div class="container">
     ${v2Head(v.report)}
-    <div class="v2-report${v.report.table.kind==='rows'?' wide':''}">
+    ${v.report.panels?v2Panels(v.report.panels):`<div class="v2-report${v.report.table.kind==='rows'?' wide':''}">
       <div class="v2-panel"><div class="v2-panel-h"><b>${esc(v.report.table.title)}</b><small>Data contoh</small></div><div class="tbl-wrap">${v2Table(v.report.table)}</div></div>
       ${v.report.chart?`<div class="v2-panel"><div class="v2-panel-h"><b>${esc(v.report.chart.title)}</b><small>Data contoh</small></div>${v2Chart(v.report.chart)}</div>`:v.report.donut?`<div class="v2-panel"><div class="v2-panel-h"><b>${esc(v.report.donut.title)}</b><small>Data contoh</small></div><div class="v2-donut big">${v2Donut(v.report.donut).replace('<div class="v2-donut">','').replace(/<\/div>$/,'')}</div></div>`:v2Summary(v.report.summary)}
-    </div>
+    </div>`}
     ${v.report.states?`<div class="v2-states"><b>Status utama</b><ol>${v.report.states.map((st,i)=>`<li><span class="v2-ic sm">${VICON[st[2]]}</span><div><h3>${esc(st[0])}</h3><p>${esc(st[1])}</p></div></li>`).join('')}</ol></div>`:''}
     ${(v.report.notes||[]).map(n=>`<p class="v2-mini">${VICON.info}${esc(n)}</p>`).join('')}
   </div></section>

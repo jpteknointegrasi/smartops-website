@@ -312,3 +312,15 @@
 @media(max-width:560px){.v2-states ol{grid-template-columns:1fr}}
 
 .v2-table.rows.r thead th:not(:first-child){text-align:right}
+
+/* stp: tiga panel laporan, 7 fitur */
+.v2-report3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+.v2-report3 .v2-table{font-size:13px}.v2-report3 .v2-table th,.v2-report3 .v2-table td{padding:10px 8px}
+.v2-features.n7{grid-template-columns:repeat(4,1fr)}
+@media(max-width:1100px){.v2-report3{grid-template-columns:1fr}.v2-features.n7{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:720px){.v2-features.n7{grid-template-columns:1fr}}
+.v2-report3{grid-template-columns:1fr 1.25fr .85fr}
+.v2-report3 .v2-table th,.v2-report3 .v2-table td{white-space:normal;padding:10px 6px}
+.v2-report3 .v2-table td.txt{min-width:0}
+.v2-report3 .v2-pill{font-size:11px;padding:2px 8px;white-space:nowrap}
+@media(max-width:1100px){.v2-report3{grid-template-columns:1fr}}
