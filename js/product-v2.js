@@ -374,6 +374,123 @@ const V2 = {
       ]
     },
     cta: { title:'Siap menata program pest control?', text:'Diskusikan kebutuhan lokasi, lingkup, dan alur kerja Anda bersama tim kami.' }
+  },
+  garden: {
+    theme: { c:'#237454', c2:'#2C8862', soft:'#EDF3EC', b:'#96652F', b2:'#7F5424' },
+    hero: {
+      eyebrow:'SmartOps Garden',
+      line1:'Perawatan terjadwal.', line2:'Kondisi taman terpantau.',
+      lead:'Kelola tanaman, pekerjaan lapangan, dan tindak lanjut dalam satu alur.',
+      for:'Vendor taman, supervisor landscape, gardener, dan pengelola lokasi.',
+      img:'assets/garden-hero.webp', pos:'right center', mpos:'55% center', shift:'24%',
+      alt:'Tim taman merawat area hijau dan supervisor mencatat kondisi tanaman melalui tablet.'
+    },
+    benefit: {
+      eyebrow:'Manfaat', title:['Area hijau','lebih terawat.'],
+      side:'Inventaris tanaman, jadwal perawatan, hasil pekerjaan, dan kondisi area hijau tercatat lebih terstruktur.',
+      items:[
+        ['cal','Perawatan terjadwal','Program dan jadwal jelas per area dan jenis pekerjaan.'],
+        ['leaf','Kondisi terdokumentasi','Pengamatan tanaman tercatat dengan foto dan tanggal.'],
+        ['bars','Tindak lanjut terukur','Temuan diikuti rencana aksi, penggantian, atau perawatan khusus.']
+      ],
+      problems:['Area terlewat','Kondisi tanaman tidak terpantau','Temuan tanpa tindak lanjut yang jelas']
+    },
+    features: {
+      eyebrow:'Fitur utama', title:['Satu alur untuk','pengelolaan taman.'],
+      side:'Fitur lengkap untuk mendukung pekerjaan tim di lapangan dan pemantauan oleh pengelola.',
+      items:[
+        ['pin','Zona & tanaman','Inventaris lokasi, jenis tanaman, dan dokumentasi.'],
+        ['cal','Program perawatan','Jadwal rutin, jenis pekerjaan, dan frekuensinya.'],
+        ['clip','Tugas pekerjaan','Penugasan tim dan pemantauan penyelesaian.'],
+        ['doc','Kondisi & temuan','Pengamatan tanaman dan area, foto, serta catatan.'],
+        ['refresh','Penggantian & material','Penggantian tanaman dan penggunaan material.'],
+        ['bars','Laporan','Rekap pekerjaan, kondisi tanaman, dan dokumentasi foto.']
+      ],
+      photos:[
+        ['assets/garden-maintenance.webp','Petugas memangkas semak dan menyiram tanaman di taman gedung.','Perawatan sesuai program','Pemangkasan dan penyiraman tercatat sebagai tugas per zona.'],
+        ['assets/garden-inspection.webp','Supervisor dan gardener mengamati kondisi daun serta mencatat temuan.','Pengamatan kondisi','Temuan pada tanaman dicatat terpisah dari tugas yang selesai.']
+      ]
+    },
+    flow: {
+      eyebrow:'Alur kerja', title:['Dari inventaris','hingga laporan.'],
+      side:'Seluruh proses terhubung dalam satu alur kerja yang jelas dan mudah dipantau.',
+      steps:[
+        ['leaf','Inventaris','Data zona dan tanaman.'],
+        ['cal','Rencana','Program dan jadwal perawatan.'],
+        ['checkC','Pekerjaan','Pelaksanaan di lapangan.'],
+        ['search','Pengamatan','Cek kondisi tanaman dan area.'],
+        ['doc','Tindak lanjut','Aksi perbaikan jika diperlukan.'],
+        ['bars','Laporan','Rekap pekerjaan dan kondisi.']
+      ]
+    },
+    roles: {
+      eyebrow:'Tampilan aplikasi', title:['Tampilan sesuai','tanggung jawab.'],
+      side:'Pekerjaan selesai dan kondisi tanaman dicatat sebagai dua indikator terpisah.',
+      list:[
+        ['Pemilik',[['monitor','Pantau program perawatan di semua zona'],['leaf','Lihat kondisi tanaman dari hasil pengamatan'],['alert','Ketahui area yang perlu tindak lanjut']], {
+          title:'Taman Residence', location:'Semua zona',
+          kpis:[['pin','12','Zona taman'],['leaf','240','Tanaman'],['cal','14/18','Pekerjaan minggu ini'],['alert','6','Tindak lanjut']],
+          cards:[
+            { type:'bars', title:'Pekerjaan selesai per zona', rows:[['Lobby Utama',5,5],['Taman Timur',4,5],['Kolam Renang',3,4],['Taman Selatan',2,4]] },
+            { type:'list', title:'Kondisi perlu tindak lanjut', rows:[['Heliconia · Taman Timur','Perlu perhatian','10 Mei','run','gd-taman'],['Palem Raja · Kolam','Perlu penggantian','9 Mei','bad','gd-kolam'],['Pucuk merah · Lobby','Perlu perhatian','8 Mei','run','gd-lobby']] }
+          ] }],
+        ['Supervisor',[['cal','Atur jadwal dan penugasan gardener'],['search','Review pekerjaan dan hasil pengamatan'],['refresh','Susun rencana perbaikan atau penggantian']], {
+          title:'Review Pekerjaan', location:'Taman Residence',
+          kpis:[['clip','7','Menunggu review'],['checkC','11','Disetujui'],['users','6','Gardener aktif'],['refresh','3','Rencana perbaikan']],
+          cards:[
+            { type:'list', title:'Pekerjaan hari ini', rows:[['Pangkas semak · Lobby','Budi Santoso','08.10','ok'],['Pemupukan · Taman Timur','Siti Rahayu','09.30','run'],['Penyiraman · Kolam','Andi Pratama','—','wait']] },
+            { type:'list', title:'Rencana perbaikan', rows:[['Ganti Palem Raja (2)','Menunggu material','—','wait'],['Perawatan khusus Heliconia','Dijadwalkan 14 Mei','—','run'],['Sulam rumput Taman Selatan','Disetujui','11 Mei','ok']] }
+          ] }],
+        ['Gardener',[['mobile','Lihat tugas area dari HP'],['clip','Isi checklist dan kirim foto'],['leaf','Catat pengamatan kondisi tanaman']], {
+          title:'Tugas Saya', location:'Taman Timur · 12 Mei',
+          kpis:[['clip','4','Tugas hari ini'],['checkC','2','Selesai'],['doc','3','Foto terkirim'],['leaf','1','Pengamatan baru']],
+          cards:[
+            { type:'list', title:'Checklist hari ini', rows:[['Pangkas semak','Selesai','08.40','ok'],['Siram tanaman','Selesai','09.10','ok'],['Periksa kondisi Heliconia','Berikutnya','—','run'],['Bersihkan gulma','Belum','—','wait']] },
+            { type:'list', title:'Pengamatan saya', rows:[['Heliconia · daun menguning','Perlu perhatian','09.20','run','gd-taman']] }
+          ] }],
+        ['Pengelola lokasi',[['building','Lihat rekap pekerjaan di lokasi Anda'],['leaf','Pantau kondisi tanaman per periode'],['history','Unduh laporan sesuai hak akses']], {
+          title:'Rekap Lokasi', location:'Taman Residence (lokasi Anda)',
+          kpis:[['checkC','42/45','Pekerjaan selesai'],['leaf','172','Tanaman sehat'],['alert','56','Perlu perhatian'],['refresh','12','Perlu penggantian']],
+          cards:[
+            { type:'bars', title:'Pekerjaan selesai per minggu', rows:[['Minggu 1',11,12],['Minggu 2',12,12],['Minggu 3',10,11],['Minggu 4',9,10]] },
+            { type:'list', title:'Tindak lanjut kondisi', rows:[['Penggantian Palem Raja','Dijadwalkan','15 Mei','run'],['Pemupukan ulang Heliconia','Selesai','10 Mei','ok']] }
+          ] }]
+      ]
+    },
+    dash: {
+      nav:[['grid','Beranda'],['leaf','Tanaman'],['cal','Pekerjaan'],['search','Kondisi'],['refresh','Tindak Lanjut'],['bars','Laporan']],
+      phone:{ title:'Detail Tanaman', area:'Heliconia rostrata', sub:'Taman Timur · 18 tanaman', img:'assets/th-gd-plant.webp',
+        groups:[['Tugas pemupukan',['Selesai','Belum selesai'],0],['Kondisi (pengamatan)',['Sehat','Perlu perhatian','Perlu penggantian'],1]],
+        note:'Daun menguning pada 3 tanaman.', btn:'Simpan Catatan' }
+    },
+    report: {
+      eyebrow:'Laporan', title:['Pekerjaan dan kondisi','terlihat jelas.'],
+      side:'Tinjau aktivitas perawatan, pengamatan kondisi, dan tindak lanjut per area.',
+      table:{ kind:'rows', head:1, title:'Aktivitas Pekerjaan · 7–12 Mei 2026', cols:['Tanggal','Area','Pekerjaan','Pelaksana','Status tugas'],
+        rows:[['12 Mei','Lobby Utama','Pangkas semak','Budi Santoso',['ok','Selesai']],['10 Mei','Taman Timur','Pemupukan','Siti Rahayu',['ok','Selesai']],['9 Mei','Kolam Renang','Penyiraman','Andi Pratama',['ok','Selesai']],['8 Mei','Taman Selatan','Bersihkan gulma','Budi Santoso',['run','Dikerjakan']],['7 Mei','Area Bermain','Periksa kondisi','Siti Rahayu',['ok','Selesai']]] },
+      summary:{ title:'Ringkasan Kondisi Tanaman', sub:'Pengamatan 1–12 Mei 2026 · 240 tanaman', rows:[['Sehat',172,'#2E8B57'],['Perlu perhatian',56,'#D9A15B'],['Perlu penggantian',12,'#C0463B']] },
+      notes:['Status kondisi berasal dari pengamatan tanaman, bukan dihitung otomatis dari tugas yang selesai.']
+    },
+    scope: {
+      eyebrow:'Lingkup & integrasi', title:['Terhubung dengan','area dan tim.'],
+      side:'Dapat digunakan mandiri untuk pengelolaan taman, atau terintegrasi dengan modul lain sesuai kebutuhan.',
+      core:[['leaf','Inventaris zona & tanaman','Data area, tanaman, dan dokumentasi.'],['cal','Program & jadwal','Perawatan sesuai kebutuhan tiap zona.'],['doc','Tugas, kondisi & temuan','Pencatatan terpisah per indikator.'],['bars','Laporan','Pekerjaan dan kondisi tanaman.']],
+      extra:[['cleaning','share','Koordinasi jadwal pembersihan taman dan fasilitas sekitar.']],
+      optional:['Penyesuaian kategori tanaman','Perawatan khusus','Laporan khusus pelanggan'],
+      note:'Pekerjaan selesai dan kondisi tanaman adalah indikator berbeda. Tugas yang selesai tidak otomatis berarti tanaman dalam kondisi baik.'
+    },
+    faq: {
+      title:'Pertanyaan yang sering diajukan.',
+      side:'Temukan jawaban untuk pertanyaan umum seputar SmartOps Garden.',
+      items:[
+        ['Apakah pekerjaan selesai otomatis berarti tanaman dalam kondisi baik?','Tidak. Penyelesaian tugas dan hasil pengamatan tanaman dicatat terpisah.'],
+        ['Untuk siapa SmartOps Garden digunakan?','Vendor taman, supervisor landscape, gardener, dan pengelola lokasi, masing-masing dengan hak akses sesuai perannya.'],
+        ['Apakah bisa mencatat jenis tanaman yang beragam?','Bisa. Inventaris mencatat jenis tanaman, zona, dan dokumentasi sesuai kategori yang digunakan.'],
+        ['Bagaimana temuan ditindaklanjuti?','Temuan diikuti rencana aksi, perawatan khusus, atau penggantian, kemudian hasilnya dicatat.'],
+        ['Apakah bisa diintegrasikan dengan modul lain?','Integrasi dengan SmartOps Cleaning bersifat opsional untuk koordinasi pekerjaan taman dan fasilitas sekitar.']
+      ]
+    },
+    cta: { title:'Siap menata perawatan taman?', text:'Diskusikan kebutuhan lokasi, lingkup, dan alur kerja Anda bersama tim kami.' }
   }
 };
 
@@ -455,6 +572,12 @@ function v2Table(tb){
     <tbody>${tb.rows.map(r=>{const h=tb.head??1;return `<tr>${r.map((v,i)=>i===h?`<th scope="row">${esc(v)}</th>`:i<h?`<td class="txt">${esc(v)}</td>`:td(v)).join('')}</tr>`;}).join('')}</tbody></table>`;
 }
 
+function v2Summary(sm){
+  const tot=sm.rows.reduce((a,r)=>a+r[1],0);
+  return `<div class="v2-panel"><div class="v2-panel-h"><b>${esc(sm.title)}</b><small>Data contoh</small></div><p class="v2-sum-sub">${esc(sm.sub)}</p>
+    <ul class="v2-sum">${sm.rows.map(r=>{const pct=Math.round(r[1]/tot*100);return `<li><i style="background:${r[2]}"></i><span>${esc(r[0])}</span><b>${r[1]}</b><em>${pct}%</em><span class="bar" aria-hidden="true"><span style="width:${pct}%;background:${r[2]}"></span></span></li>`;}).join('')}</ul></div>`;
+}
+
 /* ---------- halaman ---------- */
 function pageProductV2(p){
   const v=V2[p.slug], t=v.theme;
@@ -518,7 +641,7 @@ function pageProductV2(p){
     ${v2Head(v.report)}
     <div class="v2-report${v.report.table.kind==='rows'?' wide':''}">
       <div class="v2-panel"><div class="v2-panel-h"><b>${esc(v.report.table.title)}</b><small>Data contoh</small></div><div class="tbl-wrap">${v2Table(v.report.table)}</div></div>
-      <div class="v2-panel"><div class="v2-panel-h"><b>${esc(v.report.chart.title)}</b><small>Data contoh</small></div>${v2Chart(v.report.chart)}</div>
+      ${v.report.chart?`<div class="v2-panel"><div class="v2-panel-h"><b>${esc(v.report.chart.title)}</b><small>Data contoh</small></div>${v2Chart(v.report.chart)}</div>`:v2Summary(v.report.summary)}
     </div>
     ${(v.report.notes||[]).map(n=>`<p class="v2-mini">${VICON.info}${esc(n)}</p>`).join('')}
   </div></section>
