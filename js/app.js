@@ -22,13 +22,13 @@ function render(){
 
   if(r===''||r==='beranda'){ html=pageHome(); setActiveNav(''); }
   else if(r==='aplikasi' && parts[1] && BY[parts[1]] && !parts[2]){
-    const p=BY[parts[1]]; html=pageProduct(p); title=p.seo.split('|')[0].trim(); setActiveNav('produk');
+    const p=BY[parts[1]]; html=(typeof V2!=='undefined'&&V2[p.slug])?pageProductV2(p):pageProduct(p); title=p.seo.split('|')[0].trim(); setActiveNav('produk');
     document.body.dataset.page='product';
     stickyCta.hidden=false; stickyCta.dataset.show='true';
     stickyCta.innerHTML=`<a class="btn btn-primary" href="#demo/${p.slug}">Diskusikan Kebutuhan ${esc(p.name)}</a>`;
   }
   else if(r==='aplikasi' && parts[1] && BY[parts[1]] && parts[2]){ // anchor deep-link: render product then scroll
-    const p=BY[parts[1]]; html=pageProduct(p); title=p.seo.split('|')[0].trim(); setActiveNav('produk'); document.body.dataset.page='product';
+    const p=BY[parts[1]]; html=(typeof V2!=='undefined'&&V2[p.slug])?pageProductV2(p):pageProduct(p); title=p.seo.split('|')[0].trim(); setActiveNav('produk'); document.body.dataset.page='product';
   }
   else if(r==='aplikasi'){ html=pageCatalog('semua'); title='Katalog Aplikasi'; setActiveNav('aplikasi'); }
   else if(r==='integrasi'){ html=pageIntegrasi(); title='Integrasi Antarproduk'; setActiveNav('integrasi'); }
