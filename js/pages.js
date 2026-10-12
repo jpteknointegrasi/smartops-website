@@ -84,7 +84,7 @@ function navHTML(){
     <button id="mAppsBtn" aria-expanded="false" aria-controls="mAppsSub">Aplikasi <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="margin-left:auto"><path d="M6 9l6 6 6-6"/></svg></button>
     <div class="sub" id="mAppsSub" hidden>${PRODUCTS.map(p=>`<a href="#aplikasi/${p.slug}">${esc(p.name)}${p.sub?` · ${esc(p.sub)}`:''}</a>`).join('')}<a href="#aplikasi"><b>Semua aplikasi →</b></a></div>
     <a href="#integrasi">Integrasi</a><a href="#cara-kerja">Cara Kerja</a><a href="#tentang">Tentang</a><a href="#kontak">Kontak</a>
-    <div class="cta-row"><a class="btn btn-secondary" href="#masuk">Masuk</a><a class="btn btn-primary" href="#demo">Diskusikan Kebutuhan</a></div>`;
+    <div class="cta-row"><a class="btn btn-secondary" href="#masuk">Masuk</a><a class="btn btn-primary" href="#demo">Jadwalkan demo</a></div>`;
 
   const btn=document.getElementById('appsBtn'), panel=document.getElementById('appsPanel'), menu=document.getElementById('appsMenu');
   function closeMenu(focusBack){ panel.hidden=true; btn.setAttribute('aria-expanded','false'); if(focusBack) btn.focus(); }

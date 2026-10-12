@@ -1,0 +1,79 @@
+/* ============ Beranda v2 ============ */
+.hm .v2-hero{min-height:clamp(540px,46vw,660px)}
+.hm .v2-hero h1{font-size:clamp(38px,4.6vw,62px)}
+.v2-btn.ghost{background:transparent;color:var(--v);box-shadow:inset 0 0 0 1.5px var(--v)}
+.v2-btn.ghost:hover{background:var(--vsoft);color:var(--v2)}
+.hm-chip{display:inline-flex;align-items:center;gap:10px;margin-top:26px;background:#fff;border:1px solid var(--line2);border-radius:999px;padding:8px 16px 8px 10px;font-size:14px;color:var(--ink)!important;box-shadow:0 6px 18px rgba(60,40,20,.06)}
+.hm-chip svg{width:20px;height:20px;color:var(--v)}
+.hm-strip{background:#fff;border-top:1px solid #EFE8DE;border-bottom:1px solid #EFE8DE}
+.hm-strip .container{display:grid;grid-template-columns:repeat(3,1fr);padding-block:26px}
+.hm-strip .container>div{display:flex;gap:14px;align-items:center;padding:4px 26px}
+.hm-strip .container>div+div{border-left:1px solid var(--line2)}
+.hm-strip .container>div:first-child{padding-left:0}
+.hm-strip h3{font-size:15px}.hm-strip p{font-size:13px;margin-top:3px}
+.hm-strip .v2-ic{background:#F7EFE6;border-color:#EEDFCD}
+/* katalog */
+.hm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.hm-card{display:grid;grid-template-columns:1fr 42%;min-height:236px;background:#fff;border:1px solid var(--line2);border-radius:16px;overflow:hidden;text-decoration:none;color:inherit;transition:box-shadow .25s,transform .25s,border-color .25s}
+.hm-card:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(60,40,20,.10);border-color:color-mix(in srgb,var(--a) 35%,#fff)}
+.hm-card:focus-visible{outline:3px solid #C99B65;outline-offset:3px}
+.hm-card-txt{padding:20px 18px 18px 20px;display:flex;flex-direction:column;gap:6px}
+.hm-card-ic{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;color:var(--a);background:color-mix(in srgb,var(--a) 10%,#fff);margin-bottom:6px}
+.hm-card-ic svg{width:22px;height:22px}
+.hm-card h3{font-family:"Source Serif 4",Georgia,serif;font-size:21px;font-weight:700;color:var(--a)}
+.hm-card small{font-size:11.5px;color:var(--mut);margin-top:-4px}
+.hm-card p{font-size:13px;line-height:1.5;flex:1}
+.hm-go{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--a,var(--v))}
+.hm-go svg{width:15px;height:15px;transition:transform .2s}.hm-card:hover .hm-go svg,.hm-int:hover .hm-go svg{transform:translateX(3px)}
+.hm-card-img{position:relative;background:#eee}
+.hm-card-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.hm-card:hover .hm-card-img img{transform:scale(1.04)}
+.hm-badge{position:absolute;right:10px;bottom:10px;background:rgba(255,255,255,.95);color:var(--a);font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px}
+/* alur */
+.hm-flow{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px;align-items:center}
+.hm-flow h2{font-size:clamp(28px,3vw,40px);line-height:1.1;margin-top:10px}
+.hm-steps{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:20px}
+.hm-steps li{display:flex;gap:16px;align-items:flex-start}
+.hm-step-ic{width:46px;height:46px;flex:none;border-radius:50%;background:var(--v);color:#fff;display:grid;place-items:center}
+.hm-step-ic svg{width:22px;height:22px}
+.hm-steps b{font-size:16px}.hm-steps p{font-size:13.5px;margin-top:3px}
+/* kemandirian */
+.hm-indep{border-top:0;padding-top:0}
+.hm-panel{background:#F4EADF;border-radius:20px;padding:clamp(28px,4vw,48px)}
+.hm-panel h2{font-size:clamp(26px,2.8vw,36px);margin-top:10px}
+.hm-3{display:grid;grid-template-columns:repeat(3,1fr);margin-top:28px}
+.hm-3>div{display:flex;gap:14px;padding:0 24px}
+.hm-3>div:first-child{padding-left:0}.hm-3>div+div{border-left:1px solid #E2CFB8}
+.hm-3 p{font-size:13.5px;margin-top:5px}
+/* integrasi */
+.hm-ints{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.hm-int{display:grid;grid-template-columns:44% 1fr;background:#fff;border:1px solid var(--line2);border-radius:16px;overflow:hidden;text-decoration:none;color:inherit;transition:box-shadow .25s}
+.hm-int:hover{box-shadow:0 14px 30px rgba(60,40,20,.10)}
+.hm-int img{width:100%;height:100%;object-fit:cover;min-height:200px}
+.hm-int>div{padding:22px;display:flex;flex-direction:column;gap:8px}
+.hm-pair{display:flex;align-items:center;gap:8px;color:var(--mut)}
+.hm-pair span svg{width:26px;height:26px}.hm-pair>svg{width:16px;height:16px}
+.hm-int h3{font-size:17px}.hm-int p{font-size:13.5px;flex:1}
+/* penerapan & faq */
+.hm-apply{grid-template-columns:repeat(4,1fr)}
+.hm-faq{grid-template-columns:1fr 1fr;align-items:start}
+/* pita */
+.hm-band{position:relative;color:#fff;padding-block:clamp(48px,6vw,76px);background:linear-gradient(90deg,rgba(43,26,14,.94) 0%,rgba(60,38,20,.86) 45%,rgba(60,38,20,.45) 100%),url(../assets/home-hero.webp) center/cover}
+.hm-band .container{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:24px}
+.hm-band h2{color:#fff;font-size:clamp(26px,2.8vw,38px)}
+.hm-band p{color:#EBDCCB;margin-top:10px}
+@media(max-width:1100px){.hm-grid{grid-template-columns:1fr 1fr}.hm-flow{grid-template-columns:1fr}}
+@media(max-width:960px){
+  .hm-strip .container,.hm-3{grid-template-columns:1fr;gap:16px}
+  .hm-strip .container>div,.hm-3>div{padding:0;border:0!important}
+  .hm-ints{grid-template-columns:1fr}.hm-apply{grid-template-columns:1fr 1fr}
+  .hm-faq{grid-template-columns:1fr}
+}
+@media(max-width:720px){
+  .hm-grid{grid-template-columns:1fr}
+  .hm-card{min-height:190px;grid-template-columns:1fr 38%}
+  .hm-int{grid-template-columns:1fr}.hm-int img{height:180px;min-height:0}
+  .hm-apply li::before,.hm-apply li::after{display:none}
+  .hm-band .container{flex-direction:column;align-items:flex-start}
+}
+@media(prefers-reduced-motion:reduce){.hm-card,.hm-card-img img,.hm-go svg{transition:none}.hm-card:hover{transform:none}.hm-card:hover .hm-card-img img{transform:none}}
