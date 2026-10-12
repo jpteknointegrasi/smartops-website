@@ -33,6 +33,7 @@ const VICON = {
   checkC: VI('<circle cx="12" cy="12" r="8.5"/><path d="M8.3 12.3l2.5 2.5 5-5"/>'),
   share: VI('<circle cx="6" cy="12" r="2.4"/><circle cx="18" cy="6" r="2.4"/><circle cx="18" cy="18" r="2.4"/><path d="M8.2 10.9l7.6-3.8M8.2 13.1l7.6 3.8"/>'),
   x: VI('<path d="M7 7l10 10M17 7L7 17"/>', 2.2),
+  layers: VI('<path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/>'),
   tool: VI('<path d="M14.5 6.5a4 4 0 0 0 5 5L12 19a2.1 2.1 0 0 1-3-3z"/><path d="M14.5 6.5L17 4l3 3-2.5 2.5"/>')
 };
 
@@ -611,6 +612,122 @@ const V2 = {
       ]
     },
     cta: { title:'Siap menata pekerjaan fasad?', text:'Diskusikan kebutuhan lokasi, lingkup, dan alur kerja Anda bersama tim kami.' }
+  },
+  project: {
+    theme: { c:'#AF653E', c2:'#9A5432', soft:'#F6E9E1', b:'#394F63', b2:'#2D3F50' },
+    hero: {
+      eyebrow:'SmartOps Project',
+      line1:'Rencana jelas.', line2:'Progres proyek terpantau.',
+      lead:'Kelola tahapan, laporan lapangan, perubahan, dan serah terima pekerjaan dalam satu alur.',
+      for:'Kontraktor kecil, vendor pekerjaan khusus, pengawas, mandor, dan pemilik pekerjaan.',
+      img:'assets/project-hero.webp', pos:'right center', mpos:'68% center', shift:'20%',
+      alt:'Engineer dan mandor meninjau rencana serta progres renovasi gedung melalui tablet.'
+    },
+    benefit: {
+      eyebrow:'Manfaat', title:['Pelaksanaan proyek','lebih terkendali.'],
+      side:'Catat progres, laporan harian, perubahan pekerjaan, dan serah terima dalam satu aplikasi yang mudah digunakan tim teknis.',
+      items:[
+        ['bars','Progres terlihat jelas','Rencana dan realisasi tiap tahap dapat dibandingkan.'],
+        ['doc','Perubahan tercatat','Tambah/ubah pekerjaan didokumentasikan sebelum disetujui.'],
+        ['checkC','Serah terima terdokumentasi','Laporan, verifikasi, penerimaan klien, dan penagihan dipisahkan dengan jelas.']
+      ],
+      problems:['Data progres tersebar','Perubahan sulit ditelusuri','Koordinasi banyak pihak','Status serah terima tidak jelas']
+    },
+    features: {
+      eyebrow:'Fitur utama', title:['Satu alur dari lingkup','hingga termin.'],
+      side:'Dari survei dan SPK sampai berita acara dan termin, setiap langkah tercatat.',
+      items:[
+        ['doc','Survei, penawaran & SPK','Data survei, penawaran, dan SPK dalam satu alur.'],
+        ['layers','Tahap & volume','Tahap, volume, dan target pekerjaan.'],
+        ['users','Jadwal & tim','Rencana jadwal dan pembagian tim lapangan.'],
+        ['clip','Laporan harian','Catatan pekerjaan, foto, dan kendala.'],
+        ['bars','Progres & QC','Rencana versus realisasi dan hasil pemeriksaan.'],
+        ['checkC','Perubahan, BA & termin','Perubahan pekerjaan, berita acara, dan termin sesuai paket.']
+      ],
+      photos:[
+        ['assets/project-field.webp','Pekerjaan renovasi dilaksanakan dan didokumentasikan melalui laporan harian di HP.','Laporan harian dari lapangan','Mandor mencatat pekerjaan, foto, dan kendala langsung dari HP.'],
+        ['assets/project-qc.webp','Engineer dan mandor memeriksa hasil pemasangan panel serta mencatat QC.','Pemeriksaan & QC','Pengawas memverifikasi hasil sebelum diajukan untuk penerimaan.']
+      ]
+    },
+    flow: {
+      eyebrow:'Alur kerja', title:['Setiap tahap','memiliki bukti.'],
+      side:'Pekerjaan yang dilaporkan tidak otomatis diterima atau ditagihkan.',
+      steps:[
+        ['doc','Lingkup','Tentukan ruang lingkup pekerjaan.'],
+        ['cal','Rencana','Susun tahap, jadwal, dan tim.'],
+        ['clip','Laporan hasil','Catat progres dan temuan.'],
+        ['search','Verifikasi','Cek dan sahkan laporan.'],
+        ['checkC','Penerimaan','Pekerjaan diterima klien.'],
+        ['doc','Tagihan','Sesuai kontrak dan termin.']
+      ]
+    },
+    roles: {
+      eyebrow:'Tampilan aplikasi', title:['Tampilan sesuai','tanggung jawab.'],
+      side:'Akses mengikuti tanggung jawab pengguna dan paket fitur. Biaya tidak tampil bagi mandor tanpa mandat.',
+      list:[
+        ['Kontraktor',[['monitor','Ringkasan proyek dan progres per tahap'],['doc','Pantau perubahan dan serah terima'],['bars','Termin sesuai paket dan hak akses']], {
+          title:'Proyek Renovasi Lobby Apartemen', location:'PRJ-026',
+          kpis:[['bars','42%','Realisasi kumulatif'],['cal','48%','Rencana kumulatif'],['doc','2','Perubahan diajukan'],['checkC','1/4','Termin ditagihkan']],
+          cards:[{ type:'tbl', title:'Progres per Tahap', cols:['Tahap','Rencana','Realisasi','Status terkini'],
+            rows:[['Persiapan','100%','100%',['ok','Diterima klien']],['Demolisi & pekerjaan awal','100%','90%',['run','Terverifikasi']],['Arsitektur & interior','60%','40%',['wait','Dilaporkan']],['MEP','40%','20%',['wait','Dilaporkan']]] }] }],
+        ['Pengawas',[['search','Review laporan harian dari lapangan'],['checkC','Verifikasi progres dan hasil QC'],['refresh','Catat perbaikan yang diperlukan']], {
+          title:'Verifikasi Laporan', location:'PRJ-026 · Lobby',
+          kpis:[['clip','5','Menunggu verifikasi'],['checkC','18','Terverifikasi'],['refresh','2','Perlu perbaikan'],['search','3','QC terjadwal']],
+          cards:[
+            { type:'list', title:'Laporan perlu verifikasi', rows:[['Pemasangan panel dinding','Dilaporkan · 12 m²','12 Mar','wait','pj-panel'],['Instalasi titik lampu','Dilaporkan · 8 titik','12 Mar','wait'],['Perataan plafon','Perlu perbaikan','11 Mar','bad']] },
+            { type:'bars', title:'Hasil QC per tahap', rows:[['Demolisi',9,10],['Arsitektur',4,6],['MEP',2,4]] }
+          ] }],
+        ['Mandor',[['mobile','Lihat jadwal dan tugas tim hari ini'],['clip','Kirim laporan harian, volume, dan foto'],['alert','Catat kendala pekerjaan']], {
+          title:'Pekerjaan Hari Ini', location:'Lobby · Rabu 12 Mar',
+          kpis:[['users','6','Tenaga kerja'],['clip','3','Item pekerjaan'],['doc','8','Foto'],['alert','1','Kendala']],
+          cards:[
+            { type:'list', title:'Item pekerjaan', rows:[['Pasang panel dinding sisi timur','12 m² dilaporkan','16.10','ok'],['Rapikan plafon area resepsionis','Berjalan','—','run'],['Instalasi titik lampu','Menunggu material','—','wait']] },
+            { type:'list', title:'Kendala', rows:[['Material panel kurang 6 lembar','Diteruskan ke kontraktor','11.20','run']] }
+          ] }],
+        ['Pemilik pekerjaan',[['building','Lihat progres yang sudah diverifikasi'],['doc','Tinjau dan setujui perubahan pekerjaan'],['checkC','Terima pekerjaan sesuai BA']], {
+          title:'Proyek Saya', location:'Renovasi Lobby Apartemen',
+          kpis:[['checkC','38%','Progres terverifikasi'],['bars','42%','Progres dilaporkan'],['doc','2','Perubahan menunggu Anda'],['checkC','1','BA diterima']],
+          cards:[
+            { type:'list', title:'Perubahan pekerjaan', rows:[['Tambah aksen kayu dinding','Menunggu persetujuan','10 Mar','wait'],['Ganti tipe lampu sorot','Menunggu persetujuan','11 Mar','wait']] },
+            { type:'list', title:'Penerimaan', rows:[['BA Tahap Persiapan','Diterima','28 Feb','ok'],['BA Demolisi','Dijadwalkan','15 Mar','run']] }
+          ] }]
+      ]
+    },
+    dash: {
+      nav:[['grid','Dashboard'],['layers','Proyek'],['clip','Laporan'],['doc','Dokumen'],['refresh','Perubahan'],['users','Tim']],
+      phone:{ title:'Laporan Harian', area:'Pemasangan panel dinding', sub:'Rabu, 12 Mar · Lobby', img:'assets/th-pj-panel.webp',
+        groups:[['Volume dilaporkan',['12 m² dari 40 m²'],0]], note:'Sisi timur selesai, material kurang 6 lembar.', btn:'Kirim Laporan' }
+    },
+    report: {
+      eyebrow:'Laporan & status', title:['Rencana dan realisasi','dapat dibandingkan.'],
+      side:'Progres per tahap, jadwal, dan kurva progres kumulatif ditampilkan terpisah.',
+      table:{ kind:'rows', head:0, align:'r', title:'Progres per Tahap · PRJ-026', cols:['Tahap pekerjaan','Rencana','Realisasi'],
+        rows:[['Persiapan','100%','100%'],['Demolisi & pekerjaan awal','100%','90%'],['Arsitektur & interior','60%','40%'],['MEP','40%','20%'],['Finishing','20%','0%'],['Serah terima','0%','0%']] },
+      chart:{ title:'Kurva S Progres Kumulatif', labels:['M0','M2','M4','M6','M8','M10','M12','M14','M16','M18','M20'],
+        series:[['Rencana','#394F63',[0,4,10,18,30,44,58,72,84,94,100]],['Realisasi','#AF653E',[0,3,8,15,25,36,47,55]]], max:100, ticks:[0,25,50,75,100] },
+      states:[['Dilaporkan','Progres disampaikan dari lapangan.','clip'],['Terverifikasi','Diperiksa oleh pihak berwenang.','search'],['Diterima klien','Diterima sesuai proses penerimaan.','checkC'],['Ditagihkan','Mengikuti kontrak dan termin.','doc']],
+      notes:['Kurva S memakai bobot tiap tahap per minggu (M = minggu ke-); persentase per tahap tidak dijumlahkan langsung sebagai total progres.']
+    },
+    scope: {
+      eyebrow:'Lingkup & integrasi', title:['Terhubung dengan','tim dan dokumen.'],
+      side:'Lingkup inti untuk pelaksanaan; modul keuangan dan integrasi menyesuaikan paket.',
+      core:[['doc','Proyek & dokumen','Gambar, spesifikasi, SPK, dan referensi.'],['cal','Tahap, jadwal & tim','Rencana kerja, volume, dan pembagian tim.'],['clip','Laporan harian','Catatan pekerjaan, foto, dan kendala.'],['search','Progres, QC & perubahan','Pemeriksaan dan catatan perubahan.'],['checkC','BA & termin','Serah terima dan termin sesuai paket.']],
+      extra:[['stp','share','Untuk proyek rehabilitasi atau peningkatan instalasi STP.']],
+      optional:['Pengelolaan anggaran & tagihan','Analisis biaya & profitabilitas','Integrasi sistem lain'],
+      note:'Dilaporkan, terverifikasi, diterima klien, dan ditagihkan adalah status berbeda. Pekerjaan yang dilaporkan tidak otomatis diterima atau ditagihkan.'
+    },
+    faq: {
+      title:'Pertanyaan yang sering diajukan.',
+      side:'Temukan jawaban untuk pertanyaan umum seputar SmartOps Project.',
+      items:[
+        ['Apakah SmartOps Project cocok untuk proyek skala kecil?','Ya. Konsep aplikasi ditujukan bagi kontraktor kecil, vendor pekerjaan khusus, serta tim pengawas dan pemilik pekerjaan dengan alur sesuai lingkup implementasi.'],
+        ['Bagaimana pencatatan perubahan pekerjaan dilakukan?','Tambahan atau perubahan pekerjaan dicatat dan didokumentasikan sebelum melalui proses persetujuan.'],
+        ['Apakah pekerjaan yang dilaporkan otomatis bisa ditagihkan?','Tidak. Pekerjaan perlu diverifikasi dan diterima klien terlebih dahulu; penagihan mengikuti kontrak dan termin.'],
+        ['Apakah fitur tagihan wajib digunakan?','Tidak. Pengelolaan tagihan dan anggaran bersifat opsional sesuai paket dan kebutuhan.'],
+        ['Siapa saja yang dapat menggunakan aplikasi ini?','Kontraktor, pengawas, mandor, dan pemilik pekerjaan, dengan akses sesuai tanggung jawabnya.']
+      ]
+    },
+    cta: { title:'Siap menata pelaksanaan proyek?', text:'Diskusikan kebutuhan proyek, lingkup, dan alur kerja Anda bersama tim kami.' }
   }
 };
 
@@ -688,7 +805,7 @@ function v2Table(tb){
       <tfoot><tr><th scope="row">Total</th>${tot.map(c=>`<td>${c}</td>`).join('')}</tr></tfoot></table>`;
   }
   const td=v=> Array.isArray(v) ? `<td class="st"><span class="v2-pill ${V2_STATUS[v[0]]}">${esc(v[1])}</span></td>` : typeof v==='number' ? `<td class="num${v>0&&false?'':''}">${v}</td>` : `<td class="txt">${esc(v)}</td>`;
-  return `<table class="v2-table rows"><caption class="sr-only">${esc(tb.title)} (data contoh)</caption><thead><tr>${tb.cols.map(c=>`<th scope="col">${esc(c)}</th>`).join('')}</tr></thead>
+  return `<table class="v2-table rows${tb.align?' r':''}"><caption class="sr-only">${esc(tb.title)} (data contoh)</caption><thead><tr>${tb.cols.map(c=>`<th scope="col">${esc(c)}</th>`).join('')}</tr></thead>
     <tbody>${tb.rows.map(r=>{const h=tb.head??1;return `<tr>${r.map((v,i)=>i===h?`<th scope="row">${esc(v)}</th>`:i<h?`<td class="txt">${esc(v)}</td>`:td(v)).join('')}</tr>`;}).join('')}</tbody></table>`;
 }
 
@@ -763,6 +880,7 @@ function pageProductV2(p){
       <div class="v2-panel"><div class="v2-panel-h"><b>${esc(v.report.table.title)}</b><small>Data contoh</small></div><div class="tbl-wrap">${v2Table(v.report.table)}</div></div>
       ${v.report.chart?`<div class="v2-panel"><div class="v2-panel-h"><b>${esc(v.report.chart.title)}</b><small>Data contoh</small></div>${v2Chart(v.report.chart)}</div>`:v.report.donut?`<div class="v2-panel"><div class="v2-panel-h"><b>${esc(v.report.donut.title)}</b><small>Data contoh</small></div><div class="v2-donut big">${v2Donut(v.report.donut).replace('<div class="v2-donut">','').replace(/<\/div>$/,'')}</div></div>`:v2Summary(v.report.summary)}
     </div>
+    ${v.report.states?`<div class="v2-states"><b>Status utama</b><ol>${v.report.states.map((st,i)=>`<li><span class="v2-ic sm">${VICON[st[2]]}</span><div><h3>${esc(st[0])}</h3><p>${esc(st[1])}</p></div></li>`).join('')}</ol></div>`:''}
     ${(v.report.notes||[]).map(n=>`<p class="v2-mini">${VICON.info}${esc(n)}</p>`).join('')}
   </div></section>
 

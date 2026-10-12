@@ -299,3 +299,16 @@
 .v2-donut.big ul{font-size:14px;gap:12px}
 .v2-donut.big li{grid-template-columns:10px 1fr auto}.v2-donut.big li i{width:10px;height:10px}
 @media(max-width:720px){.v2-donut.big{flex-direction:column}}
+
+/* project: status utama */
+.v2-states{margin-top:22px}
+.v2-states>b{display:block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin-bottom:10px}
+.v2-states ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;counter-reset:st}
+.v2-states li{position:relative;display:flex;gap:12px;align-items:flex-start;background:var(--card);border:1px solid var(--line2);border-radius:12px;padding:14px}
+.v2-states li+li::before{content:"→";position:absolute;left:-13px;top:50%;transform:translateY(-50%);color:var(--v);font-weight:700}
+.v2-states p{font-size:12.5px;margin-top:4px}
+.v2-table.rows td.txt:not(:first-child){text-align:right}
+@media(max-width:960px){.v2-states ol{grid-template-columns:1fr 1fr}.v2-states li::before{display:none}}
+@media(max-width:560px){.v2-states ol{grid-template-columns:1fr}}
+
+.v2-table.rows.r thead th:not(:first-child){text-align:right}
