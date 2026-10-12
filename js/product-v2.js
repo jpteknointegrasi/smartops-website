@@ -491,6 +491,126 @@ const V2 = {
       ]
     },
     cta: { title:'Siap menata perawatan taman?', text:'Diskusikan kebutuhan lokasi, lingkup, dan alur kerja Anda bersama tim kami.' }
+  },
+  'gondola-climbing': {
+    theme: { c:'#28617F', c2:'#317394', soft:'#E6EFF4', b:'#96652F', b2:'#7F5424' },
+    hero: {
+      eyebrow:'SmartOps Gondola & Climbing',
+      line1:'Kesiapan terverifikasi.', line2:'Progres fasad terpantau.',
+      lead:'Kelola tim, peralatan, izin, pelaksanaan, dan serah terima pekerjaan dalam satu alur.',
+      for:'Vendor fasad, penanggung jawab teknis, supervisor, dan tim lapangan.',
+      img:'assets/gondola-hero.webp', pos:'right center', mpos:'55% center', shift:'26%',
+      alt:'Supervisor meninjau pekerjaan fasad dengan tim gondola dan rope access pada area berbeda.'
+    },
+    benefit: {
+      eyebrow:'Manfaat', title:['Pekerjaan fasad','lebih terstruktur.'],
+      side:'Dari survei zona sampai berita acara, pekerjaan fasad direncanakan, diperiksa, dan didokumentasikan.',
+      items:[
+        ['clip','Kesiapan tercatat','Personel, peralatan, izin, dan kondisi cuaca diperiksa sebelum pekerjaan.'],
+        ['pin','Zona terpantau','Status zona dapat ditelusuri dari rencana hingga diterima.'],
+        ['doc','BA terdokumentasi','Hasil pemeriksaan, berita acara, dan foto pekerjaan tersimpan bersama.']
+      ],
+      problems:['Kesiapan tidak lengkap','Progres zona sulit dipantau','Pemeriksaan, foto, dan BA tersebar']
+    },
+    features: {
+      eyebrow:'Fitur utama', title:['Satu alur dari survei','hingga serah terima.'],
+      side:'Gondola dan climbing/rope access diperlakukan sebagai metode berbeda, dengan formulir dan pemeriksaan masing-masing.',
+      items:[
+        ['map','Survei zona','Area fasad, kategori metode, dan tingkat kesulitan.'],
+        ['users','Kelayakan personel','Data kompetensi, sertifikasi, dan penugasan tim.'],
+        ['tool','Peralatan','Pengelolaan alat gondola, climbing, dan kelengkapannya.'],
+        ['clip','Izin & kesiapan','Perizinan dan kondisi cuaca sebelum pekerjaan.'],
+        ['alert','Pelaksanaan & penghentian','Catatan harian pekerjaan dan alasan penghentian.'],
+        ['checkC','QC & BA','Hasil pemeriksaan, dokumentasi, dan berita acara serah terima.']
+      ],
+      photos:[
+        ['assets/gondola-work.webp','Teknisi membersihkan fasad dari platform gondola.','Metode gondola','Pekerjaan dari platform kerja tergantung, dengan pemeriksaan alat tersendiri.'],
+        ['assets/gondola-rope.webp','Teknisi melakukan pekerjaan fasad dengan akses tali.','Metode climbing / rope access','Pekerjaan dengan akses tali, dicatat sebagai metode yang berbeda.']
+      ]
+    },
+    flow: {
+      eyebrow:'Alur kerja', title:['Setiap tahap','memiliki catatan.'],
+      side:'Pekerjaan baru dimulai setelah kesiapan diverifikasi oleh pihak berwenang.',
+      steps:[
+        ['map','Survei','Pemetaan dan identifikasi zona.'],
+        ['cal','Rencanakan','Metode, resource, dan jadwal.'],
+        ['shield','Verifikasi kesiapan','Personel, alat, izin, dan cuaca.'],
+        ['tool','Kerjakan','Pelaksanaan dan catatan progres.'],
+        ['search','Periksa','QC hasil pekerjaan.'],
+        ['doc','BA','Serah terima disertai dokumentasi.']
+      ]
+    },
+    roles: {
+      eyebrow:'Tampilan aplikasi', title:['Tampilan sesuai','tanggung jawab.'],
+      side:'Checklist membantu pencatatan; keputusan kelayakan tetap di tangan pihak berwenang.',
+      list:[
+        ['Pemilik',[['monitor','Pantau progres zona di seluruh lokasi'],['alert','Lihat kendala dan penghentian pekerjaan'],['doc','Akses hasil serah terima (BA)']], {
+          title:'Peta Zona Fasad', location:'Tower Melati',
+          kpis:[['pin','6','Total zona'],['tool','2','Berjalan'],['search','1','Menunggu QC'],['checkC','2','Diterima BA']],
+          cards:[{ type:'tbl', title:'Status Zona', cols:['Zona','Metode','Status','Catatan'],
+            rows:[['A-01','Gondola',['ok','Diterima BA'],'BA diterbitkan 8 Okt'],['A-02','Gondola',['run','Berjalan'],'Kaca lantai 12–14'],['B-01','Climbing',['wait','Menunggu QC'],'QC dijadwalkan 13 Okt'],['C-01','Gondola',['none','Belum'],'Menunggu peralatan']] }] }],
+        ['PJ teknis',[['users','Review kelayakan personel dan sertifikasi'],['tool','Periksa kelengkapan peralatan per metode'],['clip','Tinjau izin dan kesiapan sebelum kerja']], {
+          title:'Review Kesiapan', location:'Zona A-02 · Gondola',
+          kpis:[['users','4/4','Personel siap'],['tool','11/12','Peralatan lengkap'],['doc','2/2','Izin aktif'],['alert','1','Catatan terbuka']],
+          cards:[
+            { type:'list', title:'Kelayakan personel', rows:[['Rudi H. · Operator gondola','Sertifikat berlaku','s.d. Mar 2027','ok'],['Agus P. · Teknisi','Sertifikat berlaku','s.d. Jan 2027','ok'],['Dedi S. · Teknisi','Perpanjangan diproses','—','wait']] },
+            { type:'bars', title:'Kelengkapan per metode', rows:[['Gondola A-02',6,6],['Climbing B-02',5,6]] }
+          ] }],
+        ['Supervisor',[['clip','Catat pelaksanaan harian per zona'],['alert','Catat penghentian beserta alasannya'],['search','Lakukan QC dan unggah dokumentasi']], {
+          title:'Pelaksanaan Hari Ini', location:'Tower Melati · 12 Okt',
+          kpis:[['tool','2','Zona dikerjakan'],['alert','1','Penghentian'],['search','1','QC dijadwalkan'],['doc','14','Foto hari ini']],
+          cards:[
+            { type:'list', title:'Catatan pelaksanaan', rows:[['A-02 · Pembersihan kaca','Berjalan','08.15','run'],['B-02 · Rope access','Dihentikan · angin kencang','10.40','bad'],['B-02 · Lanjut','Ditunda ke besok','11.05','wait']] },
+            { type:'list', title:'QC & dokumentasi', rows:[['B-01 · QC hasil','Dijadwalkan 13 Okt','—','wait'],['A-01 · BA','Diterbitkan','8 Okt','ok']] }
+          ] }],
+        ['Tim',[['mobile','Lihat penugasan zona di HP'],['checkC','Isi checklist kesiapan sebelum kerja'],['doc','Catat pekerjaan dan kirim foto']], {
+          title:'Penugasan Saya', location:'Zona A-02 · Gondola',
+          kpis:[['pin','A-02','Zona'],['checkC','5/6','Checklist kesiapan'],['clip','2','Catatan hari ini'],['doc','6','Foto terkirim']],
+          cards:[
+            { type:'list', title:'Checklist kesiapan', rows:[['Personel lengkap','Tercatat','07.40','ok'],['Peralatan siap','Tercatat','07.45','ok'],['Izin aktif','Tercatat','07.46','ok'],['Briefing selesai','Belum','—','wait']] },
+            { type:'list', title:'Catatan pekerjaan', rows:[['Kaca lantai 12','Selesai','09.30','ok'],['Kaca lantai 13','Berjalan','—','run']] }
+          ] }],
+        ['PIC pelanggan',[['building','Lihat progres zona di lokasi Anda'],['search','Pantau hasil pemeriksaan'],['history','Unduh BA sesuai hak akses']], {
+          title:'Rekap Lokasi', location:'Tower Melati (lokasi Anda)',
+          kpis:[['tool','5/6','Zona dikerjakan'],['checkC','2/6','Diterima BA'],['search','1','Menunggu QC'],['alert','1','Kendala terbuka']],
+          cards:[
+            { type:'donut', title:'Status zona', total:'6', label:'Zona', items:[['Diterima BA',2,'#2E8B57'],['Menunggu QC',1,'#C98B32'],['Berjalan',2,'#28617F'],['Belum',1,'#B9C2C7']] },
+            { type:'list', title:'BA terbaru', rows:[['BA Zona A-01','Diterbitkan','8 Okt','ok'],['BA Zona C-02','Diterbitkan','5 Okt','ok']] }
+          ] }]
+      ]
+    },
+    dash: {
+      nav:[['grid','Dashboard'],['map','Zona Fasad'],['cal','Jadwal'],['users','Personel'],['tool','Peralatan'],['clip','Izin'],['checkC','QC & BA'],['bars','Laporan']],
+      phone:{ title:'Checklist Kesiapan', area:'Zona A-02 · Gondola', sub:'Tower Melati · 12 Okt 2026', checks:[['Personel lengkap',1],['Peralatan siap',1],['Izin aktif',1],['Metode kerja sesuai',1],['Cuaca memenuhi syarat',1],['Briefing selesai',0]], btn:'Ajukan verifikasi' }
+    },
+    report: {
+      eyebrow:'Laporan', title:['Progres zona dan kendala','dapat ditelusuri.'],
+      side:'Pantau pelaksanaan, pemeriksaan hasil, dan status serah terima pada setiap zona.',
+      table:{ kind:'rows', head:0, title:'Status Zona · Tower Melati', cols:['Zona','Metode','Status','Catatan'],
+        rows:[['A-01','Gondola',['ok','Diterima BA'],'Pekerjaan selesai, BA diterbitkan.'],['A-02','Gondola',['run','Berjalan'],'Pembersihan kaca lantai 12–14.'],['B-01','Climbing',['wait','Menunggu QC'],'Pembersihan selesai, QC dijadwalkan.'],['B-02','Climbing',['run','Berjalan'],'Dihentikan sementara karena angin; lanjut besok.'],['C-01','Gondola',['none','Belum'],'Menunggu peralatan tiba.'],['C-02','Climbing',['ok','Diterima BA'],'Pekerjaan selesai, BA diterbitkan.']] },
+      donut:{ title:'Komposisi Status Zona', total:'6', label:'Zona', items:[['Diterima BA',2,'#2E8B57'],['Menunggu QC',1,'#C98B32'],['Berjalan',2,'#28617F'],['Belum',1,'#B9C2C7']] },
+      notes:['Status per zona bersifat eksklusif. Zona yang diterima BA juga termasuk zona yang sudah dikerjakan, sehingga progres pekerjaan dan penerimaan BA tidak dijumlahkan.']
+    },
+    scope: {
+      eyebrow:'Lingkup & integrasi', title:['Terhubung dengan','tim dan pekerjaan.'],
+      side:'Aplikasi mencatat kontrol yang ditetapkan pihak berwenang, tanpa menggantikan prosedur keselamatan perusahaan.',
+      core:[['map','Zona & metode','Zona kerja dengan metode gondola atau climbing.'],['users','Personel, peralatan & izin','Data tim, alat, dan perizinan dalam satu alur.'],['checkC','Pelaksanaan, QC & BA','Progres, pemeriksaan, dan serah terima.'],['bars','Laporan','Rekap progres, kendala, dan dokumentasi.']],
+      extra:[['cleaning','share','Koordinasi pembersihan setelah pekerjaan fasad.']],
+      optional:['Penyesuaian formulir','Alur persetujuan','Laporan khusus pelanggan'],
+      note:'Gondola dan climbing dicatat sebagai metode berbeda. Checklist di aplikasi tidak menjamin keselamatan secara otomatis; keputusan kelayakan tetap ditetapkan pihak berwenang.'
+    },
+    faq: {
+      title:'Pertanyaan yang sering diajukan.',
+      side:'Temukan jawaban untuk pertanyaan umum seputar SmartOps Gondola & Climbing.',
+      items:[
+        ['Apakah keputusan kelayakan ditentukan oleh aplikasi?','Tidak. Aplikasi membantu pencatatan dan review kesiapan. Keputusan kelayakan ditetapkan oleh pihak berwenang sesuai prosedur pekerjaan.'],
+        ['Apa perbedaan metode gondola dan climbing?','Gondola menggunakan platform kerja tergantung; climbing/rope access menggunakan akses tali. Keduanya memiliki pencatatan metode dan kebutuhan pemeriksaan berbeda.'],
+        ['Apakah bisa mencatat penghentian pekerjaan?','Bisa. Catatan pelaksanaan dapat memuat alasan penghentian dan tindak lanjutnya.'],
+        ['Apakah SmartOps menggantikan prosedur keselamatan perusahaan?','Tidak. Aplikasi mencatat kontrol yang ditetapkan perusahaan dan pihak berwenang, bukan menggantikannya.'],
+        ['Apakah bisa diintegrasikan dengan modul lain?','Integrasi dengan SmartOps Cleaning bersifat opsional untuk koordinasi pembersihan setelah pekerjaan fasad.']
+      ]
+    },
+    cta: { title:'Siap menata pekerjaan fasad?', text:'Diskusikan kebutuhan lokasi, lingkup, dan alur kerja Anda bersama tim kami.' }
   }
 };
 
@@ -641,7 +761,7 @@ function pageProductV2(p){
     ${v2Head(v.report)}
     <div class="v2-report${v.report.table.kind==='rows'?' wide':''}">
       <div class="v2-panel"><div class="v2-panel-h"><b>${esc(v.report.table.title)}</b><small>Data contoh</small></div><div class="tbl-wrap">${v2Table(v.report.table)}</div></div>
-      ${v.report.chart?`<div class="v2-panel"><div class="v2-panel-h"><b>${esc(v.report.chart.title)}</b><small>Data contoh</small></div>${v2Chart(v.report.chart)}</div>`:v2Summary(v.report.summary)}
+      ${v.report.chart?`<div class="v2-panel"><div class="v2-panel-h"><b>${esc(v.report.chart.title)}</b><small>Data contoh</small></div>${v2Chart(v.report.chart)}</div>`:v.report.donut?`<div class="v2-panel"><div class="v2-panel-h"><b>${esc(v.report.donut.title)}</b><small>Data contoh</small></div><div class="v2-donut big">${v2Donut(v.report.donut).replace('<div class="v2-donut">','').replace(/<\/div>$/,'')}</div></div>`:v2Summary(v.report.summary)}
     </div>
     ${(v.report.notes||[]).map(n=>`<p class="v2-mini">${VICON.info}${esc(n)}</p>`).join('')}
   </div></section>

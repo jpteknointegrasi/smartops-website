@@ -292,3 +292,10 @@
 .v2-sum li b{font-size:15px}.v2-sum li em{font-style:normal;color:var(--mut);font-size:12.5px;text-align:right}
 .v2-sum .bar{grid-column:2/-1;height:8px;border-radius:5px;background:#EFECE6;overflow:hidden}
 .v2-sum .bar span{display:block;height:100%;border-radius:5px}
+
+/* donut besar di panel laporan */
+.v2-donut.big{gap:26px;padding:10px 0}
+.v2-donut.big svg{width:170px;height:170px}
+.v2-donut.big ul{font-size:14px;gap:12px}
+.v2-donut.big li{grid-template-columns:10px 1fr auto}.v2-donut.big li i{width:10px;height:10px}
+@media(max-width:720px){.v2-donut.big{flex-direction:column}}
