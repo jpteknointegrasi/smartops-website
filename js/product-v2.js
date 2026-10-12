@@ -886,7 +886,7 @@ const V2 = {
       side:'Rancangan prototipe P0 untuk pilot IKR; jenis pekerjaan lain menyesuaikan lewat data master.',
       items:[
         ['clip','Tiket per kunjungan','Pelanggan/unit, jadwal, teknisi, status, dan riwayat. Satu tiket bisa lebih dari satu kunjungan.'],
-        ['layers','Jenis pekerjaan = data master','Checklist, langkah wajib foto/ukur, ambang hasil ukur, definisi selesai. Template IKR: redaman dBm, speedtest Mbps.'],
+        ['layers','Jenis pekerjaan','Checklist, langkah wajib foto/ukur, dan definisi selesai per jenis. Template IKR: redaman dBm, speedtest Mbps.'],
         ['mobile','Aplikasi teknisi di HP','Hari Ini, check-in, checklist, kamera geotag, tanda tangan, draft offline, navigasi ke titik pelanggan.'],
         ['pin','Foto bergeotag','Koordinat dicatat saat jepret. Jarak di luar ambang menjadi bendera review; tanpa sinyal dicatat beserta alasan.'],
         ['refresh','Review & rework','Pengawas menerima atau menolak; tiket ditolak kembali sebagai rework tanpa menambah angka selesai.'],
