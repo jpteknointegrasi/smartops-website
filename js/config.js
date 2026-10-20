@@ -4,5 +4,9 @@
 window.SMARTOPS_CONFIG = {
   simulate: false,
   supabaseUrl: "https://wqvgxuirdtctvndfwgrb.supabase.co",
-  supabaseAnonKey: "sb_publishable_yBvv93gouLcyL74vhG5MZQ_bmPwhcRY" // publishable key (aman untuk frontend)
+  supabaseAnonKey: "sb_publishable_yBvv93gouLcyL74vhG5MZQ_bmPwhcRY", // publishable key (aman untuk frontend)
+  // URL login per aplikasi (slug -> URL). Aplikasi tanpa entri: tombol Masuk nonaktif.
+  loginUrls: {
+    security: "https://neo-tekno-security-sxfv.vercel.app"
+  }
 };
