@@ -113,7 +113,7 @@ function footerHTML(){
         <li><a href="#demo">Permintaan demo</a></li><li><a href="#kontak">Kontak</a></li><li><a href="#masuk">Masuk</a></li>
         <li><a href="#privasi">Privasi</a></li><li><a href="#ketentuan">Ketentuan</a></li></ul></div>
     </div>
-    <div class="bottom"><span>© 2026 SmartOps · Konsep desain website · <a href="#prospek">Prospek (internal)</a></span><span>Seluruh contoh antarmuka memakai data fiktif.</span></div>
+    <div class="bottom"><span>© 2026 SmartOps · Konsep desain website · <a href="#prospek">Prospek (internal)</a> · <a href="https://demo.smart-ops.biz.id" rel="nofollow">Demo (tim marketing)</a></span><span>Seluruh contoh antarmuka memakai data fiktif.</span></div>
   </div>`;
 }
 
