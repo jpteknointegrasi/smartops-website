@@ -299,7 +299,7 @@ const V2 = {
         ['pin', 'Area tugas dan peta lokasi'],
         ['users', 'Kontak, WhatsApp, dan masuk staf'],
       ],
-      link: ['Lihat contoh: halaman PS81', 'https://neo-tekno-security-sxfv.vercel.app/v/ps81', 'PT Prima dipakai sebagai data contoh mode demo. Isi halaman tiap vendor diganti dengan profil perusahaan masing-masing.'],
+      link: ['Lihat contoh: halaman PS81', 'https://app.smart-ops.biz.id/v/ps81', 'PT Prima dipakai sebagai data contoh mode demo. Isi halaman tiap vendor diganti dengan profil perusahaan masing-masing.'],
     },
     packages: {
       eyebrow: 'Paket',
