@@ -8,5 +8,9 @@ window.SMARTOPS_CONFIG = {
   // URL login per aplikasi (slug -> URL). Aplikasi tanpa entri: tombol Masuk nonaktif.
   loginUrls: {
     security: "https://app.smart-ops.biz.id"
+  },
+  // Demo tanpa password (data contoh PT Prima, tersimpan di browser pengunjung).
+  demoUrls: {
+    security: "https://demo.smart-ops.biz.id"
   }
 };

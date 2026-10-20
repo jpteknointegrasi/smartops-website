@@ -531,13 +531,14 @@ function pageDemo(preselect){
 
 /* ===================== MASUK ===================== */
 const loginUrl = p => ((window.SMARTOPS_CONFIG||{}).loginUrls||{})[p.slug] || '';
+const demoUrl = p => ((window.SMARTOPS_CONFIG||{}).demoUrls||{})[p.slug] || '';
 function pageMasuk(){
   const cards = PRODUCTS.map(p=>`
     <div class="login-card" style="grid-template-columns:1fr">
       <div style="min-width:0">
         <div style="display:flex;gap:10px;align-items:center">${ic(p.icon,p.accent)}<b>${esc(p.name)}</b></div>
         <p class="muted small" style="margin-top:6px">${esc(p.card)}</p>
-        <div class="acts"><a class="btn btn-secondary btn-sm" href="#aplikasi/${p.slug}">Lihat informasi</a>${loginUrl(p)?`<a class="btn btn-primary btn-sm" href="${esc(loginUrl(p))}" target="_blank" rel="noopener">Masuk</a></div>`:`<button class="btn btn-primary btn-sm" disabled title="Tujuan akses belum dikonfirmasi">Masuk</button></div>
+        <div class="acts"><a class="btn btn-secondary btn-sm" href="#aplikasi/${p.slug}">Lihat informasi</a>${demoUrl(p)?`<a class="btn btn-secondary btn-sm" href="${esc(demoUrl(p))}" target="_blank" rel="noopener">Coba demo</a>`:''}${loginUrl(p)?`<a class="btn btn-primary btn-sm" href="${esc(loginUrl(p))}" target="_blank" rel="noopener">Masuk</a></div>`:`<button class="btn btn-primary btn-sm" disabled title="Tujuan akses belum dikonfirmasi">Masuk</button></div>
         <p class="st">Tombol Masuk aktif setelah tujuan akses diverifikasi.</p>`}
       </div>
     </div>`).join('');
