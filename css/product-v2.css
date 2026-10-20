@@ -345,3 +345,34 @@
 .v2-report3.two{grid-template-columns:1.15fr 1fr}
 @media(max-width:1100px){.v2-report3.two{grid-template-columns:1fr}}
 .v2-table.rows tbody tr:last-child th[scope=row]:only-of-type{font-weight:700}
+
+/* ===== Bagian opsional halaman produk: Modul lengkap, Contoh penerapan, Paket (20 Okt 2026) ===== */
+.v2-modules{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.v2-mod{background:var(--card);border:1px solid var(--line2);border-radius:14px;padding:22px}
+.v2-mod-h{display:flex;gap:14px;align-items:center;margin-bottom:12px}
+.v2-mod-h h3{margin:0}
+.v2-mod ul,.v2-pack ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+.v2-mod li,.v2-pack li{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;line-height:1.5}
+.v2-mod li svg,.v2-pack li svg{flex:none;width:16px;height:16px;margin-top:2px;color:var(--v)}
+.v2-case{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:0;background:var(--card);border:1px solid var(--line2);border-radius:16px;overflow:hidden}
+.v2-case-id{display:flex;flex-direction:column;gap:16px;padding:28px;background:var(--v);color:#fff}
+.v2-case-id h3{color:#fff;margin:4px 0 2px}
+.v2-case-id p{color:rgba(255,255,255,.82);font-size:14px;margin:0}
+.v2-case-mono{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:14px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);font-weight:800;letter-spacing:.04em;font-size:18px}
+.v2-case-tag{display:inline-block;font-size:11.5px!important;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:#F1E3D2!important}
+.v2-case-addr{display:flex;gap:8px;align-items:flex-start;margin-top:10px!important;font-size:13px!important}
+.v2-case-addr svg{flex:none;width:15px;height:15px;margin-top:2px}
+.v2-case-body{padding:28px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.v2-case-body>p{font-size:14.5px;line-height:1.6;margin:0}
+.v2-case-lbl{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin-top:4px}
+.v2-case-body ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.v2-case-body li{display:flex;gap:10px;align-items:center;font-size:13.5px}
+.v2-case-note{font-size:12.5px;color:var(--mut);margin:0}
+.v2-packs{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.v2-pack{background:var(--card);border:1px solid var(--line2);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:8px}
+.v2-pack>b{font-size:17px}
+.v2-pack>p{font-size:13.5px;line-height:1.55;flex:1;margin:0}
+.v2-pack.all{background:var(--vsoft);border-color:transparent}
+.v2-pack.all>b{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
+@media(max-width:960px){.v2-packs{grid-template-columns:1fr 1fr}.v2-case{grid-template-columns:1fr}}
+@media(max-width:560px){.v2-modules,.v2-packs,.v2-case-body ul{grid-template-columns:1fr}.v2-case-id,.v2-case-body{padding:22px}}

@@ -249,6 +249,70 @@ const V2 = {
       optional:['Pencatatan tamu','Izin barang/kendaraan sesuai lingkup','Laporan khusus pelanggan'],
       note:'Kehadiran berbeda dari pos terisi. Petugas yang hadir belum tentu sudah menempati pos sesuai penugasan, sehingga keduanya dipantau terpisah.'
     },
+    modules: {
+      eyebrow: 'Modul lengkap',
+      title: ['Lebih dari', 'pos dan patroli.'],
+      side: 'Rincian modul yang sudah dibangun di SmartOps Security. Yang aktif di tiap lokasi mengikuti paket dan tahap implementasi.',
+      groups: [
+        ['users', 'Regu, plotting & absensi', [
+          'Plotting pos per regu per shift — terlihat siapa jaga di mana saat ini juga',
+          'Roster pola 2-2-2 dengan rotasi otomatis; pengganti lintas regu tercatat',
+          'Absensi selfie dari HP terhubung ke plotting — telat dan pos kosong langsung terdeteksi',
+          'Briefing awal shift, logbook pos, dan serah terima antarshift',
+        ]],
+        ['alert', 'Insiden, SOS & tamu', [
+          'Laporan insiden berjenjang (anggota → Danru → Chief) dengan foto dan nomor resmi',
+          'Status dipisah: urgensi, progres penanganan, dan persetujuan',
+          'Tombol SOS yang langsung memberi tahu Danru dan Chief di lokasi yang sama',
+          'Tamu dan kendaraan (termasuk daftar blokir plat), Lost & Found, izin barang',
+        ]],
+        ['shield', 'Aset, SDM & kepatuhan', [
+          'Registri aset — HT, senter, kunci, seragam — dengan pemegang dan riwayat serah terima',
+          'Audit kelengkapan bulanan per pos dan per regu dari lapangan',
+          'Data personel, KTA Satpam & sertifikat Gada dengan pengingat kedaluwarsa (Perpol 1/2023)',
+          'Cuti, izin, SP, serta payroll & lembur dari data absensi, dengan pemisahan tugas',
+          'Template Renpam dan Renkon untuk audit SMP (Perkap 24/2007)',
+        ]],
+        ['bars', 'Laporan bulanan dari data', [
+          'Dirakit dari absensi, patroli, insiden, dan aset — tanpa rekap ulang di Excel',
+          'Dua versi: internal vendor dan pelanggan (BM/P3SRS)',
+          'Ekspor PDF, Excel, dan Word',
+          'Jejak audit: setiap angka dapat ditelusuri ke data sumbernya',
+        ]],
+      ],
+      note: 'Payroll dan modul SDM mengikuti paket. Portal pelanggan Security disiapkan pada tahap berikutnya.',
+    },
+    caseStudy: {
+      eyebrow: 'Website vendor',
+      title: ['Setiap vendor punya', 'website sendiri.'],
+      side: 'Termasuk di SmartOps Security: halaman profil perusahaan untuk pelanggan dan calon pelanggan, dengan nama, warna, dan layanan vendor itu sendiri.',
+      monogram: 'PS81',
+      status: 'Contoh · Mode demo',
+      company: 'PT. Prima Sejahtera Delapan Satu',
+      site: 'Security Grand Asia Afrika Residence',
+      address: 'Jl. Bali No.3, Merdeka, Sumur Bandung, Kota Bandung',
+      text: 'Setiap vendor keamanan yang memakai SmartOps Security mendapat halaman profil dari template yang sama: tentang perusahaan, layanan, keunggulan, area tugas, dan kontak. Halaman ini menjadi website vendor, sementara tim internalnya masuk ke aplikasi dari tombol staf di halaman yang sama.',
+      usesLabel: 'Isi halaman vendor',
+      uses: [
+        ['building', 'Profil dan nilai perusahaan'],
+        ['shield', 'Layanan pengamanan yang ditawarkan'],
+        ['pin', 'Area tugas dan peta lokasi'],
+        ['users', 'Kontak, WhatsApp, dan masuk staf'],
+      ],
+      link: ['Lihat contoh: halaman PS81', 'https://neo-tekno-security-sxfv.vercel.app/v/ps81', 'PT Prima dipakai sebagai data contoh mode demo. Isi halaman tiap vendor diganti dengan profil perusahaan masing-masing.'],
+    },
+    packages: {
+      eyebrow: 'Paket',
+      title: ['Mulai dari satu lokasi,', 'tumbuh bertahap.'],
+      side: 'Paket disesuaikan dengan jumlah lokasi dan personel. Harga diberikan setelah diskusi kebutuhan.',
+      items: [
+        ['Starter', '1 lokasi, hingga 30 personel.', 'Hubungi kami'],
+        ['Profesional', '1–5 lokasi, hingga 150 personel, termasuk aset dan payroll.', 'Hubungi kami'],
+        ['Enterprise', 'Multi-lokasi dan multi-vendor, termasuk portal pelanggan.', 'Minta penawaran'],
+      ],
+      allLabel: 'Semua paket termasuk',
+      all: ['Ekspor PDF, Excel, dan Word', 'Jejak audit', 'Pendampingan onboarding'],
+    },
     faq: {
       title:'Pertanyaan yang sering diajukan.',
       side:'Temukan jawaban untuk pertanyaan umum seputar SmartOps Security.',
@@ -257,7 +321,7 @@ const V2 = {
         ['Siapa saja yang dapat menggunakan SmartOps Security?','Pemilik vendor, manager operasi, chief/Danru, petugas, dan PIC pelanggan, masing-masing dengan hak akses sesuai perannya.'],
         ['Apa yang dapat dilihat PIC pelanggan?','Ringkasan penjagaan, patroli, temuan, dan laporan pada lokasi yang menjadi tanggung jawabnya sesuai hak akses. Data lokasi pelanggan lain tidak ditampilkan.'],
         ['Apakah SmartOps Security harus terintegrasi dengan Workforce?','Tidak harus. Integrasi Workforce bersifat opsional sesuai kebutuhan sinkronisasi personel dan lingkup implementasi.'],
-        ['Apakah aplikasi ini bisa menangani respons SOS?','Kemampuan SOS perlu melalui pengujian lintas perangkat dan prosedur operasional sebelum dinyatakan sebagai respons teruji.']
+        ['Apakah aplikasi ini bisa menangani respons SOS?','Tombol SOS mengirim peringatan ke Danru dan Chief di lokasi yang sama, termasuk notifikasi saat aplikasi tertutup. Fitur ini sudah diuji di server; uji lapangan lintas perangkat berjalan selama pilot, dan SOS tetap melengkapi — bukan menggantikan — prosedur darurat lokasi.']
       ]
     },
     cta: { title:'Siap menata operasional security?', text:'Diskusikan kebutuhan lokasi, tim, dan alur kerja Anda bersama tim kami.' }
@@ -1247,6 +1311,7 @@ function pageProductV2(p){
     <a href="#aplikasi/${p.slug}/alur" data-anchor="alur">Alur Kerja</a>
     <a href="#aplikasi/${p.slug}/tampilan" data-anchor="tampilan">Tampilan</a>
     ${v.subnavFull?`<a href="#aplikasi/${p.slug}/laporan" data-anchor="laporan">Laporan</a><a href="#aplikasi/${p.slug}/lingkup" data-anchor="lingkup">Lingkup</a>`:''}
+    ${v.modules?`<a href="#aplikasi/${p.slug}/modul" data-anchor="modul">Modul</a>`:''}${v.caseStudy?`<a href="#aplikasi/${p.slug}/contoh" data-anchor="contoh">Website Vendor</a>`:''}${v.packages?`<a href="#aplikasi/${p.slug}/paket" data-anchor="paket">Paket</a>`:''}
     <a href="#aplikasi/${p.slug}/faq" data-anchor="faq">FAQ</a>
     <a class="v2-btn sm cta" href="#demo/${p.slug}">${esc(v.hero.btn||'Diskusikan Kebutuhan')}</a>
   </div></nav>
@@ -1298,6 +1363,37 @@ function pageProductV2(p){
     ${sc.excluded?`<div class="v2-problems excl"><b>Tidak termasuk</b><ul>${sc.excluded.map(x=>`<li>${VICON.x}${esc(x)}</li>`).join('')}</ul></div>`:''}
     <p class="v2-notice">${VICON.info}<span>${esc(sc.note)}</span></p>
   </div></section>
+
+  ${v.modules?`<section class="v2-sec" id="modul"><div class="container anchor" id="sec-modul">
+    ${v2Head(v.modules)}
+    <div class="v2-modules">${v.modules.groups.map(g=>`<div class="v2-mod"><div class="v2-mod-h"><span class="v2-ic">${VICON[g[0]]}</span><h3>${esc(g[1])}</h3></div><ul>${g[2].map(x=>`<li>${VICON.check}<span>${esc(x)}</span></li>`).join('')}</ul></div>`).join('')}</div>
+    ${v.modules.note?`<p class="v2-mini">${VICON.info}${esc(v.modules.note)}</p>`:''}
+  </div></section>`:''}
+
+  ${v.caseStudy?`<section class="v2-sec" id="contoh"><div class="container anchor" id="sec-contoh">
+    ${v2Head(v.caseStudy)}
+    <div class="v2-case">
+      <div class="v2-case-id">
+        <span class="v2-case-mono">${esc(v.caseStudy.monogram)}</span>
+        <div><p class="v2-case-tag">${esc(v.caseStudy.status)}</p><h3>${esc(v.caseStudy.company)}</h3><p>${esc(v.caseStudy.site)}</p><p class="v2-case-addr">${VICON.pin}<span>${esc(v.caseStudy.address)}</span></p></div>
+      </div>
+      <div class="v2-case-body">
+        <p>${esc(v.caseStudy.text)}</p>
+        <b class="v2-case-lbl">${esc(v.caseStudy.usesLabel)}</b>
+        <ul>${v.caseStudy.uses.map(u=>`<li><span class="v2-ic sm">${VICON[u[0]]}</span><span>${esc(u[1])}</span></li>`).join('')}</ul>
+        ${v.caseStudy.link?`<a class="v2-link" href="${esc(v.caseStudy.link[1])}" target="_blank" rel="noopener">${esc(v.caseStudy.link[0])} ${VICON.arrowR}</a><p class="v2-case-note">${esc(v.caseStudy.link[2])}</p>`:''}
+      </div>
+    </div>
+    ${v.caseStudy.note?`<p class="v2-mini">${VICON.info}${esc(v.caseStudy.note)}</p>`:''}
+  </div></section>`:''}
+
+  ${v.packages?`<section class="v2-sec" id="paket"><div class="container anchor" id="sec-paket">
+    ${v2Head(v.packages)}
+    <div class="v2-packs">${v.packages.items.map(k=>`<div class="v2-pack"><b>${esc(k[0])}</b><p>${esc(k[1])}</p><a class="v2-link" href="#demo/${p.slug}">${esc(k[2])} ${VICON.arrowR}</a></div>`).join('')}
+      <div class="v2-pack all"><b>${esc(v.packages.allLabel)}</b><ul>${v.packages.all.map(x=>`<li>${VICON.check}<span>${esc(x)}</span></li>`).join('')}</ul></div>
+    </div>
+    ${v.packages.note?`<p class="v2-mini">${VICON.info}${esc(v.packages.note)}</p>`:''}
+  </div></section>`:''}
 
   <section class="v2-sec" id="faq"><div class="container anchor" id="sec-faq">
     <div class="v2-head"><div><p class="v2-eyebrow">FAQ</p><h2>${esc(v.faq.title)}</h2></div><p class="v2-side">${esc(v.faq.side)}</p></div>

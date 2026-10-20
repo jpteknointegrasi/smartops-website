@@ -533,8 +533,7 @@ function pageDemo(preselect){
 const loginUrl = p => ((window.SMARTOPS_CONFIG||{}).loginUrls||{})[p.slug] || '';
 function pageMasuk(){
   const cards = PRODUCTS.map(p=>`
-    <div class="login-card">
-      <div>${p.mock?mockHTML(p,p.mock,true):''}</div>
+    <div class="login-card" style="grid-template-columns:1fr">
       <div style="min-width:0">
         <div style="display:flex;gap:10px;align-items:center">${ic(p.icon,p.accent)}<b>${esc(p.name)}</b></div>
         <p class="muted small" style="margin-top:6px">${esc(p.card)}</p>
