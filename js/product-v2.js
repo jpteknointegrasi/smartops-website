@@ -299,7 +299,7 @@ const V2 = {
         ['pin', 'Area tugas dan peta lokasi'],
         ['users', 'Kontak, WhatsApp, dan masuk staf'],
       ],
-      link: ['Lihat contoh: halaman PS81', 'https://demo.smart-ops.biz.id/v/ps81', 'PT Prima adalah perusahaan contoh mode demo. Dari halaman ini, tombol Masuk membuka aplikasi demo — semua peran dapat dicoba tanpa password. Isi halaman tiap vendor diganti dengan profil perusahaan masing-masing.'],
+      link: ['Lihat contoh: halaman PS81', 'https://app.smart-ops.biz.id/v/ps81', 'PT Prima adalah perusahaan contoh. Isi halaman tiap vendor diganti dengan profil perusahaan masing-masing. Demo aplikasi lengkap ditunjukkan langsung oleh tim kami — jadwalkan lewat tombol Diskusikan Kebutuhan.'],
     },
     packages: {
       eyebrow: 'Paket',
