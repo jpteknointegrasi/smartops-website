@@ -287,6 +287,8 @@ const V2 = {
       title: ['Setiap vendor punya', 'website sendiri.'],
       side: 'Termasuk di SmartOps Security: halaman profil perusahaan untuk pelanggan dan calon pelanggan, dengan nama, warna, dan layanan vendor itu sendiri.',
       monogram: 'PS81',
+      logo: 'assets/brand/ps81-logo.svg',
+      image: 'assets/ps81-hero.webp',
       status: 'Contoh · Mode demo',
       company: 'PT. Prima Sejahtera Delapan Satu',
       site: 'Security Grand Asia Afrika Residence',
@@ -1373,8 +1375,8 @@ function pageProductV2(p){
   ${v.caseStudy?`<section class="v2-sec" id="contoh"><div class="container anchor" id="sec-contoh">
     ${v2Head(v.caseStudy)}
     <div class="v2-case">
-      <div class="v2-case-id">
-        <span class="v2-case-mono">${esc(v.caseStudy.monogram)}</span>
+      <div class="v2-case-id"${v.caseStudy.image?` style="--case-img:url('/${esc(v.caseStudy.image)}')"`:''}>
+        ${v.caseStudy.logo?`<img class="v2-case-logo" src="${esc(v.caseStudy.logo)}" alt="Logo ${esc(v.caseStudy.monogram)}" width="72" height="72">`:`<span class="v2-case-mono">${esc(v.caseStudy.monogram)}</span>`}
         <div><p class="v2-case-tag">${esc(v.caseStudy.status)}</p><h3>${esc(v.caseStudy.company)}</h3><p>${esc(v.caseStudy.site)}</p><p class="v2-case-addr">${VICON.pin}<span>${esc(v.caseStudy.address)}</span></p></div>
       </div>
       <div class="v2-case-body">

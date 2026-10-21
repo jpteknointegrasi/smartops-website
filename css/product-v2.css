@@ -355,7 +355,9 @@
 .v2-mod li,.v2-pack li{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;line-height:1.5}
 .v2-mod li svg,.v2-pack li svg{flex:none;width:16px;height:16px;margin-top:2px;color:var(--v)}
 .v2-case{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:0;background:var(--card);border:1px solid var(--line2);border-radius:16px;overflow:hidden}
-.v2-case-id{display:flex;flex-direction:column;gap:16px;padding:28px;background:var(--v);color:#fff}
+.v2-case-id{display:flex;flex-direction:column;justify-content:flex-end;gap:16px;padding:28px;min-height:360px;background:var(--v);color:#fff;position:relative;isolation:isolate}
+.v2-case-id[style*="--case-img"]{background:linear-gradient(180deg,rgba(10,38,56,.15) 0%,rgba(10,38,56,.55) 45%,rgba(10,38,56,.94) 100%),var(--case-img) center/cover no-repeat,var(--v)}
+.v2-case-logo{width:72px;height:72px;filter:drop-shadow(0 4px 10px rgba(0,0,0,.35));margin-bottom:auto}
 .v2-case-id h3{color:#fff;margin:4px 0 2px}
 .v2-case-id p{color:rgba(255,255,255,.82);font-size:14px;margin:0}
 .v2-case-mono{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:14px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);font-weight:800;letter-spacing:.04em;font-size:18px}
